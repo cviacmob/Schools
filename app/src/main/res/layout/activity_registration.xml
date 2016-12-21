@@ -1,0 +1,187 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText1"
+        android:text="Email" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignRight="@+id/editText1"
+        android:layout_below="@+id/textView2"
+        android:hint="Email_id"
+        android:inputType="textEmailAddress" >
+
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_below="@+id/editText2"
+        android:text="Mobile" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView3"
+        android:ems="13"
+        android:hint="Mobile"
+        android:inputType="phone"
+        android:maxLength="13" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText3"
+        android:layout_below="@+id/editText3"
+        android:text="Gender" />
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:hint="Name">
+        <requestFocus />
+    </EditText>
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText4"
+        android:layout_below="@+id/editText4"
+        android:text="Country" />
+
+    <Button
+        android:id="@+id/bu1"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@+id/spinner1"
+        android:layout_below="@+id/country"
+        android:text="Submit" />
+
+    <RadioGroup
+        android:id="@+id/radio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:weightSum="1" >
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView4"
+            android:checked="false"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Female" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:checked="false"
+            android:text="Others" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/radio"
+        android:text="Date of birth" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView5"
+        android:layout_below="@+id/textView5"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:text="Name" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/textView6"
+        android:layout_toRightOf="@+id/editText4"
+        android:src="@drawable/cbgvbv" />
+
+    <Spinner
+        android:id="@+id/country"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView6"
+        android:layout_toStartOf="@+id/imageView2" />
+
+    <!--  <ImageView
+          android:id="@+id/imageView1"
+          android:layout_width="40dp"
+          android:layout_height="50dp"
+          android:layout_alignTop="@+id/imageView3"
+          android:layout_toRightOf="@+id/bu1"
+          android:src="@drawable/fb" />
+
+      <ImageView
+          android:id="@+id/imageView4"
+          android:layout_width="40dp"
+          android:layout_height="50dp"
+          android:src="@drawable/asa"
+          android:layout_alignTop="@+id/imageView3"
+          android:layout_toEndOf="@+id/imageView3"
+          android:layout_marginStart="15dp" />
+
+      <ImageView
+          android:id="@+id/imageView3"
+          android:layout_width="40dp"
+          android:layout_height="50dp"
+          android:src="@drawable/twit"
+          android:layout_alignBottom="@+id/bu1"
+          android:layout_toEndOf="@+id/imageView1"
+          android:layout_marginStart="11dp" />
+  -->
+</RelativeLayout>

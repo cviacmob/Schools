@@ -1,0 +1,877 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Schools For India</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings1">Settings1</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_Apply">Apply</string>
+    <string name="title_Events">Events</string>
+
+    <string name="title_Social">Social</string>
+    <string name="title_News">News</string>
+    <string name="title_Notifications">Notifications</string>
+    <string name="title_MyProfile">My Profile</string>
+    <string name="title_ContactUS">ContactUS</string>
+    <string name="title_About">About</string>
+    <string name="title_FAQ">FAQ</string>
+    <string name="title_Share">Share</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="contact_us">Would u like to more about us please <b>contact@schoolforindia.org</b> or send us your query"</string>
+    <string name="member_term"> To become a member you should be a have above 18years of age.by submitting the application form membership you certify that you are 18 years only.you may asked to produce the evidence to substatine your claim suring the currency of memebership withus &lt;a href=&quot;http://www.schoolsforindia.org/member&quot;&gt;more&lt;/a&gt;    </string>
+
+    <string name="volunter_term">What kind of work? Schools for India is  currently in the process of conducting  surveys of all  districts in the country. We are gathering all the data in the public domain relating to various villages,the population, literacy levels,the number of schools etc.Based on this research Schools for India will hire profession. &lt;a href=&quot;http://www.schoolsforindia.org/volunteers&quot;&gt;more&lt;/a&gt; </string>
+
+    <string name="sponsor_term">Would you like your organization to be part of this initiative? Schools for India is signing up global and Indian corporations to sponsor administrative and educational requirements of the project. These Corporations will sponsor one or more cluster(s) for a period of 15 years. This enables the corporate to fulfill its corporate. &lt;a href=&quot;http://www.schoolsforindia.org/sponsor&quot;&gt;more&lt;/a&gt; </string>
+
+    <string name="partner_term">The Partnership: Schools for India, would like to optimize the cost of implementing this project by selecting long term partners who understands and appreciate our work towards uplifting the under privileged in India. Schools for India look forward to partnering with organizations who are transparent and motivated to work with us. &lt;a href=&quot;http://www.schoolsforindia.org/partner&quot;&gt;more&lt;/a&gt; </string>
+
+    <string name="mentor_term">We need support in the areas where you think you have a better say. We are eager to listen.
+                               May be you had a dream of doing something similar, may be you did a similar project, and may be you were part of an organization which implemented similar projects in India or elsewhere.
+                               If so, we would like you to help when we engage with other agencies, be it vendors, partners, government agencies or corporations.Does our project strike an emotion in you? We are open to your ideas, and we would be happy to have you with us when we plan and execute this project.  &lt;a href=&quot;http://www.schoolsforindia.org/mentor&quot;&gt;more&lt;/a&gt;</string>
+    <string name="community_term">The community Participation We are identifying the key members of the local community like the retired teachers, Self help groups,and social workers to work with Schools for India in building the support framework to make each of the projects successful. Schools for India recognizes that the local communities plays an important role. &lt;a href=&quot;http://www.schoolsforindia.org/community&quot;&gt;more&lt;/a&gt; </string>
+
+    <string name="social_term">Global Groups on Facebook Sea Farer Group Global Core TeamClosed Group India State Chapters on Facebook Andhra Pradesh Bihar Chhattisgarh Haryana Jharkhand Karnataka Kerala Madhya Pradesh Maharashtra Manipur Odisha Punjab Rajasthan Tamilnadu Uttar Pradesh West Bengal Facebook Pages India USA UK USA Chapters on Facebook Atlanta California Colarado Michigan Oregon Tennessee Texas Virginia Washington European Groups on Facebook UK France Australia Group Schools for India on Linkedin Google Groups GlobalOpen Group For members in IndiaClosed Group For the members in USAClosed Group Core TeamUSA Closed Group Core Team GlobaL Closed Group Australia Open Group Google.0   &lt;a href=&quot;http://www.schoolsforindia.org/socialmedia&quot;&gt;more&lt;/a&gt; </string>
+
+    <string name="description_term">Schools for India has been started with the aim of building and running schools for the rural poor in India.
+        \n
+        \n<b>We are building some of the best-in-class schools in India</b>
+        \n
+        \n1.Best in Class Infrastructure
+        \n2.Build, Operate and Transfer to local communities
+        \n3.A Self Sustaining
+        \nExpected to complete 6000 schools by the year 2020 across the country.</string>
+
+    <string name="abt_term">\nSchools for India is a non profitable charitable Organization, involved in creating the best in class schools across India, with the aim of providing education for the people of rural India.\n
+        \n
+
+    6000 schools across the country have been planned. Each of the schools will have the capacity to teach 945 students, including up to 15 special children from primary to secondary school.\n
+        \n
+    Schools for India is embarking on a magnificent infrastructure building plan with the aim of providing the best schools for rural India, with facilities on par with or superior to that of city schools for students for rural India. The school buildings will be constructed within 12 weeks from the date of commencement using latest international building technologies.\n
+        \n
+
+    The state-of-the-art infrastructure will act as a catalyst for parents to send their children to school, and Schools for India will sponsor education, meals and uniforms to those who require it.\n
+        \n
+    Schools for India believes firmly that such infrastructure will ensure quicker admission, higher school attendance and reduce the migration of students to cities.\n
+        \n
+
+    Schools for India will also provide with best of its abilities all the facilities and amenities to underprivileged students free of cost.\n
+        \n
+
+    Schools for India was started in January 2004 and registered as a Non profit Charitable trust under the Indian charitable Trust Act in December 2005.</string>
+
+    <string name="radio_male">Male</string>
+    <string name="radio_female">Female</string>
+    <string name="radio_others">Others</string>
+
+    <string name="country_prompt">Choose a country</string>
+    <string-array name="country_arrays">
+        <item>Choose social site links</item>
+        <item>Facebook</item>
+        <item>Twitter</item>
+        <item>Gmail</item>
+    </string-array>
+
+    <string name="title_activity_SocialInfoAdapter">SocialInfoAdapter</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+
+    <string-array name="applyas_list">
+        <item>MEMBER</item>
+        <item>VOLUNTEER</item>
+        <item>SPONSOR</item>
+        <item>PARTNER</item>
+        <item>MENTOR</item>
+        <item>COMMUNITY CHAMPIONS </item>
+        <item>SOCIAL MEDIA LINKS</item>
+    </string-array>
+
+    <string name="state_prompt">Choose a State</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="state_arrays">
+        <item>Andrapradesh</item>
+        <item>Bihar</item>
+        <item>Assam</item>
+        <item>Arunachal Pradesh</item>
+        <item>Jharkhand</item>
+        <item>Odisha</item>
+        <item>Haryana</item>
+        <item>Karnataka</item>
+        <item>Jammuand Kashmir</item>
+        <item>Kerala</item>
+        <item>Rajasthan</item>
+        <item>Gujarat</item>
+        <item>Punjab</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Sikkim</item>
+        <item>Mizoram</item>
+        <item>UttarPradesh</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Tamilnadu</item>
+        <item>Uttarakhand </item>
+        <item>Himacha lPradesh</item>
+        <item>Manipur</item>
+        <item>Tripura</item>
+        <item>WestBengal</item>
+        <item>Telangana</item>
+        <item>Andamanand Nicobar Islands </item>
+        <item>Chandigarh </item>
+        <item>Puducherry</item>
+        <item>Damanand Diu </item>
+        <item>Delhi</item>
+    </string-array>
+
+    <string name="district_prompt">Choose a District</string>
+
+    <string-array name="dist_0">
+        <item>  Srikakulam </item>
+        <item>Vizianagaram </item>
+        <item>Vishakhapatnam</item>
+        <item> East Godavari</item>
+        <item> West Godavari</item>
+        <item>Krishna</item>
+        <item> Guntur </item>
+        <item>Prakasam  </item>
+        <item>Nellore</item>
+        <item>Kadapa</item>
+        <item>Kurnool </item>
+        <item>Anantapur </item>
+        <item>Chittoor </item>
+    </string-array>
+    <string-array name="dist_1">
+        <item>Araria</item>
+        <item>Arwal</item>
+        <item>Aurangabad</item>
+        <item>Banka</item>
+        <item>Begusarai</item>
+        <item>Bhagalpur</item>
+        <item>Buxar</item>
+        <item>Darbhanga</item>
+        <item>East Champaran</item>
+        <item>East Champaran</item>
+        <item>Gaya</item>
+        <item>Gopalganj</item>
+        <item>Jamui</item>
+        <item>Jehanabad</item>
+        <item>Kaimur</item>
+        <item>Katihar</item>
+        <item>Khagaria</item>
+        <item>Kishanganj</item>
+        <item>Lakhisarai</item>
+        <item>Madhepura</item>
+        <item>Monghyr</item>
+        <item>Muzaffarpur</item>
+        <item>Nalanda</item>
+        <item>Nawada</item>
+        <item>Patna</item>
+        <item>Purnea</item>
+        <item>Rohtas</item>
+        <item>Saharsa</item>
+        <item>Samastipur</item>
+        <item>Saran</item>
+        <item>Shiekhpura</item>
+        <item>Sheohar</item>
+        <item>Sitamarhi</item>
+        <item>Siwan</item>
+        <item>Supaul</item>
+        <item>Vaishali</item>
+        <item>West Champaran</item>
+    </string-array>
+    <string-array name="dist_2">
+        <item>Barpeta</item>
+        <item>Bongaigaon  </item>
+        <item>	Cachar  </item>
+        <item> Darrang </item>
+        <item> Dhemaji  </item>
+        <item>Dhubri </item>
+        <item>   Dibrugarh   </item>
+        <item> Goalpara </item>
+        <item>  Golaghat  </item>
+        <item> Hailakandi</item>
+        <item>Jorhat Karbi Anglong </item>
+        <item>  Karimganj  </item>
+        <item> Kokrajhar     </item>
+        <item> Lakhimpur   </item>
+        <item> Morigaon    </item>
+        <item>  Nagaon  </item>
+        <item> Nalbari      </item>
+        <item> Dima Hasao    </item>
+        <item>Sivasagar  </item>
+        <item> Sonitpur </item>
+        <item>Tinsukia   </item>
+        <item> Kamrup    </item>
+        <item> Kamrup Metropolitan   </item>
+        <item>Baksa    </item>
+        <item>Udalguri    </item>
+        <item>West Karbi Anglong </item>
+        <item>Biswanath   </item>
+        <item>Hojai   </item>
+        <item>Charaideo </item>
+        <item>Majuli</item>
+    </string-array>
+    <string-array name="dist_3">
+        <item> Papumpare </item>
+        <item> Changlang </item>
+        <item> 	Lohit </item>
+        <item>West Siang  </item>
+        <item> Tirap  </item>
+        <item> East Siang  </item>
+        <item>Kurung Kumey </item>
+        <item>West Kameng</item>
+        <item>Upper Subansiri</item>
+        <item>Lower Subansiri </item>
+        <item> East Kameng </item>
+        <item> Lower Dibang Valley  </item>
+        <item> 	Tawang  </item>
+        <item> Upper Siang </item>
+        <item>Anjaw </item>
+        <item>Dibang Valley  </item>
+    </string-array>
+    <string-array name="dist_4">
+        <item>Bokaro            </item>
+        <item>Chatra            </item>
+        <item>Deoghar            </item>
+        <item>Dhanbad            </item>
+        <item>Dumka            </item>
+        <item>East_Singhbhum      </item>
+        <item>Garhwa             </item>
+        <item>Giridih            </item>
+        <item>Godda             </item>
+        <item>Gumla           </item>
+        <item>Hazaribagh        </item>
+        <item>Jamtara             </item>
+        <item>Khunti             </item>
+        <item>Koderma           </item>
+        <item>Latehar            </item>
+        <item>Lohardaga           </item>
+        <item>Pakur            </item>
+        <item>Palamu             </item>
+        <item>Ramgarh            </item>
+        <item>Ranchi           </item>
+        <item>Sahebganj           </item>
+        <item>Seraikela-Kharsawan  </item>
+        <item>Simdega           </item>
+        <item>West_Singhbhum   </item>
+    </string-array>
+    <string-array name="dist_5">
+        <item>Angul             </item>
+        <item>Balangir           </item>
+        <item>Baleswar            </item>
+        <item>Bargarh           </item>
+        <item>Bhadrak            </item>
+        <item>Boudh            </item>
+        <item>Cuttack            </item>
+        <item>Debagarh           </item>
+        <item>Dhenkanal            </item>
+        <item>Gajapati           </item>
+        <item>Ganjam            </item>
+        <item>Jagatsinghapur            </item>
+        <item>Jajapur            </item>
+        <item>Jharsuguda           </item>
+        <item>Kalahandi            </item>
+        <item>Kandhamal           </item>
+        <item>Kendrapara            </item>
+        <item>Kendujhar            </item>
+        <item>Khorda            </item>
+        <item>Koraput           </item>
+        <item>Malkangiri            </item>
+        <item>Mayurbhanj           </item>
+        <item> Nabarangapur           </item>
+        <item>Nayagarh            </item>
+        <item>Nuapada            </item>
+        <item>Puri           </item>
+        <item>Rayagada            </item>
+        <item>Sambalpur           </item>
+        <item>Sonapur            </item>
+        <item>Sundergarh            </item>
+    </string-array>
+    <string-array name="dist_6">
+        <item>Ambala            </item>
+        <item>Bhiwani           </item>
+        <item>Faridabad            </item>
+        <item>Fatehabad           </item>
+        <item>Gurgaon            </item>
+        <item>Hisar            </item>
+        <item>Jhajjar           </item>
+        <item>Jind            </item>
+        <item>Kaithal           </item>
+        <item>Karnal            </item>
+        <item>Kurukshetra           </item>
+        <item>Mahendragarh           </item>
+        <item>Mewat            </item>
+        <item>Palwal           </item>
+        <item>Panchkula            </item>
+        <item>Panipat            </item>
+        <item>Rewari           </item>
+        <item>Rohtak            </item>
+        <item>Sirsa           </item>
+        <item>Sonipat            </item>
+        <item>Yamuna_Nagar            </item>
+    </string-array>
+    <string-array name="dist_7">
+        <item>Bagalkot          </item>
+        <item>Bangalore           </item>
+        <item>Bangalore_Rural           </item>
+        <item>Belgaum            </item>
+        <item>Bellary            </item>
+        <item>Bidar            </item>
+        <item>Bijapur(KAT)           </item>
+        <item>Chamrajanagar            </item>
+        <item>Chickmagalur           </item>
+        <item>Chikkaballapur            </item>
+        <item>Chitradurga            </item>
+        <item>Dakshina_Kannada           </item>
+        <item>Davangere            </item>
+        <item>Dharwad           </item>
+        <item>Gadag           </item>
+        <item>Gulbarga            </item>
+        <item>Hassan           </item>
+        <item>Haveri            </item>
+        <item>Kodagu           </item>
+        <item>Kolar            </item>
+        <item>Koppal            </item>
+        <item>Mandya           </item>
+        <item>Raichur            </item>
+        <item>Ramanagar           </item>
+        <item>Shimoga            </item>
+        <item>Udupi            </item>
+        <item>Uttara_Kannada           </item>
+        <item>Yadgir            </item>
+    </string-array>
+    <string-array name="dist_8">
+        <item>Anantnag           </item>
+        <item>Badgam            </item>
+        <item>Bandipore           </item>
+        <item>Baramula            </item>
+        <item>Doda           </item>
+        <item>Ganderbal            </item>
+        <item>Jammu           </item>
+        <item>Kargil            </item>
+        <item>Kathua           </item>
+        <item>Kishtwar            </item>
+        <item>Kishtwar           </item>
+        <item>Kupwara            </item>
+        <item>Leh           </item>
+        <item>Pulwama            </item>
+        <item>Punch           </item>
+        <item>Rajouri            </item>
+        <item>Ramban           </item>
+        <item>Reasi            </item>
+        <item>Samba           </item>
+        <item>Shupiyan            </item>
+        <item>Srinagar           </item>
+        <item>Udhampur            </item>
+    </string-array>
+    <string-array name="dist_9">
+        <item>Mysore           </item>
+        <item>Tumkur            </item>
+        <item>Alappuzha           </item>
+        <item>Ernakulam            </item>
+        <item>Idukki           </item>
+        <item>Kannur            </item>
+        <item>Kasaragod           </item>
+        <item>Kollam            </item>
+        <item>Kottayam           </item>
+        <item>Kozhikode            </item>
+        <item>Malappuram           </item>
+        <item>Palakkad            </item>
+        <item>Pathanamthitta           </item>
+        <item>Thiruvananthapuram      </item>
+        <item>Thrissur           </item>
+        <item>Wayanad            </item>
+    </string-array>
+    <string-array name="dist_10">
+        <item>Ajmer           </item>
+        <item> Alwar           </item>
+        <item>Banswara           </item>
+        <item>Baran            </item>
+        <item>Barmer           </item>
+        <item>Bharatpur            </item>
+        <item>Bhilwara         </item>
+        <item>Bikaner            </item>
+        <item>Bundi           </item>
+        <item>Chittorgarh            </item>
+        <item>Churu           </item>
+        <item>Dausa            </item>
+        <item>Dholpur           </item>
+        <item>Dungarpur            </item>
+        <item>Ganganagar           </item>
+        <item>Hanumangarh            </item>
+        <item>Jaipur           </item>
+        <item>Jaisalmer            </item>
+        <item>Jalor           </item>
+        <item>Jhalawar            </item>
+        <item>Jhunjhunun           </item>
+        <item>Jodhpur            </item>
+        <item>Karauli           </item>
+        <item>Kota            </item>
+        <item>Nagaur           </item>
+        <item>Pali            </item>
+        <item>Pratapgarh           </item>
+        <item>Rajsamand            </item>
+        <item>Sawai_Madhopur           </item>
+        <item>Sikar            </item>
+        <item>Sirohi           </item>
+        <item>Tonk            </item>
+        <item>Udaipur           </item>
+    </string-array>
+    <string-array name="dist_11">
+        <item>Ahmedabad            </item>
+        <item>Amreli           </item>
+        <item>Anand            </item>
+        <item>Aravalli           </item>
+        <item>Banaskantha            </item>
+        <item>Bharuch           </item>
+        <item>Bhavnagar            </item>
+        <item>Botad           </item>
+        <item>Chhotaudepur            </item>
+        <item>Dahod           </item>
+        <item>Devbhumi Dwarka           </item>
+        <item>Gandhinagar           </item>
+        <item>Gir Somnath            </item>
+        <item>Jamnagar           </item>
+        <item>Kachchh            </item>
+        <item>Kheda           </item>
+        <item>Mahesana            </item>
+        <item>Mahisagar           </item>
+        <item>Morbi            </item>
+        <item>Narmada           </item>
+        <item>Navsari            </item>
+        <item>Panchmahals           </item>
+        <item>Patan            </item>
+        <item>Porbandar           </item>
+        <item>Rajkot            </item>
+        <item>Sabarkantha           </item>
+        <item>Surat            </item>
+        <item>Surendra_Nagar           </item>
+        <item>Tapi            </item>
+        <item>The_Dangs           </item>
+        <item>Vadodara            </item>
+        <item>Valsad           </item>
+    </string-array>
+    <string-array name="dist_12">
+        <item>Ajit Garh (SAS Nagar) </item>
+        <item>Amritsar           </item>
+        <item>Bathinda            </item>
+        <item>Fazilka           </item>
+        <item>Ferozepur            </item>
+        <item>Gurdaspur           </item>
+        <item>Hoshiarpur            </item>
+        <item>Kapurthala           </item>
+        <item>Mansa            </item>
+        <item>Moga           </item>
+        <item>Pathankot            </item>
+        <item>Patiala           </item>
+        <item>Rupnagar            </item>
+        <item>Sangrur           </item>
+        <item>Sri_Muktsar_Sahib    </item>
+        <item>Tarn_Taran     </item>
+    </string-array>
+    <string-array name="dist_13">
+        <item>Chandigarh           </item>
+        <item>Balod            </item>
+        <item>Baloda_Bazar           </item>
+        <item>Balrampur            </item>
+        <item>Bastar           </item>
+        <item>Bemetara           </item>
+        <item>Bijapur           </item>
+        <item>Bilaspur            </item>
+        <item>Dantewada           </item>
+        <item>Dhamtari            </item>
+        <item>Durg           </item>
+        <item>Gariyaband            </item>
+        <item>Janjgir-champa           </item>
+        <item>Jashpur            </item>
+        <item>Kabirdham           </item>
+        <item>Kanker            </item>
+        <item>Kondagaon           </item>
+        <item>Korba            </item>
+        <item>Koriya           </item>
+        <item>Mahasamund            </item>
+        <item>Mungeli           </item>
+        <item>Narayanpur            </item>
+        <item>Raigarh           </item>
+        <item>Raipur            </item>
+        <item>Rajnandgaon           </item>
+        <item>Sukma            </item>
+        <item>Surajpur            </item>
+        <item>Surguja           </item>
+    </string-array>
+    <string-array name="dist_14">
+        <item>North_Goa            </item>
+        <item>South_Goa           </item>
+    </string-array>
+    <string-array name="dist_15">
+        <item>East_Sikkim            </item>
+        <item>North_Sikkim           </item>
+        <item>South_Sikkim            </item>
+        <item>West_Sikkim           </item>
+    </string-array>
+    <string-array name="dist_16">
+        <item>Aizawl            </item>
+        <item>Champhai           </item>
+        <item>Kolasib            </item>
+        <item>Lawngtlai           </item>
+        <item>Lunglei            </item>
+        <item>Mammit           </item>
+        <item>Saiha            </item>
+        <item>Serchhip           </item>
+    </string-array>
+    <string-array name="dist_17">
+        <item>Agra            </item>
+        <item>Aligarh           </item>
+        <item>Allahabad            </item>
+        <item>Ambedkar_Nagar           </item>
+        <item>Amethi            </item>
+        <item>Amroha           </item>
+        <item>Auraiya            </item>
+        <item>Azamgarh           </item>
+        <item>Baghpat            </item>
+        <item>Bahraich           </item>
+        <item>Ballia            </item>
+        <item>Balrampur(UP)            </item>
+        <item>Banda           </item>
+        <item>Bara_Banki            </item>
+        <item>Bareilly           </item>
+        <item>Basti            </item>
+        <item>Bijnor           </item>
+        <item>Budaun            </item>
+        <item>Bulandshahr           </item>
+        <item>Chandauli            </item>
+        <item>Chitrakoot           </item>
+        <item>Deoria            </item>
+        <item>Etah           </item>
+        <item>Etawah            </item>
+        <item>Faizabad           </item>
+        <item>Farrukhabad            </item>
+        <item>Fatehpur           </item>
+        <item>Firozabad            </item>
+        <item>Gautam_Buddha_Nagar           </item>
+        <item>Ghaziabad            </item>
+        <item>Ghazipur           </item>
+        <item>Gonda            </item>
+        <item>Gorakhpur           </item>
+        <item>Hamirpur(UP)            </item>
+        <item>Hapur           </item>
+        <item>Hardoi            </item>
+        <item>Hathras           </item>
+        <item>Jalaun            </item>
+        <item>Jaunpur            </item>
+        <item>Jhansi           </item>
+        <item>Kannauj            </item>
+        <item>Kanpur_Dehat           </item>
+        <item>Kanpur_Nagar            </item>
+        <item>Kashiram Nagar           </item>
+        <item>Kaushambi             </item>
+        <item>Kushinagar           </item>
+        <item>Lakhimpur Kheri            </item>
+        <item>Lalitpur           </item>
+        <item>Lucknow            </item>
+        <item>Maharajganj            </item>
+        <item>Mahoba           </item>
+        <item>Mainpuri            </item>
+        <item>Mathura           </item>
+        <item>Mau            </item>
+        <item>Meerut           </item>
+        <item>Mirzapur            </item>
+        <item>Moradabad           </item>
+        <item>Muzaffarnagar            </item>
+        <item>Pilibhit           </item>
+        <item>Pratapgarh(UP)            </item>
+        <item>Rae_Bareli           </item>
+        <item>Rampur            </item>
+        <item>Saharanpur           </item>
+        <item>Sambhal            </item>
+        <item>Sant_Kabir_Nagar           </item>
+        <item>Sant_Ravidas_Nagar            </item>
+        <item>Shahjahanpur           </item>
+        <item>Shamli            </item>
+        <item>Shrawasti           </item>
+        <item>Siddharthnagar            </item>
+        <item>Sitapur           </item>
+        <item>Sonbhadra            </item>
+        <item>Sultanpur           </item>
+        <item>Unnao            </item>
+        <item>Varanasi           </item>
+    </string-array>
+    <string-array name="dist_18">
+        <item>Agar</item>
+        <item>Alirajpur</item>
+        <item>Anuppur</item>
+        <item>Ashok_Nagar</item>
+        <item>Balaghat</item>
+        <item>Barwani</item>
+        <item>Betul</item>
+        <item>Bhind</item>
+        <item>Bhopal</item>
+        <item>Chhatarpur</item>
+        <item>Chhindwara</item>
+        <item>Damoh</item>
+        <item>Datia</item>
+        <item>Dewas</item>
+        <item>Dhar</item>
+        <item>Dindori</item>
+        <item>Guna</item>
+        <item>Gwalior</item>
+        <item>Indore</item>
+        <item>Jabalpur</item>
+        <item>Jhabua</item>
+        <item>Katni</item>
+        <item>Khargone</item>
+        <item>Mandla</item>
+        <item>Mandsaur</item>
+        <item>Morena</item>
+        <item>Narsinghpur</item>
+        <item>Neemuch</item>
+        <item>Panna</item>
+        <item>Raisen</item>
+        <item>Rajgarh</item>
+        <item>Ratlam</item>
+        <item>Rewa</item>
+        <item>Sagar</item>
+        <item>Satna</item>
+        <item>Sehore</item>
+        <item>Seoni</item>
+        <item>Shahdol</item>
+        <item>Shajapur</item>
+        <item>Sheopur</item>
+        <item>Shivpuri</item>
+        <item>Sidhi</item>
+        <item>Singrauli</item>
+        <item>Tikamgarh</item>
+        <item>Ujjain</item>
+        <item>Umaria</item>
+        <item>Vidisha</item>
+    </string-array>
+    <string-array name="dist_19">
+        <item>Ahmadnagar</item>
+        <item>Akola</item>
+        <item>Aurangabad(MH)</item>
+        <item>Beed</item>
+        <item>Bhandara</item>
+        <item>Buldhana</item>
+        <item>Chandrapur</item>
+        <item>Dhule</item>
+        <item>Gadchiroli</item>
+        <item>Gondiya</item>
+        <item>Hingoli</item>
+        <item>Jalgaon</item>
+        <item>Jalna</item>
+        <item>Kolhapur</item>
+        <item>Latur</item>
+        <item>Mumbai</item>
+        <item>Mumbai Suburban</item>
+        <item>Nagpur</item>
+        <item>Nanded</item>
+        <item>Nandurbar</item>
+        <item>Nashik</item>
+        <item>Osmanabad</item>
+        <item>Palghar</item>
+        <item>Parbhani</item>
+        <item>Pune</item>
+        <item>Raigarh(MH)</item>
+        <item>Ratnagiri</item>
+        <item>Sangli</item>
+        <item>Satara</item>
+        <item>Sindhudurg</item>
+        <item>Solapur</item>
+        <item>Thane</item>
+        <item>Washim</item>
+        <item>Yavatmal</item>
+    </string-array>
+    <string-array name="dist_20">
+        <item>Ariyalur</item>
+        <item>Dharmapuri</item>
+        <item>Dindigul</item>
+        <item>Chennai</item>
+        <item>Karur</item>
+        <item>Coimbatore</item>
+        <item>Kanyakumari</item>
+        <item>Cuddalore</item>
+        <item>Nagapattinam</item>
+        <item>Erode</item>
+        <item>Madurai</item>
+        <item>Kanchipuram</item>
+        <item>Perambalur</item>
+        <item>Krishnagiri</item>
+        <item>Ramanathapuram</item>
+        <item>Tiruvallur</item>
+        <item>Pudukkottai</item>
+        <item>Namakkal</item>
+        <item>Sivaganga</item>
+        <item>Tiruvannamalai</item>
+        <item>Thanjavur</item>
+        <item>Nilgiris</item>
+        <item>Theni</item>
+        <item>Tiruchirappalli</item>
+        <item>Thoothukudi</item>
+        <item>Salem</item>
+        <item>Tiruppur</item>
+        <item>Tirunelveli</item>
+        <item>Vellore</item>
+        <item>Viluppuram</item>
+        <item>Virudhunagar</item>
+    </string-array>
+    <string-array name="dist_21">
+        <item>Almora</item>
+        <item>Bageshwar</item>
+        <item>Chamoli</item>
+        <item>Champawat</item>
+        <item>Dehradun</item>
+        <item>Haridwar</item>
+        <item>Nainital</item>
+        <item>Pauri_Garhwal</item>
+        <item>Pithoragarh</item>
+        <item>Rudraprayag</item>
+        <item>Tehri_Garhwal</item>
+        <item>Udham_Singh_Nagar</item>
+        <item>Uttarkashi</item>
+    </string-array>
+    <string-array name="dist_22">
+        <item>Kinnaur</item>
+        <item>Lahul_and_Spiti</item>
+    </string-array>
+    <string-array name="dist_23">
+        <item>Bishnupur</item>
+        <item>Chandel</item>
+        <item>Churachandpur</item>
+        <item>Imphal_East</item>
+        <item>Imphal_West</item>
+        <item>Senapati</item>
+        <item>Tamenglong</item>
+        <item>Thoubal</item>
+        <item>Ukhrul</item>
+    </string-array>
+    <string-array name="dist_24">
+        <item>Dhalai</item>
+        <item>Gomati</item>
+        <item>Khowai</item>
+        <item>North_Tripura</item>
+        <item>Sepahijala</item>
+        <item>South_Tripura</item>
+        <item>Unakoti</item>
+        <item>West_Tripura</item>
+    </string-array>
+    <string-array name="dist_25">
+        <item>Alipurduar            </item>
+        <item>Alipurduar            </item>
+        <item>Barddhaman           </item>
+        <item>Birbhum            </item>
+        <item>Cooch_Behar           </item>
+        <item>Dakshin_Dinajpur            </item>
+        <item>Darjeeling           </item>
+        <item>Hooghly            </item>
+        <item>Howrah           </item>
+        <item>Jalpaiguri            </item>
+        <item>Kolkata           </item>
+        <item>Malda            </item>
+        <item>Murshidabad            </item>
+        <item>Nadia           </item>
+        <item>North_24_Parganas            </item>
+        <item>Paschim_Medinipur           </item>
+        <item>Purba_Medinipur            </item>
+        <item>Puruliya           </item>
+        <item>South_24_Parganas            </item>
+        <item>Uttar_Dinajpur           </item>
+    </string-array>
+    <string-array name="dist_26">
+        <item>Karimnagar            </item>
+        <item>Khammam            </item>
+        <item>Mahbubnagar           </item>
+        <item>Medak            </item>
+        <item>Nalgonda           </item>
+        <item>Nizamabad            </item>
+        <item>Warangal           </item>
+    </string-array>
+    <string-array name="dist_27">
+        <item>Nicobar            </item>
+        <item>North and Middle Andaman           </item>
+        <item>South Andamans            </item>
+    </string-array>
+    <string-array name="dist_28">
+        <item>Chandigarh           </item>
+        <item>Balod            </item>
+        <item>Baloda_Bazar            </item>
+        <item>Balrampur           </item>
+        <item>Bastar            </item>
+        <item>Bemetara           </item>
+        <item>Bijapur            </item>
+        <item>Bilaspur           </item>
+        <item>Dantewada            </item>
+        <item>Dhamtari           </item>
+        <item>Durg            </item>
+        <item>Gariyaband           </item>
+        <item>Janjgir-champa            </item>
+        <item>Jashpur            </item>
+        <item>Kabirdham            </item>
+        <item>Kanker           </item>
+        <item>Kondagaon            </item>
+        <item>Korba           </item>
+        <item>Mahasamund            </item>
+        <item>Mungeli           </item>
+        <item>Narayanpur            </item>
+        <item>Raigarh           </item>
+        <item>Raipur            </item>
+        <item>Rajnandgaon           </item>
+        <item>Sukma            </item>
+        <item>Surajpur            </item>
+        <item>Surguja           </item>
+    </string-array>
+    <string-array name="dist_29">
+        <item>Karaikal            </item>
+        <item>Mahe            </item>
+        <item>Yanam           </item>
+    </string-array>
+    <string-array name="dist_30">
+        <item> Daman           </item>
+    </string-array>
+    <string-array name="dist_31">
+        <item>Central_Delhi           </item>
+        <item>East_Delhi             </item>
+        <item>New_Delhi           </item>
+        <item>North_Delhi             </item>
+        <item>North_East_Delhi           </item>
+        <item>North_West_Delhi            </item>
+        <item>Shahdara           </item>
+        <item>South East Delhi            </item>
+        <item>South_Delhi            </item>
+        <item>South_West_Delhi           </item>
+    </string-array>
+
+    <string name="type_prompt">Choose a Type</string>
+
+    <string-array name="ty_type">
+        <item>Unit</item>
+        <item>Cluster</item>
+    </string-array>
+
+    <string name="plan_prompt">Choose a Plan</string>
+
+    <string-array name="ty_plan">
+        <item>Annual</item>
+        <item>Halfly</item>
+        <item>Quartaly</item>
+        <item>Monthly</item>
+    </string-array>
+
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_section1">Home</string>
+    <string name="title_section2">Apply</string>
+    <string name="title_section3">Events</string>
+    <string name="title_section4">Social</string>
+    <string name="title_section5">Notifications</string>
+    <string name="title_section6">My Profile</string>
+    <string name="title_section7">ContactUS</string>
+    <string name="title_section8">About</string>
+    <string name="title_section9">FAQ</string>
+    <string name="title_activity_events2">EventsActivity2</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_even_tab">EvenTabActivity</string>
+
+</resources>

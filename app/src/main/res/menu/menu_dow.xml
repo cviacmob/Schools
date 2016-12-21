@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.cviac.s4iApp.activities.TermActivity">
+
+    <item
+        android:id="@+id/ActionButton"
+        app:showAsAction="ifRoom"
+        app:actionLayout="@layout/layout_action_download"
+        android:title="Download" />
+
+</menu>

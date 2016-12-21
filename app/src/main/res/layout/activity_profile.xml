@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
+
+    <ExpandableListView
+        android:id="@+id/exp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:divider="#A4C739"
+        android:dividerHeight="0.5dp"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" >
+    </ExpandableListView>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/expandableListView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="46dp"
+        android:background="@drawable/img"/>
+
+    <ImageButton
+        android:id="@+id/LoadPicture1"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/imggg"
+        android:onClick="loadImagefromGallery"
+        android:layout_marginStart="81dp"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignStart="@+id/imageView1" />
+
+</RelativeLayout>
