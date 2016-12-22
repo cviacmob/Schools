@@ -20,6 +20,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
+
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.SchoolsforIndia;
@@ -31,10 +32,12 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.squareup.okhttp.OkHttpClient;
+
 import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.GsonConverterFactory;
@@ -54,6 +57,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
     Calendar c = Calendar.getInstance();
     int startYear = c.get(Calendar.YEAR);
     int startMonth = c.get(Calendar.MONTH);
+    
     int startDay = c.get(Calendar.DAY_OF_MONTH);
     String value;
     RadioButton maleRadioButton, femaleRadioButton, otherbutton;
@@ -128,87 +132,16 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
             public void onClick(View v) {
                 SchoolsforIndia app = (SchoolsforIndia) RegistrationActivity.this.getApplication();
 
-                String name1 = name.getText().toString();
-                String mail1 = email.getText().toString();
+                final String name1 = name.getText().toString();
+                final String mail1 = email.getText().toString();
                 final String Mobile = phon.getText().toString();
                 String contry = arraySpinnervalues[s_pos];
 
                 int id = radiogroup.getCheckedRadioButtonId();
                 radioButton = (RadioButton) findViewById(id);
                 String radio = radioButton.getText().toString();
-              /*  txtDate.getText().toString();*/
-
-
                 String DOB = dob.getText().toString();
             /*    if (app.isNetworkStatus()) {*/
-                progressDialog = new ProgressDialog(RegistrationActivity.this, R.style.AppTheme_Dark_Dialog);
-                progressDialog.setIndeterminate(true);
-                // progressDialog.setIndeterminateDrawable(R.drawable.custom_progress_dialog);
-                //android:indeterminateDrawable="@drawable/custom_progress_dialog"
-                progressDialog.setMessage("Registering...");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
-
-                OkHttpClient okHttpClient = new OkHttpClient();
-                okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
-                okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
-
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://192.168.1.18")
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .client(okHttpClient)
-                        .build();
-                api = retrofit.create(SFIApi.class);
-                regInfo = new RegInfo();
-                regInfo.setMobile1(Mobile);
-                regInfo.setFirstName(name1);
-                regInfo.setEmailID1(mail1);
-                regInfo.setCountry(contry);
-                regInfo.setGender(radio);
-                regInfo.setDOB(DOB);
-
-
-                /*} else {
-                    Toast.makeText(getApplicationContext(),
-                            "Please Check Your Internet Connection and try again", Toast.LENGTH_LONG).show();
-                }*/
-                final Call<RegisterResponse> call = api.registerMobile(regInfo);
-                call.enqueue(new Callback<RegisterResponse>() {
-                    @Override
-                    public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
-                        if (progressDialog != null) {
-                            progressDialog.dismiss();
-
-                        }
-                        RegisterResponse rsp = response.body();
-                        int code = rsp.getCode();
-                        if (code == 0) {
-                            if (phon.getText().toString().length() >= 10 && phon.getText().toString().length() <= 13) {
-                                if (progressDialog != null) {
-                                    progressDialog.dismiss();
-                                    // progressDialog = null;
-                                }
-                                Intent i = new Intent(RegistrationActivity.this, Otpverification.class);
-                                i.putExtra("mobile", Mobile);
-                                startActivity(i);
-                                finish();
-                            } else {
-                                phon.setError("Invalid mobile number");
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Throwable t) {
-                        if (progressDialog != null) {
-                            progressDialog.dismiss();
-                            // progressDialog = null;
-                        }
-                        Toast.makeText(RegistrationActivity.this, "Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                        t.printStackTrace();
-
-                    }
-                });
 
 
                 boolean error = false;
@@ -224,7 +157,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                     error = true;
                 }
 
-                if (phon.length() < 9) {
+                if (phon.length() <10) {
                     phon.setError("invalid phone number");
                     phon.requestFocus();
                     error = true;
@@ -247,24 +180,8 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                             return null;
                         }
                     }
-                 /*   public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        switch (checkedId) {
-                            case R.id.radioButton1:
-                                // do operations specific to this selection
-                                break;
-                            case R.id.radioButton2:
-                                // do operations specific to this selection
-                                break;
-                            case R.id.radioButton3:
-                                break;
-                        }
-                    }*/
+
                 });
-                // do operations specific to this selection
-               /* if (maleRadioButton.isChecked()
-                        || femaleRadioButton.isChecked()
-                        || otherbutton.isChecked()) {
-*/                    // Log.d("QAOD", "Gender is Selected");
 
                 if (dob.getText().toString().length() == 0) {
                     dob.setError("Enter Your Date of Birth");
@@ -273,24 +190,82 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                 }
 
                 if (error == false) {
+                    progressDialog = new ProgressDialog(RegistrationActivity.this, R.style.AppTheme_Dark_Dialog);
+                    progressDialog.setIndeterminate(true);
+                    // progressDialog.setIndeterminateDrawable(R.drawable.custom_progress_dialog);
+                    //android:indeterminateDrawable="@drawable/custom_progress_dialog"
+                    progressDialog.setMessage("Registering...");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
 
-                    Prefs.edit();
-                    Prefs.putString("Name", name1);
-                    Prefs.putString("Email", mail1);
-                    Prefs.putString("Mobile", Mobile);
+                    OkHttpClient okHttpClient = new OkHttpClient();
+                    okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
+                    okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
 
-                    Intent btn = new Intent(RegistrationActivity.this,
-                            Otpverification.class);
-                    startActivity(btn);
-                    finish();
-                }
-            } /*else {
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http://192.168.1.29")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .client(okHttpClient)
+                            .build();
+                    api = retrofit.create(SFIApi.class);
+                    regInfo = new RegInfo();
+                    regInfo.setMobile1(Mobile);
+                    regInfo.setFirstName(name1);
+                    regInfo.setEmailID1(mail1);
+                    regInfo.setCountry(contry);
+                    regInfo.setGender(radio);
+                    regInfo.setDOB(DOB);
+
+
+                /*} else {
                     Toast.makeText(getApplicationContext(),
-                            "Please select Gender", Toast.LENGTH_SHORT).show();
-                    Log.d("QAOD", "Gender is Null");
-                }
+                            "Please Check Your Internet Connection and try again", Toast.LENGTH_LONG).show();
+                }*/
+                    final Call<RegisterResponse> call = api.registerMobile(regInfo);
+                    call.enqueue(new Callback<RegisterResponse>() {
+                        @Override
+                        public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
+                            if (progressDialog != null) {
+                                progressDialog.dismiss();
 
-            }*/
+                            }
+                            RegisterResponse rsp = response.body();
+                            int code = rsp.getCode();
+                            if (code == 0) {
+
+                                Intent i = new Intent(RegistrationActivity.this,Otpverification.class);
+                              i.putExtra("mobile", Mobile);
+                                startActivity(i);
+                                finish();
+
+
+                                Prefs.edit();
+                                Prefs.putString("Name", name1);
+                                Prefs.putString("Email", mail1);
+                                Prefs.putString("Mobile", Mobile);
+
+                                /*Intent btn = new Intent(RegistrationActivity.this,
+                                        Otpverification.class);
+                                startActivity(btn);
+                                finish();*/
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Throwable t) {
+                            if (progressDialog != null) {
+                                progressDialog.dismiss();
+                                // progressDialog = null;
+                            }
+                            Toast.makeText(RegistrationActivity.this, "Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                            t.printStackTrace();
+
+                        }
+                    });
+
+
+                }
+            }
 
         });
 
@@ -355,14 +330,6 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
         }
 
     }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        onBackPressed();
-        return true;
-    }
-
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -398,4 +365,10 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        onBackPressed();
+        return true;
+    }
+
 }

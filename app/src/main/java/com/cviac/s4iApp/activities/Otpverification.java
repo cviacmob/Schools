@@ -55,13 +55,12 @@ public class Otpverification extends AppCompatActivity {
             public void onClick(View view) {
 
                 {
-
                     verifycode = pin.getText().toString();
                     OkHttpClient okHttpClient = new OkHttpClient();
                     okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://192.168.1.18")
+                            .baseUrl("http://192.168.1.29")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
@@ -77,13 +76,12 @@ public class Otpverification extends AppCompatActivity {
                             VerifyResponse otp = response.body();
                             int code = otp.getCode();
                             if (code == 0) {
-                                progressDialog.setMessage("Retrieving Contacts from Server...");
+                              //  progressDialog.set Message("Retrieving Contacts from Server...");
 
                                 Prefs.putString("isregistered", "true");
                                 Intent mainIntent = new Intent(Otpverification.this,NavigationActivity
                                         .class);
                                 startActivity(mainIntent);
-
                                 finish();
                             } else {
                                 progressDialog.dismiss();
@@ -95,6 +93,7 @@ public class Otpverification extends AppCompatActivity {
                         public void onFailure(Throwable t) {
                             progressDialog.dismiss();
                             Toast.makeText(Otpverification.this, "API Invoke Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                            t.printStackTrace();
                         }
                     });
 

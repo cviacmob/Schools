@@ -9,10 +9,10 @@ import retrofit.http.POST;
 
 public interface SFIApi {
 
-    @POST("/S4I/S4Idbop.php/registration")
+    @POST("/S4I/S4Idbop.php/register")
     Call<RegisterResponse> registerMobile(@Body RegInfo regInfo);
 
-    @POST("/S4I/S4Idbop.php/otpreg")
+    @POST("/S4I/S4Idbop.php/verifyotp")
     Call<VerifyResponse> verifyPin(@Body RegInfo regInfo);
 
 ///*    @GET("/CVIACAPI/cviacdbop.php")
