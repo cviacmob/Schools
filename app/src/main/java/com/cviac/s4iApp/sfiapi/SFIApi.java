@@ -15,12 +15,12 @@ public interface SFIApi {
     @POST("/S4I/S4Idbop.php/verifyotp")
     Call<VerifyResponse> verifyPin(@Body RegInfo regInfo);
 
-///*    @GET("/CVIACAPI/cviacdbop.php")
-//    Call<List<EmployeeInfo>> getEmployees();*/
-//    @Multipart
-//    @POST("/CVIACAPI/upload.php")
-//    Call<ProfileUpdateResponse> profileUpdate(@Query("emp_code") String empcode,  @Part("fileToUpload\"; filename=\"pp.png\" ") RequestBody file);
-//    //  Call<List<Employee>> getemployees();
+    @POST("/S4I/S4Idbop.php/membership")
+    Call<RegisterResponse> memberreg(@Body MembershipApi membershipApi);
+
+    @POST("/S4I/S4Idbop.php/update_profile")
+   Call<MyProfileApi> myprofilereg(@Body MyProfileApi myProfileApi);
+
 
 }
 

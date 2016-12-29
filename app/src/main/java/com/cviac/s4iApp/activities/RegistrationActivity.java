@@ -57,7 +57,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
     Calendar c = Calendar.getInstance();
     int startYear = c.get(Calendar.YEAR);
     int startMonth = c.get(Calendar.MONTH);
-    
+
     int startDay = c.get(Calendar.DAY_OF_MONTH);
     String value;
     RadioButton maleRadioButton, femaleRadioButton, otherbutton;
@@ -118,7 +118,6 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
 
         email = (EditText) findViewById(R.id.editText2);
         name = (EditText) findViewById(R.id.editText1);
-
         phon = (EditText) findViewById(R.id.editText3);
         dob = (EditText) findViewById(R.id.editText4);
         country = (Spinner) findViewById(R.id.country);
@@ -131,16 +130,15 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
             @Override
             public void onClick(View v) {
                 SchoolsforIndia app = (SchoolsforIndia) RegistrationActivity.this.getApplication();
-
                 final String name1 = name.getText().toString();
                 final String mail1 = email.getText().toString();
                 final String Mobile = phon.getText().toString();
-                String contry = arraySpinnervalues[s_pos];
+                final String contry = arraySpinnervalues[s_pos];
 
                 int id = radiogroup.getCheckedRadioButtonId();
                 radioButton = (RadioButton) findViewById(id);
-                String radio = radioButton.getText().toString();
-                String DOB = dob.getText().toString();
+                final String radio = radioButton.getText().toString();
+                final String DOB = dob.getText().toString();
             /*    if (app.isNetworkStatus()) {*/
 
 
@@ -157,7 +155,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                     error = true;
                 }
 
-                if (phon.length() <10) {
+                if (phon.length() < 10) {
                     phon.setError("invalid phone number");
                     phon.requestFocus();
                     error = true;
@@ -203,7 +201,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
 
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://192.168.1.29")
+                            .baseUrl("http://192.168.1.37")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
@@ -215,8 +213,6 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                     regInfo.setCountry(contry);
                     regInfo.setGender(radio);
                     regInfo.setDOB(DOB);
-
-
                 /*} else {
                     Toast.makeText(getApplicationContext(),
                             "Please Check Your Internet Connection and try again", Toast.LENGTH_LONG).show();
@@ -231,10 +227,19 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                             }
                             RegisterResponse rsp = response.body();
                             int code = rsp.getCode();
+                            String Mem = rsp.getMemID();
+                            String id = rsp.getID();
                             if (code == 0) {
 
-                                Intent i = new Intent(RegistrationActivity.this,Otpverification.class);
-                              i.putExtra("mobile", Mobile);
+                                Intent i = new Intent(RegistrationActivity.this, Otpverification.class);
+
+                                i.putExtra("mobile", Mobile);
+                                i.putExtra("Email", mail1);
+                                i.putExtra("Name", name1);
+                                i.putExtra("DOB", DOB);
+                                i.putExtra("Country", contry);
+                                i.putExtra("Gender", radio);
+                                
                                 startActivity(i);
                                 finish();
 
@@ -243,11 +248,15 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                                 Prefs.putString("Name", name1);
                                 Prefs.putString("Email", mail1);
                                 Prefs.putString("Mobile", Mobile);
+                                Prefs.putString("MemId",Mem);
+                                Prefs.putString("Pid",id);
 
-                                /*Intent btn = new Intent(RegistrationActivity.this,
-                                        Otpverification.class);
-                                startActivity(btn);
-                                finish();*/
+                            } else if (code == 1002) {
+                                Toast.makeText(RegistrationActivity.this, "Already Register", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(RegistrationActivity.this, NavigationActivity.class);
+                                startActivity(intent);
+                                finish();
+
                             }
                         }
 
@@ -269,17 +278,6 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
 
         });
 
-
-       /* List<String> list = new ArrayList<String>();
-        list.add("INDIA");
-        list.add("US");
-        list.add("UK");
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, list);
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sp.setAdapter(dataAdapter);*/
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -330,6 +328,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
         }
 
     }
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -365,6 +364,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

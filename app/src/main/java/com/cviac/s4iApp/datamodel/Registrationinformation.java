@@ -1,10 +1,13 @@
+/*
 package com.cviac.s4iApp.datamodel;
 
 import java.util.Date;
 
+*/
 /**
  * Created by john on 12/16/2016.
- */
+ *//*
+
 
 public class Registrationinformation {
     private String name;
@@ -64,3 +67,4 @@ public class Registrationinformation {
     }
 
 }
+*/

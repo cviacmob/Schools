@@ -28,12 +28,25 @@ public class NavigationActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        final int applied = Prefs.getInt("applied", 0);
+        //Prefs.putInt("applied", 1);
+        if (applied == 1) {
+            btn.setText("View Profile");
+        }
+
         btn = (Button) findViewById(R.id.applaybtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in1=new Intent(NavigationActivity.this,ApplyActivity.class);
-                startActivity(in1);
+
+                if (applied == 0) {
+                    Intent in1 = new Intent(NavigationActivity.this, ApplyActivity.class);
+                    startActivity(in1);
+                }
+                else {
+                    Intent in1 = new Intent(NavigationActivity.this, ProfileActivity.class);
+                    startActivity(in1);
+                }
             }
         });
 
@@ -113,12 +126,7 @@ public class NavigationActivity extends AppCompatActivity
 
 
             // Handle the camera action
-        if (id == R.id.nav_apply) {
-
-            Intent i=new Intent(NavigationActivity.this,ApplyActivity.class);
-            startActivity(i);
-
-        } else if (id == R.id.nav_events) {
+        if (id == R.id.nav_events) {
             Intent i=new Intent(NavigationActivity.this,HomeActivity.class);
             startActivity(i);
 

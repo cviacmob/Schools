@@ -19,15 +19,32 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.activities.MembershipActivity;
 import com.cviac.s4iApp.activities.TermActivity;
+import com.cviac.s4iApp.sfiapi.MembershipApi;
+import com.cviac.s4iApp.sfiapi.RegisterResponse;
+import com.cviac.s4iApp.sfiapi.SFIApi;
+import com.squareup.okhttp.OkHttpClient;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 public class ListAdapter extends BaseExpandableListAdapter {
 
+    /* private static Context mContext;
+     ProgressDialog progressDialog;
+     SFIApi api;
+     RegInfo regInfo;
+ */
     private Activity context;
     private Map<String, List<String>> ParentListItems;
     private List<String> Items;
@@ -61,34 +78,97 @@ public class ListAdapter extends BaseExpandableListAdapter {
         TextView item = (TextView) ListView.findViewById(R.id.textView1);
 
         //item.setText(CoursesName);
-        setTextViewHTML(item,CoursesName);
-        final CheckBox c = (CheckBox) ListView.findViewById(R.id.checkBox1);
-        Button b = (Button) ListView.findViewById(R.id.button1);
+        setTextViewHTML(item, CoursesName);
+        final CheckBox chkbox = (CheckBox) ListView.findViewById(R.id.checkBox1);
+        Button agreebtn = (Button) ListView.findViewById(R.id.button1);
 
-        b.setOnClickListener(new OnClickListener() {
+        agreebtn.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                StringBuilder result = new StringBuilder();
-                result.append("apply is:");
-                if (c.isChecked()) {
-                    result.append("accepted");
 
-                    Toast.makeText(context, result.toString(),
-                            Toast.LENGTH_LONG).show();
+                String regType = "";
 
-                    Intent mainIntent = new Intent(context,
-                            MembershipActivity.class);
-                    context.startActivity(mainIntent);
+                if (groupPosition == 0 && childPosition == 0) {
+                    StringBuilder result = new StringBuilder();
+                    result.append("Member is\n");
+                    if (chkbox.isChecked()) {
+                        result.append("accepted");
+
+                        Toast.makeText(context, result.toString(),
+                                Toast.LENGTH_SHORT).show();
+
+                        Intent mainIntent = new Intent(context,
+                                MembershipActivity.class);
+                        context.startActivity(mainIntent);
+                    } else
+                        Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
+                                .show();
+                    return;
+                }
+                if (groupPosition == 1 && childPosition == 0) {
+                    regType = "VOLUNTEER";
+                    StringBuilder result = new StringBuilder();
+                    result.append("Volunteer is\n");
+                    if (chkbox.isChecked()) {
+                        result.append("accepted");
+
+                        Toast.makeText(context, result.toString(),
+                                Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
+                                .show();
                 } else
-                    Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
-                            .show();
+                if (groupPosition == 2 && childPosition == 0) {
+                    regType = "SPONSER";
+                    StringBuilder result = new StringBuilder();
+                    result.append("Sponsor is\n");
+                    if (chkbox.isChecked()) {
+                        result.append("accepted");
 
+                        Toast.makeText(context, result.toString(),
+                                Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
+                                .show();
+                } else
+                if (groupPosition == 3 && childPosition == 0) {
+                    regType = "PARTNER";
+                    StringBuilder result = new StringBuilder();
+                    result.append("Partner is\n");
+                    if (chkbox.isChecked()) {
+                        result.append("accepted");
+
+                        Toast.makeText(context, result.toString(),
+                                Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
+                                .show();
+                } else
+                if (groupPosition == 4 && childPosition == 0) {
+                    regType = "MENTOR";
+                    StringBuilder result = new StringBuilder();
+                    result.append("Mentor is\n");
+                    if (chkbox.isChecked()) {
+                        result.append("accepted");
+
+                        Toast.makeText(context, result.toString(),
+                                Toast.LENGTH_SHORT).show();
+                    } else
+                        Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
+                                .show();
+                }
+
+                String memId = Prefs.getString("MemId","");
+                MembershipApi info = new MembershipApi();
+                info.setReg_type(regType);
+                info.setMemID(memId);
+                memRegister(info);
             }
         });
 
-        Button b1 = (Button) ListView.findViewById(R.id.button2);
-        b1.setOnClickListener(new OnClickListener() {
+        Button cancelbtn = (Button) ListView.findViewById(R.id.button2);
+        cancelbtn.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -131,11 +211,11 @@ public class ListAdapter extends BaseExpandableListAdapter {
         ClickableSpan clickable = new ClickableSpan() {
             public void onClick(View view) {
 
-                String memtype =  url;
+                String memtype = url;
 
                 Intent mainIntent = new Intent(context,
                         TermActivity.class);
-                mainIntent.putExtra("memtype",memtype);
+                mainIntent.putExtra("memtype", memtype);
                 context.startActivity(mainIntent);
 
             }
@@ -176,5 +256,33 @@ public class ListAdapter extends BaseExpandableListAdapter {
 
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+
+    private void memRegister(MembershipApi info) {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
+        okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http:/192.168.1.37")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
+        SFIApi api = retrofit.create(SFIApi.class);
+        final Call<RegisterResponse> call = api.memberreg(info);
+        call.enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
+                Toast.makeText(context, "Apply Success", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast.makeText(context, "Apply Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                t.printStackTrace();
+            }
+        });
+
     }
 }

@@ -109,33 +109,33 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void createGroupList() {
         groupList = new ArrayList<String>();
+        groupList.add("MEMBERSHIP INFORMATION");
         groupList.add("BASIC INFORMATION");
         groupList.add("RESIDENTIAL ADDRESS");
         groupList.add("OFFICE ADDRESS");
-        groupList.add("MEMBERSHIP INFORMATION");
+
 
     }
 
     private void createCollection() {
         // preparing laptops collection(child)
+        String[] mi = { "MEMBERSHIP TYPE","MEMBERSHIP PERIOD" };
         String[] bi = { "NAME","E MAIL","MOBILE","GENDER" };
         String[] ra = { "ADDRESS 1","ADDRESS 2","CITY/STATE","ZIP CODE" };
         String[] oa = { "ADDRESS 1","ADDRESS 2","CITY/STATE","ZIP CODE" };
-        String[] mi = { "MEMBERSHIP TYPE","MEMBERSHIP PERIOD","DOJ" };
 
 
         laptopCollection = new LinkedHashMap<String, List<String>>();
 
         for (String laptop : groupList) {
-            if (laptop.equals("BASIC INFORMATION")) {
+           if (laptop.equals("MEMBERSHIP INFORMATION"))
+                loadChild(mi);
+           else if (laptop.equals("BASIC INFORMATION")) {
                 loadChild(bi);
             } else if (laptop.equals("RESIDENTIAL ADDRESS"))
                 loadChild(ra);
             else if (laptop.equals("OFFICE ADDRESS"))
                 loadChild(oa);
-            else if (laptop.equals("MEMBERSHIP INFORMATION"))
-                loadChild(mi);
-
 
             laptopCollection.put(laptop, childList);
         }

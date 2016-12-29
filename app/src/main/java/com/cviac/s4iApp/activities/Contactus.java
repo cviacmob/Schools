@@ -44,13 +44,13 @@ public class Contactus extends AppCompatActivity {
 
 
 
-        email = (EditText)findViewById(R.id.editText2);
-        name = (EditText)findViewById(R.id.editText1);
+        email = (EditText)findViewById(R.id.emailedit);
+        name = (EditText)findViewById(R.id.nameedit);
 
-
+/*
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
-        tv4 = (TextView) findViewById(R.id.textView4);
+        tv4 = (TextView) findViewById(R.id.textView4);*/
         call= (Button) findViewById(R.id.button3);
         call.setOnClickListener(new OnClickListener() {
             @Override
@@ -65,7 +65,7 @@ public class Contactus extends AppCompatActivity {
             }
         });
 
-        phon = (EditText) findViewById(R.id.editText3);
+        phon = (EditText) findViewById(R.id.msgedit);
          b1=(Button)findViewById(R.id.button1);
         b1.setOnClickListener(new OnClickListener(){
             public void onClick(View v) {
@@ -111,6 +111,7 @@ public class Contactus extends AppCompatActivity {
         Spinner sp=(Spinner)findViewById(R.id.spinner1);
         List<String> list = new ArrayList<String>();
         list.add("select category");
+        list.add("FAQ");
         list.add("Feedback");
         list.add("Enquiry");
         list.add("Volunteers");
@@ -119,8 +120,6 @@ public class Contactus extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(dataAdapter);
-
-
 
 
     }

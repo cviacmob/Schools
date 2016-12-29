@@ -1,5 +1,6 @@
 package com.cviac.s4iApp.activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,13 +14,29 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
+import com.cviac.s4iApp.SchoolsforIndia;
+import com.cviac.s4iApp.sfiapi.MembershipApi;
+import com.cviac.s4iApp.sfiapi.RegisterResponse;
+import com.cviac.s4iApp.sfiapi.SFIApi;
+import com.squareup.okhttp.OkHttpClient;
 
 import java.lang.reflect.Field;
+import java.util.concurrent.TimeUnit;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 public class MembershipActivity extends AppCompatActivity implements OnItemSelectedListener
 {
-    private Spinner spinner1, spinner2,spinner3,spinner4,spinnerCountry, spinnerCity;
+    ProgressDialog progressDialog;
+    SFIApi api;
+    String kat = Prefs.getString("MemId","");
+    private Spinner spinner1, spinner2,spinner3,spinner4,spinnerCountry, spinnerCity, spinnerPlan, spinnertype;
     private Button button2;
     private  Button btton1;
     protected void onCreate(Bundle savedInstanceState)
@@ -29,8 +46,10 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
         setContentView(R.layout.membership);
         spinnerCountry = (Spinner) findViewById(R.id.spinner1);
         spinnerCity = (Spinner) findViewById(R.id.spinner2);
+        spinnerPlan = (Spinner) findViewById(R.id.spinner4);
+        spinnertype = (Spinner) findViewById(R.id.spinner3);
         spinnerCountry.setOnItemSelectedListener(this);
-       btton1=(Button)findViewById(R.id.submitbutton);
+        btton1=(Button)findViewById(R.id.submitbutton);
         Button button2=(Button)findViewById(R.id.button2);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -50,6 +69,61 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
         btton1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                SchoolsforIndia app = (SchoolsforIndia) MembershipActivity.this.getApplication();
+                String state = spinnerCountry.getSelectedItem().toString();
+                String dis = spinnerCity.getSelectedItem().toString();
+                String plan = spinnerPlan.getSelectedItem().toString();
+                String type = spinnertype.getSelectedItem().toString();
+                boolean error = false;
+                if (error == false) {
+                    progressDialog = new ProgressDialog(MembershipActivity.this, R.style.AppTheme_Dark_Dialog);
+                    progressDialog.setIndeterminate(true);
+                    progressDialog.setMessage("Submit");
+                    progressDialog.show();
+
+                    OkHttpClient okHttpClient = new OkHttpClient();
+                    okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
+                    okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
+                    Retrofit retrofit = new Retrofit.Builder()
+                            .baseUrl("http:/192.168.1.37")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .client(okHttpClient)
+                            .build();
+                    api = retrofit.create(SFIApi.class);
+                    MembershipApi membershipApi= new MembershipApi();
+                    membershipApi.setMemState(state);
+                    membershipApi.setMemDis(dis);
+                    membershipApi.setMemPlan(plan);
+                    membershipApi.setMemType(type);
+                    membershipApi.setMemID(kat);
+                    membershipApi.setReg_type("Member");
+                    final Call<RegisterResponse> call = api.memberreg(membershipApi);
+                    call.enqueue(new Callback<RegisterResponse>() {
+                        @Override
+                        public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
+                            if (progressDialog != null) {
+                                progressDialog.dismiss();
+
+                            }
+
+                        }
+
+                        @Override
+                        public void onFailure(Throwable t) {
+                            if (progressDialog != null) {
+                                progressDialog.dismiss();
+                                // progressDialog = null;
+                            }
+                            Toast.makeText(MembershipActivity.this, "Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                            t.printStackTrace();
+                        }
+                    });
+
+
+                }
+
+
                 Toast.makeText(getApplicationContext(), "Submited Sucessfully" , Toast.LENGTH_SHORT ).show();
 
                 //Toast.makeText(MembershipActivity.this,"success",Toast.LENGTH_LONG).show();
@@ -106,7 +180,7 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
         spinner2 = (Spinner) findViewById(R.id.spinner2);
         spinner3 = (Spinner) findViewById(R.id.spinner3);
         spinner4 = (Spinner) findViewById(R.id.spinner4);
-       // btton1 = (Button) findViewById(R.id.submitbutton);
+        // btton1 = (Button) findViewById(R.id.submitbutton);
 
 
 

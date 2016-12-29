@@ -7,6 +7,36 @@ package com.cviac.s4iApp.sfiapi;
 public class RegisterResponse {
     private int code;
     private String desc;
+    private String MemID;
+    private String reg_type;
+    private  String ID;
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+
+
+    public String getReg_type() {
+        return reg_type;
+    }
+
+    public void setReg_type(String reg_type) {
+        this.reg_type = reg_type;
+    }
+
+    public String getMemID() {
+        return MemID;
+    }
+
+    public void setMemID(String memID) {
+        MemID = memID;
+    }
+
 
     public String getDesc() {
         return desc;

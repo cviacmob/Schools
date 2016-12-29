@@ -136,6 +136,10 @@
         "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.1\\res\\layout\\design_bottom_sheet_dialog.xml"
     },
     {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout\\membershipperiod_layout.xml",
+        "source": "D:\\works\\Schools\\app\\src\\main\\res\\layout\\membershipperiod_layout.xml"
+    },
+    {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
         "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.1\\res\\layout\\design_navigation_item_header.xml"
     },

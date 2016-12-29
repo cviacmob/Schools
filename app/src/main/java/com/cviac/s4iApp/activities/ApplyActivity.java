@@ -40,8 +40,8 @@ public class ApplyActivity extends AppCompatActivity {
         String sponterm= getString(R.string.sponsor_term);
         String partnerterm= getString(R.string.partner_term);
         String mentorterm= getString(R.string.mentor_term);
-        String commterm= getString(R.string.community_term);
-        String socialterm= getString(R.string.social_term);
+       /* String commterm= getString(R.string.community_term);
+        String socialterm= getString(R.string.social_term);*/
 
 
 
@@ -59,10 +59,10 @@ public class ApplyActivity extends AppCompatActivity {
                 loadChild(new String[] { partnerterm});
             else if (HoldItem.equals("MENTOR"))
                 loadChild(new String[] { mentorterm});
-            else if (HoldItem.equals("COMMUNITY CHAMPIONS"))
+          /*  else if (HoldItem.equals("COMMUNITY CHAMPIONS"))
                 loadChild(new String[] { commterm});
             else if (HoldItem.equals("SOCIAL MEDIA LINKS"))
-                loadChild(new String[] { socialterm});
+                loadChild(new String[] { socialterm});*/
             ParentListItems.put(HoldItem, ChildList);
         }
 

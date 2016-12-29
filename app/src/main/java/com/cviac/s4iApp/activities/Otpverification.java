@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.sfiapi.RegInfo;
+import com.cviac.s4iApp.sfiapi.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.cviac.s4iApp.sfiapi.VerifyResponse;
 import com.squareup.okhttp.OkHttpClient;
@@ -29,19 +30,30 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 public class Otpverification extends AppCompatActivity {
-    String mobile;
+    String Mobile;
+    String name1;
+    String mail1;
+    String contry;
+    String radio;
+    String DOB;
     String verifycode;
     Button buttonverify,resendbtn;
     EditText pin;
     ProgressDialog progressDialog;
-
+   // SFIApi api;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
 
         Intent i = getIntent();
-        mobile = i.getStringExtra("mobile");
+        Mobile = i.getStringExtra("mobile");
+         mail1 = i.getStringExtra("Email");
+        name1 = i.getStringExtra("Name");
+        DOB = i.getStringExtra("DOB");
+        contry = i.getStringExtra("Country");
+        radio = i.getStringExtra("Gender");
+
 
         buttonverify = (Button) findViewById(R.id.verifybutton);
         resendbtn = (Button) findViewById(R.id.resendbtn);
@@ -60,14 +72,19 @@ public class Otpverification extends AppCompatActivity {
                     okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://192.168.1.29")
+                            .baseUrl("http://192.168.1.37")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
                     SFIApi api = retrofit.create(SFIApi.class);
                     RegInfo regInfo = new RegInfo();
-                    regInfo.setMobile1(mobile);
+                    regInfo.setMobile1(Mobile);
                     regInfo.setOtp(verifycode);
+                    /*regInfo.setFirstName(name1);
+                    regInfo.setEmailID1(mail1);
+                    regInfo.setCountry(contry);
+                    regInfo.setGender(radio);
+                    regInfo.setDOB(DOB);*/
                     setProgressDialog();
                     final Call<VerifyResponse> call = api.verifyPin(regInfo);
                     call.enqueue(new Callback<VerifyResponse>() {
@@ -103,26 +120,30 @@ public class Otpverification extends AppCompatActivity {
                 }
             }
         });
-       /* resendbtn.setOnClickListener(new OnClickListener() {
+        resendbtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 OkHttpClient okHttpClient = new OkHttpClient();
                 okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
                 okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
 
-
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://apps.cviac.com")
+                        .baseUrl("http://192.168.1.37")
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(okHttpClient)
                         .build();
                 SFIApi api = retrofit.create(SFIApi.class);
                 RegInfo regInfo = new RegInfo();
-                regInfo.setMobile1(mobile);
-                final Call<VerifyResponse> call=api.registerMobile(regInfo);
-                call.enqueue(new Callback<VerifyResponse>() {
+                regInfo.setFirstName(name1);
+                regInfo.setEmailID1(mail1);
+                regInfo.setCountry(contry);
+                regInfo.setGender(radio);
+                regInfo.setDOB(DOB);
+                regInfo.setMobile1(Mobile);
+                final Call<RegisterResponse> call =api.registerMobile(regInfo);
+                call.enqueue(new Callback<RegisterResponse>() {
                     @Override
-                    public void onResponse(Response<VerifyResponse> response, Retrofit retrofit) {
+                    public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
                         if (progressDialog != null) {
                             progressDialog.dismiss();
                         }
@@ -133,12 +154,14 @@ public class Otpverification extends AppCompatActivity {
                         if (progressDialog != null) {
                             progressDialog.dismiss();
                         }
+
                         Toast.makeText(Otpverification.this, "Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                         t.printStackTrace();
                     }
+
                 });
             }
-        });*/
+        });
     }
     private void setProgressDialog() {
         progressDialog = new ProgressDialog(Otpverification.this,R.style.AppTheme_Dark_Dialog);
