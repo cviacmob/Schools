@@ -387,8 +387,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         // set prompts.xml to alertdialog builder
         alertDialogBuilder.setView(promptsView);
-        final EditText userInput = (EditText) promptsView
-                .findViewById(R.id.edit1);
+       /* final EditText userInput = (EditText) promptsView
+                .findViewById(R.id.edit1);*/
 
         final Spinner sp3 = (Spinner) promptsView.findViewById(R.id.spinner3);
         sp3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -411,7 +411,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 .setPositiveButton("Save",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-
                                 String state = sp3.getSelectedItem().toString();
                                 item.setText(state);
                                 setProfileValue(groupPosition, childPosition, item);
@@ -420,10 +419,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 profile.setMemID(memId);
                                 if(groupPosition==0) {
                                     if (childPosition == 0) {
-                                        String pro9 = userInput.getText().toString();
-                                        profile.setName(pro9);
+                                        String state1 = sp3.getSelectedItem().toString();
+                                        profile.setMemType(state1);
                                     }
                                 }
+                                mypreg(profile);
 
                             }
                         })
@@ -478,6 +478,16 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 String period = sp4.getSelectedItem().toString();
                                 item.setText(period);
                                 setProfileValue(groupPosition, childPosition, item);
+                                String memId = Prefs.getString("MemId","");
+                                MyProfileApi profile =new MyProfileApi();
+                                profile.setMemID(memId);
+                                if(groupPosition==0) {
+                                    if (childPosition == 1) {
+                                        String state2 = sp4.getSelectedItem().toString();
+                                        profile.setMemType(state2);
+                                    }
+                                }
+                                mypreg(profile);
                             }
                         })
                 .setNegativeButton("Cancel",
@@ -539,6 +549,17 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 String city = sp2.getSelectedItem().toString();
                                 item.setText(state + "/" + city);
                                 setProfileValue(groupPosition, childPosition, item);
+                                String memId = Prefs.getString("MemId","");
+                                MyProfileApi profile =new MyProfileApi();
+                                profile.setMemID(memId);
+                                if(groupPosition==2) {
+                                    if (childPosition == 2) {
+                                        String state3 = sp1.getSelectedItem().toString();
+                                        String city3 = sp2.getSelectedItem().toString();
+                                       profile.setState(state3 + "/" + city3);
+                                    }
+                                }
+                                mypreg(profile);
                             }
                         })
                 .setNegativeButton("Cancel",
@@ -600,6 +621,18 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 String city = sp.getSelectedItem().toString();
                                 item.setText(state + "/" + city);
                                 setProfileValue(groupPosition, childPosition, item);
+                                String memId = Prefs.getString("MemId","");
+                                MyProfileApi profile =new MyProfileApi();
+                                profile.setMemID(memId);
+                                if(groupPosition==3) {
+                                    if (childPosition == 2) {
+                                        String state4 = sp.getSelectedItem().toString();
+                                        String city4 = sp.getSelectedItem().toString();
+                                        profile.setComp_state(state4 + "/" + city4);
+                                    }
+                                }
+                                mypreg(profile);
+
                             }
                         })
                 .setNegativeButton("Cancel",
@@ -657,6 +690,16 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 //item.setText(selectedId);
                                 item.setText(value);
                                 setProfileValue(groupPosition, childPosition, item);
+                                String memId = Prefs.getString("MemId","");
+                                MyProfileApi profile =new MyProfileApi();
+                                profile.setMemID(memId);
+                                if(groupPosition==1) {
+                                    if (childPosition == 3) {
+                                        final String value1 = ((RadioButton) promptsView.findViewById(rs.getCheckedRadioButtonId())).getText().toString();
+                                        profile.setGender(value1);
+                                    }
+                                }
+                                mypreg(profile);
 
                             }
                         })
