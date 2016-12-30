@@ -1,114 +1,110 @@
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-     >
+    android:padding="5dp">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/textView3"
-            android:text="@string/contact_us" />
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-        <android.support.design.widget.TextInputLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textInputLayout2"
-            android:layout_below="@+id/textView2"
-            android:layout_alignParentStart="true">
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView3"
+                android:text="@string/contact_us" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/textInputLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView2">
 
                 <EditText
                     android:id="@+id/nameedit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Name" />
-        </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/emailtxt"
-            android:layout_below="@+id/textInputLayout2"
-            android:layout_alignParentEnd="true">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/emailtxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@+id/textInputLayout2">
 
                 <EditText
                     android:id="@+id/emailedit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email id" />
-        </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/emailtxt"
-            android:id="@+id/subtxt"
-            android:layout_alignParentStart="true"
-            >
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/subtxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/emailtxt">
 
                 <EditText
                     android:id="@+id/subedit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Subject" />
-        </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>
 
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/subtxt" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner1"
-            android:id="@+id/msgtxt"
-            android:layout_alignParentStart="true">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/msgtxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/spinner1">
 
                 <EditText
                     android:id="@+id/msgedit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Message" />
-        </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>
+            <Button
+                android:text="submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button1"
+                android:layout_below="@+id/msgtxt"
+                android:layout_marginTop="19dp" />
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="submit"
-            android:layout_below="@+id/msgtxt"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="18dp" />
+            <Button
+                android:text=""
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/phone"
+                android:layout_below="@+id/msgtxt"
+                android:id="@+id/button3"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" />
 
-        <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@+id/subtxt"
-            android:layout_alignParentStart="true" />
+        </RelativeLayout>
 
-        <Button
-            android:text=""
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/phone"
-            android:id="@+id/button3"
-            android:layout_marginEnd="24dp"
-            android:layout_below="@+id/textView5"
-            android:layout_alignEnd="@+id/textView5" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="8489674524"
-            android:layout_marginStart="61dp"
-            android:layout_alignBaseline="@+id/button1"
-            android:layout_alignBottom="@+id/button1"
-            android:layout_toEndOf="@+id/button1" />
+    </ScrollView>
 
 
 </RelativeLayout>

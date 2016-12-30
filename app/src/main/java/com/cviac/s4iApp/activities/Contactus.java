@@ -1,6 +1,7 @@
 package com.cviac.s4iApp.activities;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -16,23 +17,35 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
+import com.cviac.s4iApp.sfiapi.ContactApi;
+import com.cviac.s4iApp.sfiapi.SFIApi;
+import com.squareup.okhttp.OkHttpClient;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Contactus extends AppCompatActivity {
-    private EditText email,phon,name;
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
 
+public class Contactus extends AppCompatActivity {
+    private EditText email,phon,name,msg;
+    private Activity context;
     TextView tv1;
     TextView tv2;
     TextView tv4;
 
     Button b1;
-    Spinner s1;
+    Spinner feed;
     Button call;
     private static final int MY_PERMISSION_CALL_PHONE = 10;
 
@@ -46,6 +59,8 @@ public class Contactus extends AppCompatActivity {
 
         email = (EditText)findViewById(R.id.emailedit);
         name = (EditText)findViewById(R.id.nameedit);
+        feed =(Spinner)findViewById(R.id.spinner1);
+        msg =(EditText)findViewById(R.id.msgedit);
 
 /*
         tv1 = (TextView) findViewById(R.id.textView1);
@@ -69,8 +84,12 @@ public class Contactus extends AppCompatActivity {
          b1=(Button)findViewById(R.id.button1);
         b1.setOnClickListener(new OnClickListener(){
             public void onClick(View v) {
-
-                final String email1 = email.getText().toString();
+                String nam = name.getText().toString();
+                String emai = email.getText().toString();
+                String sub = phon.getText().toString();
+                String message =msg.getText().toString();
+                String spin = feed.getSelectedItem().toString();
+               // final String email1 = email.getText().toString();
                 // TODO Auto-generated method stub
 
                 boolean error = false;
@@ -83,8 +102,8 @@ public class Contactus extends AppCompatActivity {
 		/* Pattern pattern = Pattern.compile("\\d{3}-\\d{7}");
 		Matcher matcher = pattern.matcher(phn);*/
 
-                    if (phon.length()  <10) {
-                        phon.setError("invalid phone number");
+                    if (phon.length()  <1) {
+                        phon.setError("invalid message");
                         phon.requestFocus();
                         error = true;
                     }
@@ -98,6 +117,16 @@ public class Contactus extends AppCompatActivity {
                         name.requestFocus();
                         error = true;
                     }
+
+
+                String memId = Prefs.getString("MemId","");
+                ContactApi contact =new ContactApi();
+                contact.setName(nam);
+                contact.setMail(emai);
+                contact.setSubject(sub);
+                contact.setForm(spin);
+                contact.setMessages(message);
+                contreg(contact);
                 }
 
 
@@ -143,7 +172,7 @@ public class Contactus extends AppCompatActivity {
             case MY_PERMISSION_CALL_PHONE: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Intent callIntent = new Intent(Intent.ACTION_CALL);
-                    callIntent.setData(Uri.parse("tel:8489674524"));
+                    callIntent.setData(Uri.parse("tel:+919791402344"));
                     if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                         return;
                     }
@@ -157,7 +186,32 @@ public class Contactus extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+    private void contreg(ContactApi contact){
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
+        okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http:/192.168.42.23")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
+        SFIApi api = retrofit.create(SFIApi.class);
+        final Call<ContactApi> call = api.contatctreg(contact);
+        call.enqueue(new Callback<ContactApi>() {
+            @Override
+            public void onResponse(Response<ContactApi> response, Retrofit retrofit) {
+                Toast.makeText(Contactus.this, "Submited Successfully", Toast.LENGTH_LONG).show();
+            }
 
+            @Override
+            public void onFailure(Throwable t) {
+                Toast.makeText(Contactus.this, "Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                t.printStackTrace();
+
+            }
+        });
+
+    }
 
 }
 

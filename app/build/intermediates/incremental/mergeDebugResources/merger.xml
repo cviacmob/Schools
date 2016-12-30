@@ -2758,7 +2758,8 @@
         \nSchools for India Trust
         \n83, Alwarthirunagar Annexe,
         \nChennai- 6000087
-        \nTamilnadu, India.</string><string name="title_section5">Notifications</string><string name="title_section4">Social</string><string name="title_section7">ContactUS</string><string name="title_section6">My Profile</string><string name="title_section1">Home</string><string name="title_section3">Events</string><string name="title_section2">Apply</string></file><file path="D:\works\Schools\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        \nTamilnadu, India.
+        \nTelephone: +91- 99400 74889</string><string name="title_section5">Notifications</string><string name="title_section4">Social</string><string name="title_section7">ContactUS</string><string name="title_section6">My Profile</string><string name="title_section1">Home</string><string name="title_section3">Events</string><string name="title_section2">Apply</string></file><file path="D:\works\Schools\app\src\main\res\values\styles.xml" qualifiers=""><style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

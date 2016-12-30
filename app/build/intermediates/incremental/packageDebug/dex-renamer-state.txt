@@ -1,4 +1,4 @@
-#Thu Dec 29 12:50:40 IST 2016
+#Fri Dec 30 10:26:16 IST 2016
 base.0=D\:\\works\\Schools\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_94d3f92b5275a77562fc306c697d90967ecd78df
 renamed.1=classes.dex
 renamed.0=classes2.dex

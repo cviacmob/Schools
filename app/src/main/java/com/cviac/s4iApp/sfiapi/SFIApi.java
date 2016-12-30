@@ -21,6 +21,10 @@ public interface SFIApi {
     @POST("/S4I/S4Idbop.php/update_profile")
    Call<MyProfileApi> myprofilereg(@Body MyProfileApi myProfileApi);
 
+    @POST("/S4I/S4Idbop.php/contactus")
+    Call<ContactApi> contatctreg(@Body ContactApi contactApi);
+
+
 
 }
 
