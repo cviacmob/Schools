@@ -862,8 +862,8 @@
 
     <string-array name="ty_plan">
         <item>Annual</item>
-        <item>Halfly</item>
-        <item>Quartaly</item>
+        <item>Halfyearly</item>
+        <item>Quartyearly</item>
         <item>Monthly</item>
     </string-array>
 

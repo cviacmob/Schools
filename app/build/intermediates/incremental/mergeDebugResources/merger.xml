@@ -2166,8 +2166,8 @@
         <item>Cluster</item>
     </string-array><string name="title_News">News</string><string name="title_activity_SocialInfoAdapter">SocialInfoAdapter</string><string name="title_activity_main2">Main2Activity</string><string name="action_example">Example action</string><string name="type_prompt">Choose a Type</string><string-array name="ty_plan">
         <item>Annual</item>
-        <item>Halfly</item>
-        <item>Quartaly</item>
+        <item>Halfyearly</item>
+        <item>Quartyearly</item>
         <item>Monthly</item>
     </string-array><string name="navigation_drawer_close">Close navigation drawer</string><string name="title_home">Home</string><string name="radio_male">Male</string><string name="title_ContactUS">ContactUS</string><string name="description_term">Schools for India has been started with the aim of building and running schools for the rural poor in India.
         \n
