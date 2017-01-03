@@ -5,6 +5,11 @@ import android.content.ContextWrapper;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 
+import com.activeandroid.ActiveAndroid;
+import com.activeandroid.Configuration;
+import com.cviac.s4iApp.datamodel.Currentevent;
+import com.cviac.s4iApp.datamodel.Event;
+
 public class SchoolsforIndia extends MultiDexApplication {
     private boolean networkStatus =true;
 
@@ -32,5 +37,13 @@ public class SchoolsforIndia extends MultiDexApplication {
                 .setPrefsName(getPackageName())
                 .setUseDefaultSharedPreference(true)
                 .build();
+
+
+            Configuration.Builder configurationBuilder = new Configuration.Builder(this);
+            configurationBuilder.addModelClasses(Event.class);
+          configurationBuilder.addModelClasses(Currentevent.class);
+            ActiveAndroid.initialize(configurationBuilder.create());
+
+
     }
 }

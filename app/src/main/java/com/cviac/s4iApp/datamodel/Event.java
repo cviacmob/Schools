@@ -1,48 +1,75 @@
 package com.cviac.s4iApp.datamodel;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
+
+import java.util.List;
+
 /**
  * Created by john on 11/25/2016.
  */
+@Table(name = "events")
+public class Event extends Model {
+    @Column(name = "event_name")
+    private String event_name;
+    @Column(name = "event_date")
+    private String event_date;
+    @Column(name = "event_description")
+    private String event_description;
+    @Column(name = "location")
+    private String location;
+    @Column(name = "image_url")
+    private String image_url;
 
-public class Event {
-    String names;
-    String types;
-    String desc;
-    String place1;
-    int imageid;
-    public String getName() {
-        return names;
+    public String getEvent_name() {
+        return event_name;
     }
 
-    public String getType() {
-        return types;
+    public void setEvent_name(String event_name) {
+        this.event_name = event_name;
     }
 
-    public int getImageURL() {  return imageid;    }
-
-    public String getDiscription() {
-        return desc;
+    public String getEvent_date() {
+        return event_date;
     }
 
-    public String getPlace1() { return place1;  }
-
-
-    public void setName(String name) {
-        this.names = name;
+    public void setEvent_date(String event_date) {
+        this.event_date = event_date;
     }
 
-    public void setType(String type) {
-        this.types = type;
+    public String getEvent_description() {
+        return event_description;
     }
 
-    public void setDiscription(String discription) {
-        this.desc = discription;
+    public void setEvent_description(String event_description) {
+        this.event_description = event_description;
     }
 
-    public void setPlace1(String place1) {this.place1=place1; }
-
-    public void setImageURL(int ImageURL) {
-        this.imageid = ImageURL;
+    public String getLocation() {
+        return location;
     }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
+
+    public static List<Event> getevents() {
+        return  new Select()
+                .from(Event.class)
+                .orderBy("event_date DESC")
+                .execute();
+
+    }
+
 
 }

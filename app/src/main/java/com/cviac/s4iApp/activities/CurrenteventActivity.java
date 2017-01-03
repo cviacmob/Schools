@@ -13,7 +13,6 @@ import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.Currenteventadapter;
 import com.cviac.s4iApp.datamodel.Currentevent;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -44,7 +43,7 @@ public class CurrenteventActivity extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int pos1,
                                     long pos2) {
 
-                Currentevent emp = emps.get(pos1);
+                Currentevent currentevent = emps.get(pos1);
                 // Conversation cov=new Conversation();
                 //    cov.setEmpid(emp.getEmpID());
                 //   cov.setName(emp.getName());
@@ -52,7 +51,7 @@ public class CurrenteventActivity extends Fragment {
 //                i.putExtra("conversewith", cov);
                 //    startActivity(i);
 
-                Toast.makeText(lv.getContext(), "clicked:"+ emp.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(lv.getContext(), "clicked:"+ currentevent.getEvent_name(), Toast.LENGTH_SHORT).show();
 
             }});
 
@@ -60,19 +59,23 @@ public class CurrenteventActivity extends Fragment {
         return collegues;
     }
 
+    private List<Currentevent> getCollegues() {
+        return Currentevent.getcurrentevents();
+    }
 
-
-    private List<Currentevent> getCollegues()
+  /*  private List<Currentevent> getCollegues()
     {
         List<Currentevent> emps = new ArrayList<Currentevent>();
 
-        Currentevent emp = new Currentevent();
-        emp.setName("Cycle Race");
-        emp.setSports("30/01/2011");
-        emp.setSports2("Schools for India conducted the 3rd International Cycle Race on East Coast Road, Chennai India.");
-        emp.setPlace("Chennai");
-        emp.setImageURL(R.drawable.schoolseventscurrent);
-        emps.add(emp);
+        Currentevent currentevent = new Currentevent();
+        currentevent.setEvent_name("Cycle Race");
+        currentevent.setEvent_date("30/01/2011");
+        currentevent.setEvent_description("Schools for India conducted the 3rd International Cycle Race on East Coast Road, Chennai India.");
+        currentevent.setLocation("Chennai");
+
+       //
+        // currentevent.setImage_url(R.drawable.schoolseventscurrent);
+        emps.add(currentevent);
 
 //        emp = new Currentevent();
 //        emp.setName("Cricket");
@@ -101,4 +104,5 @@ public class CurrenteventActivity extends Fragment {
         return emps;
 
     }
+*/
 }

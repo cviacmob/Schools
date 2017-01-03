@@ -1,44 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="23"
-    density="xxhdpi"
+    abi="x86"
+    api-level="22"
+    density="xhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="98580936180148"
+    timestamp="24579503780888"
     token="4486336827565665062"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="679" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="31" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="45" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1" />
 
     <artifact
-        location="D:\works\Schools\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-        type="RESOURCES" />
+        location="D:\works\Schools\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="98350679183851"
+        timestamp="20647457183431"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\works\Schools\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="98580936180148"
+        timestamp="20834527058661"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\works\Schools\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="23785412545484"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\works\Schools\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="24579503780888"
         verifier="COMPATIBLE" >
         <artifact
-            location="D:\works\Schools\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-            type="RESOURCES" />
+            location="D:\works\Schools\app\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

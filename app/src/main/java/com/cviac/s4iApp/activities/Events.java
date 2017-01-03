@@ -13,7 +13,6 @@ import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.EventsAdapter;
 import com.cviac.s4iApp.datamodel.Event;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,25 +38,28 @@ public class Events extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int pos1,
                                     long pos2) {
 
-                Event emp = emps.get(pos1);
+                Event event = emps.get(pos1);
 
-                Toast.makeText(lv1.getContext(), "clicked:"+ emp.getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(lv1.getContext(), "clicked:"+ event.getEvent_name(), Toast.LENGTH_SHORT).show();
 
             }});
 
 
         return events;
     }
-    private List<Event> getEvents()
+    private List<Event> getEvents() {
+        return Event.getevents();
+    }
+   /* private List<Event> getEvents()
     {
         List<Event> emps = new ArrayList<Event>();
-        Event emp = new Event();
-        emp.setName("Cycle Race");
-        emp.setType("18/01/2007");
-        emp.setDiscription("Schools for India is conducting the Annual International Cycle race, called the ICR on ECR");
-        emp.setPlace1("Chennai");
-        emp.setImageURL(R.drawable.schoolseventpast);
-        emps.add(emp);
+        Event event = new Event();
+        event.setEvent_name("Cycle Race");
+        event.setEvent_date("18/01/2007");
+        event.setEvent_description("Schools for India is conducting the Annual International Cycle race, called the ICR on ECR");
+        event.setLocation("Chennai");
+       // event.setImage_url(R.drawable.schoolseventpast);
+        emps.add(event);
 
 //        emp = new Event();
 //        emp.setName("Cricket");
@@ -85,5 +87,5 @@ public class Events extends Fragment {
 //        emps.add(emp);
         return emps;
 
-    }
+    }*/
 }

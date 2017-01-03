@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.datamodel.Event;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -50,18 +51,32 @@ public class EventsAdapter extends ArrayAdapter<Event> {
             holder.nameView = (TextView) vw.findViewById(R.id.textViewNameevent);
             holder.typeview = (TextView) vw.findViewById(R.id.textViewdate);
             holder.disview = (TextView) vw.findViewById(R.id.textViewDescription);
-            holder.place=(TextView) vw.findViewById(R.id.place1) ;
+            holder.place = (TextView) vw.findViewById(R.id.place1);
             holder.imgview = (ImageView) vw.findViewById(R.id.imagenotify);
             // Picasso.with(mContext).load(R.drawable.ic_launcher).resize(130, 130).transform(new CircleTransform()).into(holder.imgview);
             vw.setTag(holder);
         } else {
             holder = (ViewHolder) vw.getTag();
         }
-        holder.nameView.setText(even.getName());
-        holder.typeview.setText(even.getType());
-        holder.imgview.setImageResource(even.getImageURL());
-        holder.disview.setText(even.getDiscription());
-        holder.place.setText(even.getPlace1());
+
+
+        //SimpleDateFormat df = new SimpleDateFormat("MMM d, yyyy");
+      //  String timeStamp = new SimpleDateFormat("dd-MM-yyyy").format(even.getEvent_date());
+        // String timeStamp = new SimpleDateFormat("dd-MM-yyyy").format(even.getEvent_date());
+        holder.typeview.setText(even.getEvent_date());
+
+        //  holder.typeview.setText(even.getEvent_date());
+        String url1 = even.getImage_url();
+        if (url1 != null && url1.length() > 0) {
+            Picasso.with(mContext).load(even.getImage_url()).resize(80, 80).transform(new CircleTransform())
+                    .into(holder.imgview);
+        } else {
+            Picasso.with(mContext).load(R.drawable.schoolseventpast).resize(80, 80).transform(new CircleTransform())
+                    .into(holder.imgview);
+        }
+       /* Picasso.with(mContext).load(R.drawable.schoolseventpast).resize(130, 130).transform(new CircleTransform()).into(holder.imgview);*/
+        holder.disview.setText(even.getEvent_description());
+        holder.place.setText(even.getLocation());
         return vw;
 
 

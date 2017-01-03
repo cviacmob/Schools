@@ -10,7 +10,11 @@ import android.widget.TextView;
 
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.datamodel.Currentevent;
+import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -39,7 +43,7 @@ public class Currenteventadapter extends ArrayAdapter<Currentevent> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View vw = convertView;
         ViewHolder holder;
-        Currentevent emp= emps.get(position);
+        Currentevent current= emps.get(position);
         if(convertView==null){
 
             LayoutInflater inf = LayoutInflater.from(getContext());
@@ -63,12 +67,30 @@ public class Currenteventadapter extends ArrayAdapter<Currentevent> {
         {
             holder=(ViewHolder)vw.getTag();
         }
+//Currentevent currentevent = new Currentevent();
+        Date date = null;
+        holder.nameView.setText(current.getEvent_name());
+        holder.mobile.setText(current.getEvent_description());
+        holder.place.setText(current.getLocation());
+        String dateString = current.getEvent_date();
 
-        holder.nameView.setText(emp.getName());
-        holder.mobile.setText(emp.getSports2());
-        holder.place.setText(emp.getPlace());
-        holder.sports.setText(emp.getSports());
-        holder.empimage.setImageResource(emp.getImageURL());
+        Date timeStamp = null;
+        try {
+            timeStamp = new SimpleDateFormat("MM/dd/yyyy").parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        holder.sports.setText(timeStamp.toString());
+        String url1 = current.getImage_url();
+
+        if (url1 != null && url1.length() > 0) {
+            //url1 = url1.replace("localhost","192.168.42.50");
+            Picasso.with(mContext).load(current.getImage_url()).resize(80, 80).transform(new CircleTransform())
+                    .into(holder.empimage);
+        } else {
+            Picasso.with(mContext).load(R.drawable.schoolseventscurrent).resize(80, 80).transform(new CircleTransform())
+                    .into(holder.empimage);
+        }
         return vw;
 
     }

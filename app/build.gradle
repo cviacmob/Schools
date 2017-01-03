@@ -40,7 +40,7 @@ dependencies {
     compile 'com.google.firebase:firebase-database:9.6.0'
     compile 'com.firebaseui:firebase-ui-database:0.4.0'
     compile 'com.android.support:multidex:1.0.1'
-
+    compile 'com.michaelpardo:activeandroid:3.1.0-SNAPSHOT'
 
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta4'
     compile 'com.squareup.okhttp3:okhttp:3.1.2'

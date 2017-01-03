@@ -80,7 +80,7 @@ public class Contactus extends AppCompatActivity {
             }
         });
 
-        phon = (EditText) findViewById(R.id.msgedit);
+        phon = (EditText) findViewById(R.id.subedit);
          b1=(Button)findViewById(R.id.button1);
         b1.setOnClickListener(new OnClickListener(){
             public void onClick(View v) {
@@ -191,7 +191,7 @@ public class Contactus extends AppCompatActivity {
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.134")
+                .baseUrl("http:/192.168.42.50")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();

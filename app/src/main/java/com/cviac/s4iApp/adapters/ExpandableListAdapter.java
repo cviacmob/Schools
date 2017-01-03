@@ -25,6 +25,7 @@ import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.datamodel.Profile;
 import com.cviac.s4iApp.sfiapi.MembershipApi;
 import com.cviac.s4iApp.sfiapi.MyProfileApi;
+import com.cviac.s4iApp.sfiapi.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
 
@@ -315,20 +316,19 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 MyProfileApi profile =new MyProfileApi();
                                 profile.setMemID(memId);
 
-                                if(groupPosition==1){
-                                    if(childPosition==0){
+                                if(groupPosition==1) {
+                                    if (childPosition == 0) {
                                         String pro = userInput.getText().toString();
                                         profile.setName(pro);
-                                    }
-                                    else if(childPosition==1){
+                                    } else if (childPosition == 1) {
                                         String pro1 = userInput.getText().toString();
                                         profile.setEmailID(pro1);
-                                    }
-                                    else if (childPosition==2){
+                                    } else if (childPosition == 2) {
                                         String pro2 = userInput.getText().toString();
                                         profile.setMobile(pro2);
                                     }
-                                    else if (groupPosition==2){
+                                }
+                                else if (groupPosition==2){
                                         if (childPosition==0){
                                             String pro3 =userInput.getText().toString();
                                             profile.setAddress1(pro3);
@@ -343,7 +343,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                             profile.setPin(pro5);
                                         }
                                     }
-                                    if (groupPosition==3){
+                              else if (groupPosition==3){
                                         if (childPosition==0){
                                             String pro6 =userInput.getText().toString();
                                             profile.setComp_address1(pro6);
@@ -358,8 +358,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                         }
                                     }
 
-                                }
-                                mypreg(profile);
+                                  mypreg(profile);
                             }
                         })
                 .setNegativeButton("Cancel",
@@ -484,7 +483,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 if(groupPosition==0) {
                                     if (childPosition == 1) {
                                         String state2 = sp4.getSelectedItem().toString();
-                                        profile.setMemType(state2);
+                                        profile.setMemPeriod(state2);
                                     }
                                 }
                                 mypreg(profile);
@@ -744,15 +743,15 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.134")
+                .baseUrl("http:/192.168.42.50")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();
         SFIApi api = retrofit.create(SFIApi.class);
-        final Call<MyProfileApi> call = api.myprofilereg(profile);
-        call.enqueue(new Callback<MyProfileApi>() {
+        final Call<RegisterResponse> call = api.myprofilereg(profile);
+        call.enqueue(new Callback<RegisterResponse>() {
             @Override
-            public void onResponse(Response<MyProfileApi> response, Retrofit retrofit) {
+            public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
                 Toast.makeText(context, "Apply Success", Toast.LENGTH_SHORT).show();
             }
 

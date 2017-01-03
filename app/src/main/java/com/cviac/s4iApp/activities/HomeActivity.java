@@ -13,11 +13,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cviac.s4iApp.R;
+import com.cviac.s4iApp.datamodel.Currentevent;
+import com.cviac.s4iApp.datamodel.Event;
+import com.cviac.s4iApp.sfiapi.SFIApi;
+
+import java.util.List;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 public class HomeActivity extends AppCompatActivity {
-
+    List<Event> evenlist;
+    List<Currentevent> currentlist;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -38,7 +51,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setTitle("Events");
-
+        getevents();
+        getCurrent();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -54,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-       // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        // FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -64,7 +78,6 @@ public class HomeActivity extends AppCompatActivity {
 //        });
 
     }
-
 
 
 //    @Override
@@ -157,6 +170,80 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
+    private void getCurrent(){
+        Retrofit ret = new Retrofit.Builder()
+                .baseUrl("http://192.168.42.105")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        SFIApi api = ret.create(SFIApi.class);
+        final Call<List<Currentevent>> call =api.getCurrent();
+        call.enqueue(new Callback<List<Currentevent>>() {
+            @Override
+            public void onResponse(Response<List<Currentevent>> response, Retrofit retrofit) {
+                currentlist =response.body();
+                currentsavedinfo(currentlist);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast.makeText(HomeActivity.this, "API Invoke Error :" + t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
 
+    }
+
+    private void currentsavedinfo(List<Currentevent> currentinfo){
+        for (Currentevent cinfo : currentlist){
+            Currentevent cntevent =new Currentevent();
+            cntevent.setEvent_name(cinfo.getEvent_name());
+            cntevent.setEvent_description(cinfo.getEvent_description());
+            cntevent.setLocation(cinfo.getLocation());
+            cntevent.setEvent_date(cinfo.getEvent_date());
+            cntevent.setImage_url(cinfo.getImage_url());
+            cntevent.save();
+
+        }
+    }
+
+    private void getevents() {
+        Retrofit ret = new Retrofit.Builder()
+                .baseUrl("http://192.168.42.105")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+
+        SFIApi api = ret.create(SFIApi.class);
+        final Call<List<Event>> call = api.getEvents();
+        call.enqueue(new Callback<List<Event>>() {
+            @Override
+            public void onResponse(Response<List<Event>> response, Retrofit retrofit) {
+                evenlist = response.body();
+
+                saveeventInfo(evenlist);
+            }
+
+
+            @Override
+            public void onFailure(Throwable throwable) {
+
+                Toast.makeText(HomeActivity.this, "API Invoke Error :" + throwable.getMessage(), Toast.LENGTH_SHORT).show();
+                //emps = null;
+            }
+        });
+    }
+
+    private void saveeventInfo(List<Event> empInfos) {
+        for (Event empinfo : evenlist) {
+            Event emp = new Event();
+            emp.setEvent_name(empinfo.getEvent_name());
+            emp.setEvent_description(empinfo.getEvent_description());
+            emp.setLocation(empinfo.getLocation());
+            emp.setEvent_date(empinfo.getEvent_date());
+            emp.setImage_url(empinfo.getImage_url());
+            emp.save();
+
+        }
+    }
 }

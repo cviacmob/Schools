@@ -1,55 +1,73 @@
 package com.cviac.s4iApp.datamodel;
 
 
-public class Currentevent {
-    private String sports;
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
 
-    private String name;
+import java.util.List;
 
-    private String sports2;
+@Table(name = "currentevents")
+public class Currentevent  extends Model {
+    @Column(name = "event_name")
+    private String event_name;
+    @Column(name = "event_date")
+    private String event_date;
+    @Column(name = "event_description")
+    private String event_description;
+    @Column(name = "location")
+    private String location;
+    @Column(name = "image_url")
+    private String image_url;
 
-    private String place;
 
-    private  int ImageURL;
-
-    public Currentevent() {
-        // TODO Auto-generated constructor stub
+    public String getEvent_name() {
+        return event_name;
     }
 
-    public String getSports2() {
-        return sports2;
+    public void setEvent_name(String event_name) {
+        this.event_name = event_name;
     }
 
-    public String getSports() {
-        return sports;
+    public String getEvent_date() {
+        return event_date;
     }
 
-    public  String getPlace() {return place;}
+    public void setEvent_date(String event_date) {
+        this.event_date = event_date;
+    }
 
-    public int getImageURL() {  return ImageURL;    }
+    public String getEvent_description() {
+        return event_description;
+    }
 
-    public String getName() {
-        return name;
+    public void setEvent_description(String event_description) {
+        this.event_description = event_description;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 
 
+    public static List<Currentevent> getcurrentevents() {
+        return  new Select()
+                .from(Currentevent.class)
+                .orderBy("event_date DESC")
+                .execute();
 
-    public void setSports2(String sports2) {
-        this.sports2 = sports2;
     }
-
-    public void setSports(String sports) {
-        this.sports = sports;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPlace(String place) {this.place =place;}
-
-    public void setImageURL(int ImageURL) {
-        this.ImageURL = ImageURL;
-    }
-
 }
