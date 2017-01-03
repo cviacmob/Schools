@@ -5,50 +5,53 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="24579503780888"
+    timestamp="8342312280648"
     token="4486336827565665062"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="679" />
+        duration="271" />
     <task
         name="instant-run-dex"
-        duration="31" />
+        duration="83" />
     <task
         name="instant-run-transform"
-        duration="45" />
+        duration="58" />
     <task
         name="verifier"
-        duration="1" />
+        duration="6" />
 
     <artifact
         location="D:\works\Schools\app\build\intermediates\reload-dex\debug\classes.dex"
         type="RELOAD_DEX" />
 
     <build
-        timestamp="20647457183431"
+        timestamp="2010135884455"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\works\Schools\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="20834527058661"
+        timestamp="6651526684803"
+        verifier="FIELD_TYPE_CHANGE" >
+        <artifact
+            location="D:\works\Schools\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_3\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="8241453713497"
         verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\works\Schools\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+            type="DEX" />
         <artifact
             location="D:\works\Schools\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
             type="DEX" />
     </build>
     <build
-        timestamp="23785412545484"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="D:\works\Schools\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
-            type="DEX" />
-    </build>
-    <build
-        timestamp="24579503780888"
+        timestamp="8342312280648"
         verifier="COMPATIBLE" >
         <artifact
             location="D:\works\Schools\app\build\intermediates\reload-dex\debug\classes.dex"

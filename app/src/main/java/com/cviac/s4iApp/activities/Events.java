@@ -12,18 +12,25 @@ import android.widget.Toast;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.EventsAdapter;
 import com.cviac.s4iApp.datamodel.Event;
+import com.cviac.s4iApp.sfiapi.SFIApi;
 
 import java.util.List;
 
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
+
 
 public class Events extends Fragment {
-
+    List<Event> evenlist;
     private ListView lv1;
     List<Event> emps;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        getevents();
 
         View events = inflater.inflate(R.layout.events_frgs, container, false);
         //((TextView)event.findViewById(R.id.events)).setText("Events");
@@ -88,4 +95,43 @@ public class Events extends Fragment {
         return emps;
 
     }*/
+   private void getevents() {
+       Retrofit ret = new Retrofit.Builder()
+               .baseUrl("http://192.168.42.75")
+               .addConverterFactory(GsonConverterFactory.create())
+               .build();
+
+
+       SFIApi api = ret.create(SFIApi.class);
+       final Call<List<Event>> call = api.getEvents();
+       call.enqueue(new Callback<List<Event>>() {
+           @Override
+           public void onResponse(Response<List<Event>> response, Retrofit retrofit) {
+               evenlist = response.body();
+               Event.deleteAll();
+               saveeventInfo(evenlist);
+           }
+
+
+           @Override
+           public void onFailure(Throwable throwable) {
+
+             /*  Toast.makeText(Events.this, "API Invoke Error :" + throwable.getMessage(), Toast.LENGTH_SHORT).show();*/
+               //emps = null;
+           }
+       });
+   }
+
+    private void saveeventInfo(List<Event> empInfos) {
+        for (Event empinfo : evenlist) {
+            Event emp = new Event();
+            emp.setEvent_name(empinfo.getEvent_name());
+            emp.setEvent_description(empinfo.getEvent_description());
+            emp.setLocation(empinfo.getLocation());
+            emp.setEvent_date(empinfo.getEvent_date());
+            emp.setImage_url(empinfo.getImage_url());
+            emp.save();
+
+        }
+    }
 }

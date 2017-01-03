@@ -4,8 +4,10 @@ package com.cviac.s4iApp.datamodel;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Delete;
 import com.activeandroid.query.Select;
 
+import java.util.Date;
 import java.util.List;
 
 @Table(name = "currentevents")
@@ -13,7 +15,7 @@ public class Currentevent  extends Model {
     @Column(name = "event_name")
     private String event_name;
     @Column(name = "event_date")
-    private String event_date;
+    private Date event_date;
     @Column(name = "event_description")
     private String event_description;
     @Column(name = "location")
@@ -30,11 +32,11 @@ public class Currentevent  extends Model {
         this.event_name = event_name;
     }
 
-    public String getEvent_date() {
+    public Date getEvent_date() {
         return event_date;
     }
 
-    public void setEvent_date(String event_date) {
+    public void setEvent_date(Date event_date) {
         this.event_date = event_date;
     }
 
@@ -69,5 +71,8 @@ public class Currentevent  extends Model {
                 .orderBy("event_date DESC")
                 .execute();
 
+    }
+    public static void deleteAll(){
+        new Delete().from(Currentevent.class).execute();
     }
 }

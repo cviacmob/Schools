@@ -46,7 +46,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Activity context;
     private Map<String, List<String>> laptopCollections;
     private List<String> laptops;
-
     private EditText result;
 
     public ExpandableListAdapter(Activity context, List<String> laptops,
@@ -743,7 +742,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.50")
+                .baseUrl("http:/192.168.42.75")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();

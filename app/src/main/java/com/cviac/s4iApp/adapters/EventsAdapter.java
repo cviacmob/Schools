@@ -12,6 +12,8 @@ import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.datamodel.Event;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -59,11 +61,11 @@ public class EventsAdapter extends ArrayAdapter<Event> {
             holder = (ViewHolder) vw.getTag();
         }
 
-
+        String timeStamp = new SimpleDateFormat("yyyy-MMM-dd").format(new Date(even.getEvent_date().toString()));
         //SimpleDateFormat df = new SimpleDateFormat("MMM d, yyyy");
       //  String timeStamp = new SimpleDateFormat("dd-MM-yyyy").format(even.getEvent_date());
         // String timeStamp = new SimpleDateFormat("dd-MM-yyyy").format(even.getEvent_date());
-        holder.typeview.setText(even.getEvent_date());
+        holder.typeview.setText(timeStamp);
 
         //  holder.typeview.setText(even.getEvent_date());
         String url1 = even.getImage_url();

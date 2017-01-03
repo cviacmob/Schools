@@ -13,20 +13,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.datamodel.Currentevent;
 import com.cviac.s4iApp.datamodel.Event;
-import com.cviac.s4iApp.sfiapi.SFIApi;
 
 import java.util.List;
-
-import retrofit.Call;
-import retrofit.Callback;
-import retrofit.GsonConverterFactory;
-import retrofit.Response;
-import retrofit.Retrofit;
 
 public class HomeActivity extends AppCompatActivity {
     List<Event> evenlist;
@@ -51,9 +43,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setTitle("Events");
-        getevents();
-        getCurrent();
-
+       /* getevents();*/
+       /* getCurrent();
+*/
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -170,9 +162,9 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
-    private void getCurrent(){
+   /* private void getCurrent(){
         Retrofit ret = new Retrofit.Builder()
-                .baseUrl("http://192.168.42.105")
+                .baseUrl("http://192.168.42.66")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = ret.create(SFIApi.class);
@@ -205,11 +197,11 @@ public class HomeActivity extends AppCompatActivity {
             cntevent.save();
 
         }
-    }
+    }*/
 
-    private void getevents() {
+  /*  private void getevents() {
         Retrofit ret = new Retrofit.Builder()
-                .baseUrl("http://192.168.42.105")
+                .baseUrl("http://192.168.42.66")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -245,5 +237,5 @@ public class HomeActivity extends AppCompatActivity {
             emp.save();
 
         }
-    }
+    }*/
 }

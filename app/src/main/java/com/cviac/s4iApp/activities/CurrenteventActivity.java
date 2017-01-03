@@ -12,8 +12,15 @@ import android.widget.Toast;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.Currenteventadapter;
 import com.cviac.s4iApp.datamodel.Currentevent;
+import com.cviac.s4iApp.sfiapi.SFIApi;
 
 import java.util.List;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 /**
  * Created by john on 11/25/2016.
@@ -22,7 +29,7 @@ import java.util.List;
 public class CurrenteventActivity extends Fragment {
     private ListView lv;
     List<Currentevent> emps;
-
+    List<Currentevent> currentlist;
 
 
 
@@ -35,7 +42,7 @@ public class CurrenteventActivity extends Fragment {
         lv.setDivider(null);
         emps=getCollegues();
         lv.setAdapter(new Currenteventadapter(emps,getActivity().getApplicationContext()));
-
+        getCurrent();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -63,46 +70,43 @@ public class CurrenteventActivity extends Fragment {
         return Currentevent.getcurrentevents();
     }
 
-  /*  private List<Currentevent> getCollegues()
-    {
-        List<Currentevent> emps = new ArrayList<Currentevent>();
 
-        Currentevent currentevent = new Currentevent();
-        currentevent.setEvent_name("Cycle Race");
-        currentevent.setEvent_date("30/01/2011");
-        currentevent.setEvent_description("Schools for India conducted the 3rd International Cycle Race on East Coast Road, Chennai India.");
-        currentevent.setLocation("Chennai");
+    private void getCurrent(){
+        Retrofit ret = new Retrofit.Builder()
+                .baseUrl("http://192.168.42.75")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        SFIApi api = ret.create(SFIApi.class);
+        final Call<List<Currentevent>> call =api.getCurrent();
+        call.enqueue(new Callback<List<Currentevent>>() {
+            @Override
+            public void onResponse(Response<List<Currentevent>> response, Retrofit retrofit) {
+                currentlist =response.body();
+                Currentevent.deleteAll();
+                currentsavedinfo(currentlist);
+            }
 
-       //
-        // currentevent.setImage_url(R.drawable.schoolseventscurrent);
-        emps.add(currentevent);
+            @Override
+            public void onFailure(Throwable t) {
+               /* Toast.makeText(CurrenteventActivity.this, "API Invoke Error :" + t.getMessage(), Toast.LENGTH_SHORT).show();
+*/
+            }
+        });
 
-//        emp = new Currentevent();
-//        emp.setName("Cricket");
-//        emp.setSports("02/10/2016");
-//        emp.setSports2("Conducting Cricket");
-//        emp.setPlace("Banaglure");
-//        emp.setImageURL(R.drawable.cricket);
-//        emps.add(emp);
-//
-//        emp = new Currentevent();
-//        emp.setName("VolleyBall");
-//        emp.setSports("15/10/2016");
-//        emp.setSports2("Conducting VolleyBall");
-//        emp.setPlace("Mumabai");
-//        emp.setImageURL(R.drawable.volleyball);
-//        emps.add(emp);
-//
-//        emp = new Currentevent();
-//        emp.setName("FoodBall");
-//        emp.setSports("23/01/2016");
-//        emp.setSports2("Conducting FoodBall");
-//        emp.setPlace("Delhi");
-//        emp.setImageURL(R.drawable.footbal);
-//        emps.add(emp);
-
-        return emps;
 
     }
-*/
+
+    private void currentsavedinfo(List<Currentevent> currentinfo){
+        for (Currentevent cinfo : currentlist){
+            Currentevent cntevent =new Currentevent();
+            cntevent.setEvent_name(cinfo.getEvent_name());
+            cntevent.setEvent_description(cinfo.getEvent_description());
+            cntevent.setLocation(cinfo.getLocation());
+            cntevent.setEvent_date(cinfo.getEvent_date());
+            cntevent.setImage_url(cinfo.getImage_url());
+            cntevent.save();
+
+        }
+    }
+
 }
