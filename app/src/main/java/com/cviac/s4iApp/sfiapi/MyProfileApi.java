@@ -1,24 +1,41 @@
 package com.cviac.s4iApp.sfiapi;
 
+import com.activeandroid.annotation.Column;
+
 /**
  * Created by john on 12/28/2016.
  */
 
 public class MyProfileApi {
+    @Column(name = "MemPeriod")
     private String MemPeriod;
+    @Column(name = "MemType")
     private String MemType;
+    @Column(name = "name")
     private String name;
+    @Column(name = "EmailID")
     private String EmailID;
+    @Column(name = "Mobile")
     private String Mobile;
+    @Column(name = "gender")
     private String gender;
+    @Column(name = "address1")
     private String address1;
+    @Column(name = "address2")
     private String address2;
+    @Column(name = "state")
     private String state;
+    @Column(name = "pin")
     private String pin;
+    @Column(name = "Com_address1")
     private String Comp_address1;
+    @Column(name = "Com_address2")
     private String Comp_address2;
+    @Column(name = "Com_state")
     private String Comp_state;
+    @Column(name = "Com_pin")
     private String Comp_pin;
+    @Column(name = "MemId",index = true)
     private String MemID;
 
 

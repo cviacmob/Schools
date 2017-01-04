@@ -3,148 +3,170 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    
-    
-  >
+    android:padding="5dp">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout1"
+    <TextView
+        android:id="@+id/schl"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="wrap_content"
+        android:text="For Building 10 Schools"/>
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="For Bulding 10 Schools  RS 200 Crs"
-            android:textColor="#000000"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="18dp" />
+    <TextView
+        android:id="@+id/amnt1"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="22dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/schl"
+        android:text="Textview"/>
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Unit/Block"
-            android:textColor="#000000"
-            android:layout_below="@+id/textView1"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="15dp" />
+    <TextView
+        android:id="@+id/unitblock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/schl"
+        android:layout_marginTop="20dp"
+        android:text="Unit/Block"/>
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="For One School                RS 14 Crs"
-            android:textColor="#000000"
-            android:layout_below="@+id/textView2"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="15dp" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Class Room"
-            android:textColor="#000000"
-            android:layout_below="@+id/textView3"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="14dp" />
+    <TextView
+        android:id="@+id/onescls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/unitblock"
+        android:layout_marginTop="20dp"
+        android:text="For one Schools"/>
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="For a Class Room             RS 10 Lks "
-            android:textColor="#000000"
-            android:layout_below="@+id/textView4"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="17dp" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Donate Brick"
-            android:textColor="#000000"
-            android:layout_below="@+id/textView5"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="15dp" />
+    <TextView
+        android:id="@+id/amnt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:text="Textview"
+       android:layout_toRightOf="@+id/onescls"
+        android:layout_alignTop="@+id/onescls"/>
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
+    <TextView
+        android:id="@+id/clsroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/onescls"
+        android:layout_marginTop="20dp"
+        android:text="Class Room"/>
 
-            android:layout_marginTop="16dp"
-            android:text="For One Brick                    RS 25 "
-            android:layout_below="@+id/textView6"
-            android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/forroom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clsroom"
+        android:layout_marginTop="20dp"
+        android:text="For a Class Room" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
+    <TextView
+        android:id="@+id/amt3"
+        android:layout_marginLeft="60dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Textview"
+        android:layout_toRightOf="@+id/forroom"
+        android:layout_alignTop="@+id/forroom"/>
 
-            android:layout_marginTop="12dp"
-            android:text="Adopt a Child"
-            android:layout_below="@+id/textView7"
-            android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/brick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/forroom"
+        android:layout_marginTop="20dp"
+        android:text="Donate Brick"/>
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
+    <TextView
+        android:id="@+id/onebrick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/brick"
+        android:layout_marginTop="20dp"
+        android:text="For one Bick"/>
 
-              android:layout_marginTop="14dp"
-            android:text="Annual                                RS 25000"
-            android:layout_below="@+id/textView8"
-            android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/amt4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Textview"
+        android:layout_toRightOf="@id/onebrick"
+        android:layout_alignTop="@+id/onebrick"
+        android:layout_marginLeft="90dp"
+        />
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
+    <TextView
+        android:id="@+id/adochild"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/onebrick"
+        android:layout_marginTop="20dp"
+        android:text="Adopt a Child"   />
 
-              android:layout_marginTop="15dp"
-            android:text="Be a Friend"
-            android:layout_below="@+id/textView9"
-            android:layout_alignParentStart="true" />
+    <TextView
+        android:id="@+id/annual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/adochild"
+        android:layout_marginTop="20dp"
+        android:text="Annual"   />
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
+    <TextView
+        android:id="@+id/amt5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Textview"
+        android:layout_toRightOf="@id/annual"
+        android:layout_alignTop="@+id/annual"
+        android:layout_marginLeft="123dp"  />
 
-            android:text="Annual                                RS 3600"
-            android:layout_below="@+id/textView10"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="18dp" />
+    <TextView
+        android:id="@+id/frd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/annual"
+        android:layout_marginTop="20dp"
+        android:text="Be a Frient"   />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="#000000"
+    <TextView
+        android:id="@+id/frdannual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/frd"
+        android:layout_marginTop="20dp"
+        android:text="Annual"   />
 
-            android:text="Monthly                              RS 300"
-            android:layout_below="@+id/textView11"
-            android:layout_alignParentStart="true"
-            android:layout_marginTop="23dp" />
+    <TextView
+        android:id="@+id/amt6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Textview"
+        android:layout_toRightOf="@id/frdannual"
+        android:layout_alignTop="@+id/frdannual"
+        android:layout_marginLeft="123dp"  />
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/frdmonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/frdannual"
+        android:layout_marginTop="20dp"
+        android:text="Monthly"   />
+
+
+    <TextView
+        android:id="@+id/amt7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Textview"
+        android:layout_toRightOf="@id/frdmonth"
+        android:layout_alignTop="@+id/frdmonth"
+        android:layout_marginLeft="118dp"  />
+
+
 
 </RelativeLayout>

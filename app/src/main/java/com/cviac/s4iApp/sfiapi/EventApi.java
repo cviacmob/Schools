@@ -1,8 +1,11 @@
+/*
 package com.cviac.s4iApp.sfiapi;
 
+*/
 /**
  * Created by john on 1/2/2017.
- */
+ *//*
+
 
 public class EventApi {
     private String event_name;
@@ -54,3 +57,4 @@ public class EventApi {
 
 
 }
+*/

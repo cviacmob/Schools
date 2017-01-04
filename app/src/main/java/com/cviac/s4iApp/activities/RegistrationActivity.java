@@ -201,7 +201,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
 
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://192.168.42.66")
+                            .baseUrl("http://192.168.42.22")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();

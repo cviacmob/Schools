@@ -1,15 +1,38 @@
 package com.cviac.s4iApp.activities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
+import com.cviac.s4iApp.datamodel.MemberFeeInfo;
+import com.cviac.s4iApp.datamodel.Membershipfees;
+import com.cviac.s4iApp.sfiapi.SFIApi;
+
+import java.util.List;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 public class MembershipFeeActivity extends AppCompatActivity
 {
-
+    Membershipfees memberfee;
+    ProgressDialog progressDialog;
+    String feeid = Prefs.getString("Pid","");
+    public TextView tenscltxt;
+    public TextView onescltxt;
+    public TextView clstxt;
+    public TextView bricktxt;
+    public TextView annualtxt;
+    public TextView frdannaultxt;
+    public TextView frdmonthtxt;
     Button button2;
 
     @Override
@@ -19,6 +42,16 @@ public class MembershipFeeActivity extends AppCompatActivity
         setContentView(R.layout.membershipfee);
         setTitle("Membership fee");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       tenscltxt = (TextView)findViewById(R.id.amnt1);
+        onescltxt = (TextView)findViewById(R.id.amnt2);
+       clstxt = (TextView)findViewById(R.id.amt3);
+       bricktxt = (TextView)findViewById(R.id.amt4);
+       annualtxt = (TextView)findViewById(R.id.amt5);
+       frdannaultxt = (TextView)findViewById(R.id.amt6);
+       frdmonthtxt = (TextView)findViewById(R.id.amt7);
+
+
+        memberupdate(memberfee);
 
     }
     @Override
@@ -27,30 +60,52 @@ public class MembershipFeeActivity extends AppCompatActivity
         return true;
     }
 
-   /* private void contreg(ContactApi contact){
-        OkHttpClient okHttpClient = new OkHttpClient();
-        okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
-        okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
+    private void memberupdate(Membershipfees membershipfees){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/169.254.164.75")
+                .baseUrl("http:/192.168.42.22")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClient)
                 .build();
         SFIApi api = retrofit.create(SFIApi.class);
-        final Call<ContactApi> call = api.contatctreg(contact);
-        call.enqueue(new Callback<ContactApi>() {
+        setProgressDialog();
+        final Call<List<MemberFeeInfo>> call = api.getfeeinfo(feeid);
+        call.enqueue(new Callback<List<MemberFeeInfo>>() {
             @Override
-            public void onResponse(Response<ContactApi> response, Retrofit retrofit) {
-                Toast.makeText(Contactus.this, "Submited Successfully", Toast.LENGTH_LONG).show();
+            public void onResponse(Response<List<MemberFeeInfo>> response, Retrofit retrofit) {
+                if (progressDialog != null) {
+                    progressDialog.dismiss();
+                }
+                List<MemberFeeInfo> minfolist = response.body();
+                if (minfolist.size() > 0) {
+                    MemberFeeInfo info = minfolist.get(0);
+                    tenscltxt.setText(info.getTen_Schools());
+                    onescltxt.setText(info.getOne_School());
+                    clstxt.setText(info.getOne_Class());
+                    bricktxt.setText(info.getOne_Brick());
+                    annualtxt.setText(info.getAnnual_AdoptChild());
+                    frdannaultxt.setText(info.getAnnual());
+                    frdmonthtxt.setText(info.getMonthly());
+                }
+
             }
 
             @Override
             public void onFailure(Throwable t) {
-                Toast.makeText(Contactus.this, "Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                if (progressDialog != null) {
+                    progressDialog.dismiss();
+                    // progressDialog = null;
+                }
                 t.printStackTrace();
 
             }
         });
 
-    }*/
+    }
+    private void setProgressDialog() {
+        progressDialog = new ProgressDialog(MembershipFeeActivity.this,R.style.AppTheme_Dark_Dialog);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setMessage("Verifying...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
+
 }

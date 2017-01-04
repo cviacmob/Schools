@@ -72,7 +72,7 @@ public class Otpverification extends AppCompatActivity {
                     okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://192.168.42.66")
+                            .baseUrl("http://192.168.42.22")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
@@ -128,7 +128,7 @@ public class Otpverification extends AppCompatActivity {
                 okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
 
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://192.168.42.66")
+                        .baseUrl("http://192.168.42.22")
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(okHttpClient)
                         .build();
@@ -166,7 +166,7 @@ public class Otpverification extends AppCompatActivity {
     private void setProgressDialog() {
         progressDialog = new ProgressDialog(Otpverification.this,R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Verifying...");
+        progressDialog.setMessage("Waiting fees details");
         progressDialog.setCancelable(false);
         progressDialog.show();
     }
