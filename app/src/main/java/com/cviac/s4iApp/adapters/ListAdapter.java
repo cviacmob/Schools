@@ -23,7 +23,7 @@ import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.activities.MembershipActivity;
 import com.cviac.s4iApp.activities.TermActivity;
-import com.cviac.s4iApp.sfiapi.MembershipApi;
+import com.cviac.s4iApp.sfiapi.MembershipInfo;
 import com.cviac.s4iApp.sfiapi.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
@@ -160,7 +160,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                 }
 
                 String memId = Prefs.getString("MemId","");
-                MembershipApi info = new MembershipApi();
+                MembershipInfo info = new MembershipInfo();
                 info.setReg_type(regType);
                 info.setMemID(memId);
                 memRegister(info);
@@ -259,12 +259,12 @@ public class ListAdapter extends BaseExpandableListAdapter {
     }
 
 
-    private void memRegister(MembershipApi info) {
+    private void memRegister(MembershipInfo info) {
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.22")
+                .baseUrl("http:/192.168.42.32")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();

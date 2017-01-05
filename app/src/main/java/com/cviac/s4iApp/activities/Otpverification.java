@@ -72,7 +72,7 @@ public class Otpverification extends AppCompatActivity {
                     okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://192.168.42.22")
+                            .baseUrl("http://192.168.42.32")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
@@ -128,7 +128,7 @@ public class Otpverification extends AppCompatActivity {
                 okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
 
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://192.168.42.22")
+                        .baseUrl("http://192.168.42.32")
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(okHttpClient)
                         .build();
@@ -162,6 +162,8 @@ public class Otpverification extends AppCompatActivity {
                 });
             }
         });
+        /*Toast.makeText(getApplicationContext(), "Resend OTP Sucessfully " , Toast.LENGTH_SHORT ).show();*/
+
     }
     private void setProgressDialog() {
         progressDialog = new ProgressDialog(Otpverification.this,R.style.AppTheme_Dark_Dialog);

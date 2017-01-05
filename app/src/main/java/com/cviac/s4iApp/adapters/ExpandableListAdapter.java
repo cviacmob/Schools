@@ -22,10 +22,7 @@ import android.widget.Toast;
 
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
-import com.cviac.s4iApp.datamodel.Profile;
-import com.cviac.s4iApp.sfiapi.MembershipApi;
-import com.cviac.s4iApp.sfiapi.MyProfileApi;
-import com.cviac.s4iApp.sfiapi.RegisterResponse;
+import com.cviac.s4iApp.sfiapi.MyProfileInfo;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
 
@@ -41,19 +38,21 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
-    private Profile pr;
-    private MembershipApi pro;
+  //  private Profile pr;
+   // private MembershipInfo pro;
     private Activity context;
     private Map<String, List<String>> laptopCollections;
     private List<String> laptops;
     private EditText result;
-
+    private MyProfileInfo Mpi;
+    MyProfileInfo myProfile;
+    String memId = Prefs.getString("MemId","");
     public ExpandableListAdapter(Activity context, List<String> laptops,
-                                 Map<String, List<String>> laptopCollections, Profile pr) {
+                                 Map<String, List<String>> laptopCollections, MyProfileInfo Mpi) {
         this.context = context;
         this.laptopCollections = laptopCollections;
         this.laptops = laptops;
-        this.pr = pr;
+        this.Mpi = Mpi;
     }
 
     public Object getChild(int groupPosition, int childPosition) {
@@ -74,58 +73,58 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             case 1:
                 switch (childPosition) {
                     case 0:
-                        vw.setText(pr.getName() == null ? defvalue : pr.getName());
+                        vw.setText(Mpi.getFirstName() == null ? defvalue : Mpi.getFirstName());
                         break;
                     case 1:
-                        vw.setText(pr.getEmail() == null ? defvalue : pr.getEmail());
+                        vw.setText(Mpi.getEmailID2() == null ? defvalue : Mpi.getEmailID2());
                         break;
                     case 2:
-                        vw.setText(pr.getMobile() == null ? defvalue : pr.getMobile());
+                        vw.setText(Mpi.getMobile2() == null ? defvalue : Mpi.getMobile2());
                         break;
                     case 3:
-                        vw.setText(pr.getGender() == null ? defvalue : pr.getGender());
+                        vw.setText(Mpi.getGender() == null ? defvalue : Mpi.getGender());
                         break;
                 }
                 break;
             case 2:
                 switch (childPosition) {
                     case 0:
-                        vw.setText(pr.getAddress1() == null ? defvalue : pr.getAddress1());
+                        vw.setText(Mpi.getHouseNo() == null ? defvalue : Mpi.getHouseNo());
                         break;
                     case 1:
-                        vw.setText(pr.getAddress2() == null ? defvalue : pr.getAddress2());
+                        vw.setText(Mpi.getTown() == null ? defvalue : Mpi.getTown());
                         break;
                     case 2:
-                        vw.setText(pr.getCityState() == null ? defvalue : pr.getCityState());
+                        vw.setText(Mpi.getState() == null ? defvalue : Mpi.getState());
                         break;
                     case 3:
-                        vw.setText(pr.getZipCode() == null ? defvalue : pr.getZipCode());
+                        vw.setText(Mpi.getPIN() == null ? defvalue : Mpi.getPIN());
                         break;
                 }
                 break;
             case 3:
                 switch (childPosition) {
                     case 0:
-                        vw.setText(pr.getOAddress1() == null ? defvalue : pr.getOAddress1());
+                        vw.setText(Mpi.getCompNumber() == null ? defvalue : Mpi.getCompNumber());
                         break;
                     case 1:
-                        vw.setText(pr.getOAddress2() == null ? defvalue : pr.getOAddress2());
+                        vw.setText(Mpi.getCompTown() == null ? defvalue : Mpi.getCompTown());
                         break;
                     case 2:
-                        vw.setText(pr.getCityState2() == null ? defvalue : pr.getCityState2());
+                        vw.setText(Mpi.getCompState() == null ? defvalue : Mpi.getCompState());
                         break;
                     case 3:
-                        vw.setText(pr.getOZipcode() == null ? defvalue : pr.getOZipcode());
+                        vw.setText(Mpi.getCompPIN() == null ? defvalue : Mpi.getCompPIN());
                         break;
                 }
                 break;
             case 0:
                 switch (childPosition) {
                     case 0:
-                        vw.setText(pr.getMembershipType() == null ? defvalue : pr.getMembershipType());
+                        vw.setText(Mpi.getMemType() == null ? defvalue : Mpi.getMemType());
                         break;
                     case 1:
-                        vw.setText(pr.getMembershipPeriod() == null ? defvalue : pr.getMembershipPeriod());
+                        vw.setText(Mpi.getMemPlan() == null ? defvalue : Mpi.getMemPlan());
                         break;
                    /* case 2:
                         vw.setText(pr.getDoj() == null ? defvalue : pr.getDoj());
@@ -140,58 +139,58 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             case 1:
                 switch (childPosition) {
                     case 0:
-                        pr.setName(vw.getText().toString());
+                        Mpi.setFirstName(vw.getText().toString());
                         break;
                     case 1:
-                        pr.setEmail(vw.getText().toString());
+                        Mpi.setEmailID2(vw.getText().toString());
                         break;
                     case 2:
-                        pr.setMobile(vw.getText().toString());
+                        Mpi.setMobile2(vw.getText().toString());
                         break;
                     case 3:
-                        pr.setGender(vw.getText().toString());
+                        Mpi.setGender(vw.getText().toString());
                         break;
                 }
                 break;
             case 2:
                 switch (childPosition) {
                     case 0:
-                        pr.setAddress1(vw.getText().toString());
+                        Mpi.setHouseNo(vw.getText().toString());
                         break;
                     case 1:
-                        pr.setAddress2(vw.getText().toString());
+                        Mpi.setTown(vw.getText().toString());
                         break;
                     case 2:
-                        pr.setCityState(vw.getText().toString());
+                        Mpi.setState(vw.getText().toString());
                         break;
                     case 3:
-                        pr.setZipCode(vw.getText().toString());
+                        Mpi.setPIN(vw.getText().toString());
                         break;
                 }
                 break;
             case 3:
                 switch (childPosition) {
                     case 0:
-                        pr.setOAddress1(vw.getText().toString());
+                        Mpi.setCompNumber(vw.getText().toString());
                         break;
                     case 1:
-                        pr.setOAddress2(vw.getText().toString());
+                        Mpi.setCompTown(vw.getText().toString());
                         break;
                     case 2:
-                        pr.setCityState2(vw.getText().toString());
+                        Mpi.setCompState(vw.getText().toString());
                         break;
                     case 3:
-                        pr.setOZipcode(vw.getText().toString());
+                        Mpi.setCompPIN(vw.getText().toString());
                         break;
                 }
                 break;
             case 0:
                 switch (childPosition) {
                     case 0:
-                        pr.setMembershipType(vw.getText().toString());
+                        Mpi.setMemType(vw.getText().toString());
                         break;
                     case 1:
-                        pr.setMembershipPeriod(vw.getText().toString());
+                        Mpi.setMemPlan(vw.getText().toString());
                         break;
                    /* case 2:
                         pr.setDoj(vw.getText().toString());
@@ -312,52 +311,60 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 item.setText(userInput.getText().toString());
                                 setProfileValue(groupPosition, childPosition, item);
                                 String memId = Prefs.getString("MemId","");
-                                MyProfileApi profile =new MyProfileApi();
+                                MyProfileInfo profile =new MyProfileInfo();
                                 profile.setMemID(memId);
 
                                 if(groupPosition==1) {
                                     if (childPosition == 0) {
                                         String pro = userInput.getText().toString();
-                                        profile.setName(pro);
+                                        profile.setFirstName(pro);
                                     } else if (childPosition == 1) {
                                         String pro1 = userInput.getText().toString();
-                                        profile.setEmailID(pro1);
+                                        profile.setEmailID2(pro1);
                                     } else if (childPosition == 2) {
                                         String pro2 = userInput.getText().toString();
-                                        profile.setMobile(pro2);
+                                        profile.setMobile2(pro2);
                                     }
                                 }
                                 else if (groupPosition==2){
                                         if (childPosition==0){
                                             String pro3 =userInput.getText().toString();
-                                            profile.setAddress1(pro3);
+                                            profile.setHouseNo(pro3);
+                                           /* userInput.setText(myProfile.getAddress1());*/
                                         }
                                         else if (childPosition==1){
                                             String pro4 = userInput.getText().toString();
-                                            profile.setAddress2(pro4);
-
+                                            profile.setTown(pro4);
+                                           /* userInput.setText(myProfile.getAddress2());*/
                                         }
                                         else if (childPosition==3){
                                             String pro5 = userInput.getText().toString();
-                                            profile.setPin(pro5);
+                                            profile.setPIN(pro5);
+                                           /* userInput.setText(myProfile.getPin());*/
                                         }
                                     }
                               else if (groupPosition==3){
                                         if (childPosition==0){
                                             String pro6 =userInput.getText().toString();
-                                            profile.setComp_address1(pro6);
+                                            profile.setCompNumber(pro6);
+                                            /*userInput.setText(myProfile.getComp_address1());*/
                                         }
                                         else if (childPosition==1){
                                             String pro7 = userInput.getText().toString();
-                                            profile.setComp_address2(pro7);
+                                            profile.setCompTown(pro7);
+                                           /* userInput.setText(myProfile.getComp_address2());*/
                                         }
                                         else if (childPosition==3){
                                             String pro8 = userInput.getText().toString();
-                                            profile.setComp_pin(pro8);
+                                            profile.setCompPIN(pro8);
+                                           /* userInput.setText(myProfile.getComp_pin());*/
                                         }
                                     }
 
                                   mypreg(profile);
+
+
+
                             }
                         })
                 .setNegativeButton("Cancel",
@@ -413,8 +420,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 item.setText(state);
                                 setProfileValue(groupPosition, childPosition, item);
                                 String memId = Prefs.getString("MemId","");
-                                MyProfileApi profile =new MyProfileApi();
+                                MyProfileInfo profile =new MyProfileInfo();
                                 profile.setMemID(memId);
+                                MyProfileInfo myProfile =new MyProfileInfo();
+
                                 if(groupPosition==0) {
                                     if (childPosition == 0) {
                                         String state1 = sp3.getSelectedItem().toString();
@@ -477,12 +486,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 item.setText(period);
                                 setProfileValue(groupPosition, childPosition, item);
                                 String memId = Prefs.getString("MemId","");
-                                MyProfileApi profile =new MyProfileApi();
+                                MyProfileInfo profile =new MyProfileInfo();
                                 profile.setMemID(memId);
                                 if(groupPosition==0) {
                                     if (childPosition == 1) {
                                         String state2 = sp4.getSelectedItem().toString();
-                                        profile.setMemPeriod(state2);
+                                        profile.setMemPlan(state2);
                                     }
                                 }
                                 mypreg(profile);
@@ -548,7 +557,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 item.setText(state + "/" + city);
                                 setProfileValue(groupPosition, childPosition, item);
                                 String memId = Prefs.getString("MemId","");
-                                MyProfileApi profile =new MyProfileApi();
+                                MyProfileInfo profile =new MyProfileInfo();
                                 profile.setMemID(memId);
                                 if(groupPosition==2) {
                                     if (childPosition == 2) {
@@ -616,17 +625,17 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 String state = sp.getSelectedItem().toString();
-                                String city = sp.getSelectedItem().toString();
+                                String city = spn.getSelectedItem().toString();
                                 item.setText(state + "/" + city);
                                 setProfileValue(groupPosition, childPosition, item);
                                 String memId = Prefs.getString("MemId","");
-                                MyProfileApi profile =new MyProfileApi();
+                                MyProfileInfo profile =new MyProfileInfo();
                                 profile.setMemID(memId);
                                 if(groupPosition==3) {
                                     if (childPosition == 2) {
                                         String state4 = sp.getSelectedItem().toString();
-                                        String city4 = sp.getSelectedItem().toString();
-                                        profile.setComp_state(state4 + "/" + city4);
+                                        String city4 = spn.getSelectedItem().toString();
+                                        profile.setCompState(state4 + "/" + city4);
                                     }
                                 }
                                 mypreg(profile);
@@ -689,7 +698,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 item.setText(value);
                                 setProfileValue(groupPosition, childPosition, item);
                                 String memId = Prefs.getString("MemId","");
-                                MyProfileApi profile =new MyProfileApi();
+                                MyProfileInfo profile =new MyProfileInfo();
                                 profile.setMemID(memId);
                                 if(groupPosition==1) {
                                     if (childPosition == 3) {
@@ -737,20 +746,20 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    private void mypreg(MyProfileApi profile){
+    private void mypreg(MyProfileInfo profile){
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.22")
+                .baseUrl("http:/192.168.42.32")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();
         SFIApi api = retrofit.create(SFIApi.class);
-        final Call<RegisterResponse> call = api.myprofilereg(profile);
-        call.enqueue(new Callback<RegisterResponse>() {
+        final Call<MyProfileInfo> call = api.updateProfile(profile);
+        call.enqueue(new Callback<MyProfileInfo>() {
             @Override
-            public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
+            public void onResponse(Response<MyProfileInfo> response, Retrofit retrofit) {
                 Toast.makeText(context, "Apply Success", Toast.LENGTH_SHORT).show();
             }
 
@@ -762,4 +771,5 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         });
 
     }
+
     }

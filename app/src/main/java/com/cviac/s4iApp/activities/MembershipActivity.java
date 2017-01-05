@@ -17,7 +17,7 @@ import android.widget.Toast;
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.SchoolsforIndia;
-import com.cviac.s4iApp.sfiapi.MembershipApi;
+import com.cviac.s4iApp.sfiapi.MembershipInfo;
 import com.cviac.s4iApp.sfiapi.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
@@ -86,12 +86,12 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                     okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http:/192.168.42.22")
+                            .baseUrl("http:/192.168.42.32")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
                     api = retrofit.create(SFIApi.class);
-                    MembershipApi membershipApi= new MembershipApi();
+                    MembershipInfo membershipApi= new MembershipInfo();
                     membershipApi.setMemState(state);
                     membershipApi.setMemDis(dis);
                     membershipApi.setMemPlan(plan);

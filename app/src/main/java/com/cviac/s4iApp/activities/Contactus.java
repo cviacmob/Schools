@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
-import com.cviac.s4iApp.sfiapi.ContactApi;
+import com.cviac.s4iApp.sfiapi.ContactInfo;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
 
@@ -120,7 +120,7 @@ public class Contactus extends AppCompatActivity {
 
 
                 String memId = Prefs.getString("MemId","");
-                ContactApi contact =new ContactApi();
+                ContactInfo contact =new ContactInfo();
                 contact.setName(nam);
                 contact.setMail(emai);
                 contact.setSubject(sub);
@@ -186,20 +186,20 @@ public class Contactus extends AppCompatActivity {
         onBackPressed();
         return true;
     }
-    private void contreg(ContactApi contact){
+    private void contreg(ContactInfo contact){
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.168")
+                .baseUrl("http:/192.168.42.32")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();
         SFIApi api = retrofit.create(SFIApi.class);
-        final Call<ContactApi> call = api.contatctreg(contact);
-        call.enqueue(new Callback<ContactApi>() {
+        final Call<ContactInfo> call = api.contatctreg(contact);
+        call.enqueue(new Callback<ContactInfo>() {
             @Override
-            public void onResponse(Response<ContactApi> response, Retrofit retrofit) {
+            public void onResponse(Response<ContactInfo> response, Retrofit retrofit) {
                 Toast.makeText(Contactus.this, "Submited Successfully", Toast.LENGTH_LONG).show();
             }
 

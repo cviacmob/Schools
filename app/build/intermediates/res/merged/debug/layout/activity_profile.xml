@@ -31,7 +31,6 @@
         android:id="@+id/LoadPicture1"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:background="@drawable/imggg"
         android:onClick="loadImagefromGallery"
         android:layout_marginStart="81dp"
         android:layout_alignBottom="@+id/imageView1"

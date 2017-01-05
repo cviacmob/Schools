@@ -73,20 +73,7 @@ public class Currenteventadapter extends ArrayAdapter<Currentevent> {
         holder.place.setText(current.getLocation());
         String timeStamp = new SimpleDateFormat("yyyy-MMM-dd").format(new Date(current.getEvent_date().toString()));
         holder.sports.setText(timeStamp);
-       /* String dateString = current.getEvent_date();
 
-        Date timeStamp = null;
-        try {
-            timeStamp = new SimpleDateFormat("MM/dd/yyyy").parse(dateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }*/
-       // String timeStamp = new SimpleDateFormat("dd-MM-yyyy").format(new Date(current.getEvent_date().toString()));
-/*String st=current.getEvent_date();
-        SimpleDateFormat dateFormatOfStringInDB = new SimpleDateFormat("MM/dd/yyyy");
-
-
-        holder.sports.setText(dateFormatOfStringInDB.format(st));*/
         String url1 = current.getImage_url();
 
         if (url1 != null && url1.length() > 0) {

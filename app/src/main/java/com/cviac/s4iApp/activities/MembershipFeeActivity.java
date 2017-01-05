@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.datamodel.MemberFeeInfo;
-import com.cviac.s4iApp.datamodel.Membershipfees;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 
 import java.util.List;
@@ -23,7 +22,7 @@ import retrofit.Retrofit;
 
 public class MembershipFeeActivity extends AppCompatActivity
 {
-    Membershipfees memberfee;
+    MemberFeeInfo memberfee;
     ProgressDialog progressDialog;
     String feeid = Prefs.getString("Pid","");
     public TextView tenscltxt;
@@ -60,9 +59,9 @@ public class MembershipFeeActivity extends AppCompatActivity
         return true;
     }
 
-    private void memberupdate(Membershipfees membershipfees){
+    private void memberupdate(MemberFeeInfo memberfeeinfo){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.22")
+                .baseUrl("http:/192.168.42.32")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = retrofit.create(SFIApi.class);

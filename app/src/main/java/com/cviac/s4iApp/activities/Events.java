@@ -97,7 +97,7 @@ public class Events extends Fragment {
     }*/
    private void getevents() {
        Retrofit ret = new Retrofit.Builder()
-               .baseUrl("http://192.168.42.22")
+               .baseUrl("http://192.168.42.32")
                .addConverterFactory(GsonConverterFactory.create())
                .build();
 

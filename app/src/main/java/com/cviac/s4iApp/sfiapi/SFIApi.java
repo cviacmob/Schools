@@ -3,14 +3,19 @@ package com.cviac.s4iApp.sfiapi;
 import com.cviac.s4iApp.datamodel.Currentevent;
 import com.cviac.s4iApp.datamodel.Event;
 import com.cviac.s4iApp.datamodel.MemberFeeInfo;
+import com.cviac.s4iApp.datamodel.ProfilePicUpload;
+import com.squareup.okhttp.RequestBody;
 
 import java.util.List;
 
 import retrofit.Call;
 import retrofit.http.Body;
 import retrofit.http.GET;
+import retrofit.http.Multipart;
 import retrofit.http.POST;
+import retrofit.http.Part;
 import retrofit.http.Path;
+import retrofit.http.Query;
 
 /**
  * Created by john on 12/14/2016.
@@ -25,16 +30,16 @@ public interface SFIApi {
     Call<VerifyResponse> verifyPin(@Body RegInfo regInfo);
 
     @POST("/S4I/S4Idbop.php/membership")
-    Call<RegisterResponse> memberreg(@Body MembershipApi membershipApi);
+    Call<RegisterResponse> memberreg(@Body MembershipInfo membershipApi);
 
     @POST("/S4I/S4Idbop.php/profile_update")
-   Call<RegisterResponse> myprofilereg(@Body MyProfileApi myProfileApi);
+   Call<MyProfileInfo> updateProfile(@Body MyProfileInfo myProfileApi);
 
     @GET("/S4I/S4Idbop.php/members/{MemID}")
-    Call<RegisterResponse> getmyprofile(@Path("MemID")String MemID, @Body MyProfileApi myprofileApi);
+    Call<List<MyProfileInfo>> getmyprofile(@Path("MemID")String MemID);
 
     @POST("/S4I/S4Idbop.php/contactus")
-    Call<ContactApi> contatctreg(@Body ContactApi contactApi);
+    Call<ContactInfo> contatctreg(@Body ContactInfo contactApi);
 
     @GET("/S4I/S4Idbop.php/Events/PAST")
     Call<List<Event>> getEvents();
@@ -44,6 +49,11 @@ public interface SFIApi {
 
     @GET("/S4I/S4Idbop.php/membershipfeeinfo/{ID}")
     Call<List<MemberFeeInfo>> getfeeinfo(@Path("ID")String ID);
+
+    @Multipart
+    @POST("/S4I/upload.php")
+    Call<ProfilePicUpload> profileUpdate(@Query("MemID") String memId, @Part("fileToUpload\"; filename=\"pp.png\" ") RequestBody file);
+
 
 }
 
