@@ -61,12 +61,12 @@ public class MembershipFeeActivity extends AppCompatActivity
 
     private void memberupdate(MemberFeeInfo memberfeeinfo){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.32")
+                .baseUrl("http:/192.168.1.7")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = retrofit.create(SFIApi.class);
         setProgressDialog();
-        final Call<List<MemberFeeInfo>> call = api.getfeeinfo(feeid);
+        final Call<List<MemberFeeInfo>> call = api.getfeeinfo();
         call.enqueue(new Callback<List<MemberFeeInfo>>() {
             @Override
             public void onResponse(Response<List<MemberFeeInfo>> response, Retrofit retrofit) {

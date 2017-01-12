@@ -1,5 +1,7 @@
 package com.cviac.s4iApp.activities;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -18,6 +20,8 @@ import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.datamodel.Currentevent;
 import com.cviac.s4iApp.datamodel.Event;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
@@ -37,12 +41,16 @@ public class HomeActivity extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private AlarmManager alarmMgr;
+    private PendingIntent alarmIntent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         setTitle("Events");
+     //   setAlaram();
        /* getevents();*/
        /* getCurrent();
 */
@@ -71,6 +79,14 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
+
+
+
+    public static String toddMMyy(Date day){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yy");
+        String date = formatter.format(day);
+        return date;
+    }
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {

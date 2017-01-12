@@ -91,7 +91,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
 
                 if (groupPosition == 0 && childPosition == 0) {
                     StringBuilder result = new StringBuilder();
-                    result.append("Member is\n");
+                    result.append("Membership\n");
                     if (chkbox.isChecked()) {
                         result.append("accepted");
 
@@ -264,7 +264,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.32")
+                .baseUrl("http:/192.168.1.7")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();

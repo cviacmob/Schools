@@ -22,23 +22,25 @@
         android:padding="5dp"
         android:paddingLeft="10dp"
         android:textStyle="bold"
-        android:layout_toLeftOf="@+id/textClock"
         android:layout_toEndOf="@+id/imagenotify"/>
 
-    <TextClock
+    <TextView
+        android:id="@+id/textViewdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textClock"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignBaseline="@+id/imagenotify"
+        android:layout_alignParentRight="true"
+        android:text="TextView"
+        android:textColor="#090A0A" />
 
     <TextView
         android:text="TextView"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imagenotify"
+        android:id="@+id/text_notify"
+        android:layout_below="@+id/textViewdate"
         android:layout_toEndOf="@+id/imagenotify"
-        android:layout_toLeftOf="@+id/textClock"
-        android:id="@+id/text_notify" />
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="13dp" />
 
 </RelativeLayout>

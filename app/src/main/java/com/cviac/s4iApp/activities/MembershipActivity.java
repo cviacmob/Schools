@@ -1,6 +1,9 @@
 package com.cviac.s4iApp.activities;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,12 +20,15 @@ import android.widget.Toast;
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.SchoolsforIndia;
+import com.cviac.s4iApp.notificationreceiver.AlarmReceiver;
 import com.cviac.s4iApp.sfiapi.MembershipInfo;
 import com.cviac.s4iApp.sfiapi.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
 
 import java.lang.reflect.Field;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import retrofit.Call;
@@ -33,12 +39,15 @@ import retrofit.Retrofit;
 
 public class MembershipActivity extends AppCompatActivity implements OnItemSelectedListener
 {
+    Object value;
     ProgressDialog progressDialog;
     SFIApi api;
-    String kat = Prefs.getString("MemId","");
+    String memidd = Prefs.getString("MemId","");
     private Spinner spinner1, spinner2,spinner3,spinner4,spinnerCountry, spinnerCity, spinnerPlan, spinnertype;
     private Button button2;
     private  Button btton1;
+    private AlarmManager alarmMgr;
+    private PendingIntent alarmIntent;
     protected void onCreate(Bundle savedInstanceState)
     {
         setTitle("Membership");
@@ -51,8 +60,10 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
         spinnerCountry.setOnItemSelectedListener(this);
         btton1=(Button)findViewById(R.id.submitbutton);
         Button button2=(Button)findViewById(R.id.button2);
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
         button2.setOnClickListener(new OnClickListener()
         {
 
@@ -86,7 +97,7 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                     okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http:/192.168.42.32")
+                            .baseUrl("http:/192.168.1.7")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
@@ -96,13 +107,15 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                     membershipApi.setMemDis(dis);
                     membershipApi.setMemPlan(plan);
                     membershipApi.setMemType(type);
-                    membershipApi.setMemID(kat);
+                    membershipApi.setMemID(memidd);
                     membershipApi.setReg_type("Member");
                     final Call<RegisterResponse> call = api.memberreg(membershipApi);
                     call.enqueue(new Callback<RegisterResponse>() {
                         @Override
                         public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
                             if (progressDialog != null) {
+                                setAlarm();
+                                Toast.makeText(getApplicationContext(), "Submited Successfully" , Toast.LENGTH_SHORT ).show();
                                 progressDialog.dismiss();
 
                             }
@@ -119,12 +132,8 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                             t.printStackTrace();
                         }
                     });
-
-
                 }
 
-
-                Toast.makeText(getApplicationContext(), "Submited Sucessfully" , Toast.LENGTH_SHORT ).show();
 
                 //Toast.makeText(MembershipActivity.this,"success",Toast.LENGTH_LONG).show();
 //
@@ -140,7 +149,10 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
         });
 
 
+
     }
+
+
     public static int getId(String resourceName, Class<?> c) {
         try {
             Field idField = c.getDeclaredField(resourceName);
@@ -196,4 +208,61 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
         onBackPressed();
         return true;
     }
+
+
+    private void setAlarm() {
+        final Date today = new Date();
+        alarmMgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+
+        spinnerPlan.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                value = parent.getItemAtPosition(position);
+
+                switch (position) {
+                    case 0:
+                        Calendar calendar = Calendar.getInstance();
+                        calendar = Calendar.getInstance();
+                        calendar.setTime(today);
+                        calendar.add(Calendar.YEAR, 1);
+                        Date Year = calendar.getTime();
+                        alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+                        break;
+                    case 1:
+                        calendar = Calendar.getInstance();
+                        calendar.setTime(today);
+                        calendar.add(Calendar.MONTH, 6);
+                        Date half = calendar.getTime();
+                        alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+                        break;
+                    case 2:
+                        calendar = Calendar.getInstance();
+                        calendar.setTime(today);
+                        calendar.add(Calendar.MONTH, 3);
+                        Date qurt = calendar.getTime();
+                        alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+                        break;
+                    case 3:
+                        calendar = Calendar.getInstance();
+                        calendar.setTime(today);
+                        calendar.add(Calendar.DAY_OF_MONTH, 30);
+                        Date month = calendar.getTime();
+                        alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+                        break;
+
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+    }
+
 }

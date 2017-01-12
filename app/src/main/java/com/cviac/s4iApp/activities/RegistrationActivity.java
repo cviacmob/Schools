@@ -201,7 +201,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
 
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://192.168.42.32")
+                            .baseUrl("http://192.168.1.7")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
@@ -251,12 +251,11 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                                 Prefs.putString("MemId",Mem);
                                 Prefs.putString("Pid",id);
 
-                            } else if (code == 1002) {
-                                Toast.makeText(RegistrationActivity.this, "Already Register", Toast.LENGTH_LONG).show();
+                            } else if(code == 1004) {
+                                Toast.makeText(RegistrationActivity.this, "Already Registered", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(RegistrationActivity.this, NavigationActivity.class);
                                 startActivity(intent);
                                 finish();
-
                             }
                         }
 

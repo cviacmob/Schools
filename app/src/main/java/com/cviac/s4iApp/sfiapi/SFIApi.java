@@ -1,9 +1,12 @@
 package com.cviac.s4iApp.sfiapi;
 
+import com.cviac.s4iApp.datamodel.ContactInfo;
 import com.cviac.s4iApp.datamodel.Currentevent;
+import com.cviac.s4iApp.datamodel.EmailInfo;
 import com.cviac.s4iApp.datamodel.Event;
 import com.cviac.s4iApp.datamodel.MemberFeeInfo;
 import com.cviac.s4iApp.datamodel.ProfilePicUpload;
+import com.cviac.s4iApp.datamodel.SendEmailResponse;
 import com.squareup.okhttp.RequestBody;
 
 import java.util.List;
@@ -41,18 +44,21 @@ public interface SFIApi {
     @POST("/S4I/S4Idbop.php/contactus")
     Call<ContactInfo> contatctreg(@Body ContactInfo contactApi);
 
-    @GET("/S4I/S4Idbop.php/Events/PAST")
+    @GET("/S4I/S4Idbop.php/EventsActivity/PAST")
     Call<List<Event>> getEvents();
 
-    @GET("/S4I/S4Idbop.php/Events/Current")
+    @GET("/S4I/S4Idbop.php/EventsActivity/Current")
     Call<List<Currentevent>> getCurrent();
 
-    @GET("/S4I/S4Idbop.php/membershipfeeinfo/{ID}")
-    Call<List<MemberFeeInfo>> getfeeinfo(@Path("ID")String ID);
+    @GET("/S4I/S4Idbop.php/membershipfeeinfo")
+    Call<List<MemberFeeInfo>> getfeeinfo();
 
     @Multipart
     @POST("/S4I/upload.php")
     Call<ProfilePicUpload> profileUpdate(@Query("MemID") String memId, @Part("fileToUpload\"; filename=\"pp.png\" ") RequestBody file);
+
+    @POST("/CVIACAPI/cviacdbop.php/sendemail")
+    Call<SendEmailResponse> sendEmail(@Body EmailInfo emailinfo);
 
 
 }

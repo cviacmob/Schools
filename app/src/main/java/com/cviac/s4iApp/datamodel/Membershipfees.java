@@ -1,12 +1,15 @@
+/*
 package com.cviac.s4iApp.datamodel;
 
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+*/
 /**
  * Created by john on 1/4/2017.
- */
+ *//*
+
 @Table(name ="membershipfees")
 public class Membershipfees extends Model {
     @Column(name = "Ten_Schools")
@@ -96,3 +99,4 @@ public class Membershipfees extends Model {
 
 }
 
+*/

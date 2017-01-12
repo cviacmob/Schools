@@ -4,44 +4,43 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cviac.s4iApp.R;
-import com.cviac.s4iApp.datamodel.Notification;
+import com.cviac.s4iApp.datamodel.NotificationInfo;
+import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 
-public class Notificationadapter extends BaseAdapter {
+public class Notificationadapter extends ArrayAdapter<NotificationInfo> {
 
-    private List<Notification> eve;
+    private List<NotificationInfo> eve;
 
     private int lastPostion = -1;
-
     Context mContext;
 
-    public Notificationadapter(Context c, List<Notification> eve) {
-        this.eve = eve;
-        mContext = c;
-    }
+   /* public Notificationadapter(NotificationActivity objects, List<NotificationInfo> context) {
+        super(objects,R.layout.notificaton_item , context);
+        eve = (List<NotificationInfo>) objects;
+        mContext = (Context) context;
+    }*/
+   public Notificationadapter(List<NotificationInfo> objects, Context context) {
+       super(context, R.layout.notificaton_item, objects);
+       eve = objects;
+       mContext = context;
+   }
+
+
+
     public static class ViewHolder {
         public TextView names;
-        public TextView desc;
-       // public TextView desc2;
+        public TextView desc ,txtdate;
         public ImageView imageid;
-        //public TextView place;
-    }
-
-    @Override
-    public int getCount() {
-        return eve.size();
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return i;
     }
 
     @Override
@@ -53,27 +52,40 @@ public class Notificationadapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View vw = convertView;
         ViewHolder holder;
-        Notification even = eve.get(position);
+        NotificationInfo noteset = getItem(position);
+
         if (convertView == null) {
 
-            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            vw = inflater.inflate(R.layout.notificaton_item, parent, false);
+            LayoutInflater inf = LayoutInflater.from(getContext());
+            vw = inf.inflate(R.layout.notificaton_item, parent, false);
+            /*String name = Prefs.getString("Name", "");*/
             holder = new ViewHolder();
-            holder.names = (TextView) vw.findViewById(R.id.text_notify);
-            holder.desc = (TextView) vw.findViewById(R.id.text_desc);
-          //  holder.desc2 = (TextView) vw.findViewById(R.id.text_notiy2);
-          //  holder.place=(TextView) vw.findViewById(R.id.place1) ;
+            holder.desc = (TextView) vw.findViewById(R.id.text_notify);
+            holder.names = (TextView) vw.findViewById(R.id.text_desc);
+            holder.txtdate = (TextView) vw.findViewById(R.id.textViewdate);
             holder.imageid = (ImageView) vw.findViewById(R.id.imagenotify);
-            // Picasso.with(mContext).load(R.drawable.ic_launcher).resize(130, 130).transform(new CircleTransform()).into(holder.imgview);
+            /*holder.names.setText(name);*/
             vw.setTag(holder);
         } else {
             holder = (ViewHolder) vw.getTag();
+    }
+        String url1 = noteset.getImageid();
+        if (url1 != null && url1.length() > 0) {
+            Picasso.with(mContext).load(noteset.getImageid()).resize(80, 80).transform(new CircleTransform())
+                    .into(holder.imageid);
+        } else {
+            Picasso.with(mContext).load(R.drawable.school).resize(80, 80).transform(new CircleTransform())
+                    .into(holder.imageid);
         }
-        holder.names.setText(even.getNames());
-        holder.desc.setText(even.getDesc());
-        holder.imageid.setImageResource(even.getImageid());
-      //  holder.desc2.setText(even.getDesc2());
-      //  holder.place.setText(even.getPlace1());
+        holder.names.setText(noteset.getTitle());
+        holder.desc.setText(noteset.getDescription());
+      /*  String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date(noteset.getDate().toString()));
+        holder.txtdate.setText(timeStamp);*/
+        Date date = new Date();
+        String stringDate = DateFormat.getDateTimeInstance().format(date);
+       // String timeStam = new SimpleDateFormat("dd-MM-yy").format(noteset.getDate());
+        holder.txtdate.setText(stringDate);
+
         return vw;
 
 

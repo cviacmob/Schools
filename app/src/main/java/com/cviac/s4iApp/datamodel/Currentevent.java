@@ -70,8 +70,8 @@ public class Currentevent  extends Model {
                 .from(Currentevent.class)
                 .orderBy("event_date DESC")
                 .execute();
-
     }
+
     public static void deleteAll(){
         new Delete().from(Currentevent.class).execute();
     }

@@ -21,12 +21,16 @@ public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Button btn;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.content_navigation);
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+       // setAlaram();
 
         final int applied = Prefs.getInt("applied", 0);
         //Prefs.putInt("applied", 1);
@@ -142,7 +146,7 @@ public class NavigationActivity extends AppCompatActivity
 
 
         } else if (id == R.id.nav_notifi) {
-            Intent i=new Intent(NavigationActivity.this,Notifications.class);
+            Intent i=new Intent(NavigationActivity.this,NotificationActivity.class);
             startActivity(i);
 
 

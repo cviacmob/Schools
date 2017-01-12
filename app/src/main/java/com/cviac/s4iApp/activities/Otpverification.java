@@ -72,7 +72,7 @@ public class Otpverification extends AppCompatActivity {
                     okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://192.168.42.32")
+                            .baseUrl("http://192.168.1.7")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
@@ -100,9 +100,9 @@ public class Otpverification extends AppCompatActivity {
                                         .class);
                                 startActivity(mainIntent);
                                 finish();
-                            } else {
+                            } else if (code == 1002){
                                 progressDialog.dismiss();
-                                Toast.makeText(Otpverification.this, "Invalid PIN", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Otpverification.this, "Invalid Mobile number Or Pin", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -113,9 +113,6 @@ public class Otpverification extends AppCompatActivity {
                             t.printStackTrace();
                         }
                     });
-
-
-                    // TODO Auto-generated method stub
 
                 }
             }
@@ -128,7 +125,7 @@ public class Otpverification extends AppCompatActivity {
                 okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
 
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://192.168.42.32")
+                        .baseUrl("http://192.168.1.7")
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(okHttpClient)
                         .build();
@@ -168,7 +165,7 @@ public class Otpverification extends AppCompatActivity {
     private void setProgressDialog() {
         progressDialog = new ProgressDialog(Otpverification.this,R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Waiting fees details");
+        progressDialog.setMessage("Please wait");
         progressDialog.setCancelable(false);
         progressDialog.show();
     }

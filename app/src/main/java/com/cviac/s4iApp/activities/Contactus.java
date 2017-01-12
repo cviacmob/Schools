@@ -21,7 +21,8 @@ import android.widget.Toast;
 
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
-import com.cviac.s4iApp.sfiapi.ContactInfo;
+import com.cviac.s4iApp.SchoolsforIndia;
+import com.cviac.s4iApp.datamodel.ContactInfo;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
 
@@ -59,19 +60,19 @@ public class Contactus extends AppCompatActivity {
 
         email = (EditText)findViewById(R.id.emailedit);
         name = (EditText)findViewById(R.id.nameedit);
-        feed =(Spinner)findViewById(R.id.spinner1);
+        feed =(Spinner)findViewById(R.id.feedbackspin);
         msg =(EditText)findViewById(R.id.msgedit);
 
 /*
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
         tv4 = (TextView) findViewById(R.id.textView4);*/
-        call= (Button) findViewById(R.id.button3);
+        call= (Button) findViewById(R.id.callbtn);
         call.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent callIntent = new Intent(Intent.ACTION_CALL);
-                callIntent.setData(Uri.parse("tel:8489674524"));
+                callIntent.setData(Uri.parse("tel:9791402344"));
                 if (ActivityCompat.checkSelfPermission(Contactus.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(Contactus.this, new String[]{Manifest.permission.CALL_PHONE}, MY_PERMISSION_CALL_PHONE);
                     return;
@@ -81,9 +82,10 @@ public class Contactus extends AppCompatActivity {
         });
 
         phon = (EditText) findViewById(R.id.subedit);
-         b1=(Button)findViewById(R.id.button1);
+         b1=(Button)findViewById(R.id.scbmitbtn);
         b1.setOnClickListener(new OnClickListener(){
             public void onClick(View v) {
+
                 String nam = name.getText().toString();
                 String emai = email.getText().toString();
                 String sub = phon.getText().toString();
@@ -101,7 +103,6 @@ public class Contactus extends AppCompatActivity {
                     String phn=phon.getText().toString();
 		/* Pattern pattern = Pattern.compile("\\d{3}-\\d{7}");
 		Matcher matcher = pattern.matcher(phn);*/
-
                     if (phon.length()  <1) {
                         phon.setError("invalid message");
                         phon.requestFocus();
@@ -118,6 +119,18 @@ public class Contactus extends AppCompatActivity {
                         error = true;
                     }
 
+                String msgBody = getMessagebody(nam, emai, sub, message, spin);
+
+                SchoolsforIndia school =(SchoolsforIndia)getApplicationContext();
+
+                if (school.isNetworkStatus()) {
+                    school.sendEmail("kathiravankrishnans@gmail.com", "Contact Us", msgBody);
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                            "Please Check Your Internet Connection and try again", Toast.LENGTH_LONG).show();
+                }
+
+              //  finish();
 
                 String memId = Prefs.getString("MemId","");
                 ContactInfo contact =new ContactInfo();
@@ -127,17 +140,13 @@ public class Contactus extends AppCompatActivity {
                 contact.setForm(spin);
                 contact.setMessages(message);
                 contreg(contact);
-                }
 
-
+            }
         });
-
 
         //phon=(EditText)findViewById(R.id.editText3);
 
-
-
-        Spinner sp=(Spinner)findViewById(R.id.spinner1);
+        Spinner sp=(Spinner)findViewById(R.id.feedbackspin);
         List<String> list = new ArrayList<String>();
         list.add("select category");
         list.add("FAQ");
@@ -191,7 +200,7 @@ public class Contactus extends AppCompatActivity {
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.32")
+                .baseUrl("http:/192.168.1.7")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();
@@ -200,17 +209,29 @@ public class Contactus extends AppCompatActivity {
         call.enqueue(new Callback<ContactInfo>() {
             @Override
             public void onResponse(Response<ContactInfo> response, Retrofit retrofit) {
-                Toast.makeText(Contactus.this, "Submited Successfully", Toast.LENGTH_LONG).show();
+                //Toast.makeText(Contactus.this, "Submited Successfully", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(Throwable t) {
                 Toast.makeText(Contactus.this, "Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 t.printStackTrace();
-
             }
         });
+        Toast.makeText(getApplicationContext(), "Submited Successfully" , Toast.LENGTH_SHORT ).show();
 
+
+    }
+    private String getMessagebody(String Name, String Emailid, String Subject, String msg, String feedback) {
+
+        StringBuilder msgBody = new StringBuilder();
+        msgBody.append("Name: " + Name + "\n");
+        msgBody.append("Email: " + Emailid + "\n");
+        msgBody.append("Subject: " + Subject + "\n");
+        msgBody.append("Feedback: " + feedback + "\n");
+        msgBody.append("Message: " + msg + "\n");
+
+        return msgBody.toString();
     }
 
 }

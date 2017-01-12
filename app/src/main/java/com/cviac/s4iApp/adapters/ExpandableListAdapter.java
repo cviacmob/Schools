@@ -330,34 +330,33 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                         if (childPosition==0){
                                             String pro3 =userInput.getText().toString();
                                             profile.setHouseNo(pro3);
-                                           /* userInput.setText(myProfile.getAddress1());*/
+
                                         }
                                         else if (childPosition==1){
                                             String pro4 = userInput.getText().toString();
                                             profile.setTown(pro4);
-                                           /* userInput.setText(myProfile.getAddress2());*/
+
                                         }
                                         else if (childPosition==3){
                                             String pro5 = userInput.getText().toString();
                                             profile.setPIN(pro5);
-                                           /* userInput.setText(myProfile.getPin());*/
                                         }
                                     }
                               else if (groupPosition==3){
                                         if (childPosition==0){
                                             String pro6 =userInput.getText().toString();
                                             profile.setCompNumber(pro6);
-                                            /*userInput.setText(myProfile.getComp_address1());*/
+
                                         }
                                         else if (childPosition==1){
                                             String pro7 = userInput.getText().toString();
                                             profile.setCompTown(pro7);
-                                           /* userInput.setText(myProfile.getComp_address2());*/
+
                                         }
                                         else if (childPosition==3){
                                             String pro8 = userInput.getText().toString();
                                             profile.setCompPIN(pro8);
-                                           /* userInput.setText(myProfile.getComp_pin());*/
+
                                         }
                                     }
 
@@ -751,7 +750,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.32")
+                .baseUrl("http:/192.168.1.7")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();

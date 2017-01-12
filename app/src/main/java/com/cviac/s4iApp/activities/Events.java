@@ -24,7 +24,7 @@ import retrofit.Retrofit;
 
 
 public class Events extends Fragment {
-    List<Event> evenlist;
+    List<Event>evenlist;
     private ListView lv1;
     List<Event> emps;
     @Override
@@ -57,80 +57,43 @@ public class Events extends Fragment {
     private List<Event> getEvents() {
         return Event.getevents();
     }
-   /* private List<Event> getEvents()
-    {
-        List<Event> emps = new ArrayList<Event>();
-        Event event = new Event();
-        event.setEvent_name("Cycle Race");
-        event.setEvent_date("18/01/2007");
-        event.setEvent_description("Schools for India is conducting the Annual International Cycle race, called the ICR on ECR");
-        event.setLocation("Chennai");
-       // event.setImage_url(R.drawable.schoolseventpast);
-        emps.add(event);
 
-//        emp = new Event();
-//        emp.setName("Cricket");
-//        emp.setType("02/10/2015");
-//        emp.setDiscription("Conducting Cricket");
-//        emp.setPlace1("Chennai");
-//        emp.setImageURL(R.drawable.cricket);
-//        emps.add(emp);
-//
-//
-//        emp = new Event();
-//        emp.setName("FoodBall");
-//        emp.setType("15/10/2015");
-//        emp.setDiscription("Conducting FoodBall");
-//        emp.setPlace1("Mumbai");
-//        emp.setImageURL(R.drawable.footbal);
-//        emps.add(emp);
-//
-//        emp = new Event();
-//        emp.setName("VolleyBall");
-//        emp.setType("23/01/2015");
-//        emp.setDiscription("VolleyBall");
-//        emp.setPlace1("Conducting Bangalore");
-//        emp.setImageURL(R.drawable.volleyball);
-//        emps.add(emp);
-        return emps;
-
-    }*/
-   private void getevents() {
-       Retrofit ret = new Retrofit.Builder()
-               .baseUrl("http://192.168.42.32")
-               .addConverterFactory(GsonConverterFactory.create())
-               .build();
+    private void getevents() {
+        Retrofit ret = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.7")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
 
-       SFIApi api = ret.create(SFIApi.class);
-       final Call<List<Event>> call = api.getEvents();
-       call.enqueue(new Callback<List<Event>>() {
-           @Override
-           public void onResponse(Response<List<Event>> response, Retrofit retrofit) {
-               evenlist = response.body();
-               Event.deleteAll();
-               saveeventInfo(evenlist);
-           }
+        SFIApi api = ret.create(SFIApi.class);
+        final Call<List<Event>> call = api.getEvents();
+        call.enqueue(new Callback<List<Event>>() {
+            @Override
+            public void onResponse(Response<List<Event>> response, Retrofit retrofit) {
+                evenlist = response.body();
+                Event.deleteAll();
+                saveeventInfo(evenlist);
+            }
 
 
-           @Override
-           public void onFailure(Throwable throwable) {
+            @Override
+            public void onFailure(Throwable throwable) {
 
              /*  Toast.makeText(Events.this, "API Invoke Error :" + throwable.getMessage(), Toast.LENGTH_SHORT).show();*/
-               //emps = null;
-           }
-       });
-   }
+                //notifys = null;
+            }
+        });
+    }
 
     private void saveeventInfo(List<Event> empInfos) {
         for (Event empinfo : evenlist) {
-            Event emp = new Event();
-            emp.setEvent_name(empinfo.getEvent_name());
-            emp.setEvent_description(empinfo.getEvent_description());
-            emp.setLocation(empinfo.getLocation());
-            emp.setEvent_date(empinfo.getEvent_date());
-            emp.setImage_url(empinfo.getImage_url());
-            emp.save();
+            Event empp = new Event();
+            empp.setEvent_name(empinfo.getEvent_name());
+            empp.setEvent_description(empinfo.getEvent_description());
+            empp.setLocation(empinfo.getLocation());
+            empp.setEvent_date(empinfo.getEvent_date());
+            empp.setImage_url(empinfo.getImage_url());
+            empp.save();
 
         }
     }

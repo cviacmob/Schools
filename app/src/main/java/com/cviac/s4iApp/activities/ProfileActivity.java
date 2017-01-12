@@ -23,7 +23,6 @@ import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.CircleTransform;
@@ -35,7 +34,6 @@ import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.picasso.Picasso;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -156,10 +154,10 @@ public class ProfileActivity extends AppCompatActivity {
         MyProfileInfo profile =new MyProfileInfo();
         profile.setMemID(memId);
 
-       /* String memID = "11483522195";*/
+
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.32")
+                .baseUrl("http:/192.168.1.7")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = retrofit.create(SFIApi.class);
@@ -364,7 +362,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void uploadProfileImage(String targetPath) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.42.32")
+                .baseUrl("http:/192.168.1.7")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         final String memId = Prefs.getString("MemId","");

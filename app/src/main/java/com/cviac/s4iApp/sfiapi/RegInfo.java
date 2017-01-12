@@ -1,5 +1,7 @@
 package com.cviac.s4iApp.sfiapi;
 
+import java.util.Date;
+
 /**
  * Created by john on 12/14/2016.
  */
@@ -13,6 +15,11 @@ public class RegInfo {
     private String DOB;
     private String Country;
     private  String otp;
+    private Date StartDate;
+
+
+
+
 
 
     public String getOtp() {
@@ -22,8 +29,6 @@ public class RegInfo {
     public void setOtp(String otp) {
         this.otp = otp;
     }
-
-
 
     public String getFirstName() {
         return FirstName;
@@ -72,6 +77,15 @@ public class RegInfo {
     public void setCountry(String country) {
         Country = country;
     }
+
+    public Date getStartDate() {
+        return StartDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        StartDate = startDate;
+    }
+
 
 
 

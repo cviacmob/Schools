@@ -73,7 +73,7 @@ public class CurrenteventActivity extends Fragment {
 
     private void getCurrent(){
         Retrofit ret = new Retrofit.Builder()
-                .baseUrl("http://192.168.42.32")
+                .baseUrl("http://192.168.1.7")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = ret.create(SFIApi.class);
@@ -97,14 +97,14 @@ public class CurrenteventActivity extends Fragment {
     }
 
     private void currentsavedinfo(List<Currentevent> currentinfo){
-        for (Currentevent cinfo : currentlist){
-            Currentevent cntevent =new Currentevent();
-            cntevent.setEvent_name(cinfo.getEvent_name());
-            cntevent.setEvent_description(cinfo.getEvent_description());
-            cntevent.setLocation(cinfo.getLocation());
-            cntevent.setEvent_date(cinfo.getEvent_date());
-            cntevent.setImage_url(cinfo.getImage_url());
-            cntevent.save();
+        for (Currentevent cuinfo : currentlist){
+            Currentevent ctevent =new Currentevent();
+            ctevent.setEvent_name(cuinfo.getEvent_name());
+            ctevent.setEvent_description(cuinfo.getEvent_description());
+            ctevent.setLocation(cuinfo.getLocation());
+            ctevent.setEvent_date(cuinfo.getEvent_date());
+            ctevent.setImage_url(cuinfo.getImage_url());
+            ctevent.save();
 
         }
     }
