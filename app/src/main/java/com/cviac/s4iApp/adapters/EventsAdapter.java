@@ -63,8 +63,7 @@ public class EventsAdapter extends ArrayAdapter<Event> {
 
         String timeStamp = new SimpleDateFormat("yyyy-MMM-dd").format(new Date(even.getEvent_date().toString()));
         holder.typeview.setText(timeStamp);
-
-        //  holder.typeview.setText(even.getEvent_date());
+        holder.nameView.setText(even.getEvent_name());
         String url1 = even.getImage_url();
         if (url1 != null && url1.length() > 0) {
             Picasso.with(mContext).load(even.getImage_url()).resize(80, 80).transform(new CircleTransform())

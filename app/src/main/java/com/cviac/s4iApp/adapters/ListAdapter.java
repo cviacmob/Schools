@@ -95,8 +95,8 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     if (chkbox.isChecked()) {
                         result.append("accepted");
 
-                        Toast.makeText(context, result.toString(),
-                                Toast.LENGTH_SHORT).show();
+                    /*    Toast.makeText(context, result.toString(),
+                                Toast.LENGTH_SHORT).show();*/
 
                         Intent mainIntent = new Intent(context,
                                 MembershipActivity.class);
@@ -113,8 +113,8 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     if (chkbox.isChecked()) {
                         result.append("accepted");
 
-                        Toast.makeText(context, result.toString(),
-                                Toast.LENGTH_SHORT).show();
+                     /*   Toast.makeText(context, result.toString(),
+                                Toast.LENGTH_SHORT).show();*/
                     } else
                         Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
@@ -126,8 +126,8 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     if (chkbox.isChecked()) {
                         result.append("accepted");
 
-                        Toast.makeText(context, result.toString(),
-                                Toast.LENGTH_SHORT).show();
+                       /* Toast.makeText(context, result.toString(),
+                                Toast.LENGTH_SHORT).show();*/
                     } else
                         Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
@@ -139,8 +139,8 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     if (chkbox.isChecked()) {
                         result.append("accepted");
 
-                        Toast.makeText(context, result.toString(),
-                                Toast.LENGTH_SHORT).show();
+                      /*  Toast.makeText(context, result.toString(),
+                                Toast.LENGTH_SHORT).show();*/
                     } else
                         Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
@@ -152,8 +152,8 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     if (chkbox.isChecked()) {
                         result.append("accepted");
 
-                        Toast.makeText(context, result.toString(),
-                                Toast.LENGTH_SHORT).show();
+                       /* Toast.makeText(context, result.toString(),
+                                Toast.LENGTH_SHORT).show();*/
                     } else
                         Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
                                 .show();

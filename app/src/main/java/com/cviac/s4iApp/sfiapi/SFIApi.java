@@ -44,10 +44,10 @@ public interface SFIApi {
     @POST("/S4I/S4Idbop.php/contactus")
     Call<ContactInfo> contatctreg(@Body ContactInfo contactApi);
 
-    @GET("/S4I/S4Idbop.php/EventsActivity/PAST")
+    @GET("/S4I/S4Idbop.php/Events/PAST")
     Call<List<Event>> getEvents();
 
-    @GET("/S4I/S4Idbop.php/EventsActivity/Current")
+    @GET("/S4I/S4Idbop.php/Events/Current")
     Call<List<Currentevent>> getCurrent();
 
     @GET("/S4I/S4Idbop.php/membershipfeeinfo")

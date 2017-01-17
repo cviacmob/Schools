@@ -84,6 +84,7 @@ public class Contactus extends AppCompatActivity {
         phon = (EditText) findViewById(R.id.subedit);
          b1=(Button)findViewById(R.id.scbmitbtn);
         b1.setOnClickListener(new OnClickListener(){
+            @Override
             public void onClick(View v) {
 
                 String nam = name.getText().toString();
@@ -94,7 +95,7 @@ public class Contactus extends AppCompatActivity {
                // final String email1 = email.getText().toString();
                 // TODO Auto-generated method stub
 
-                boolean error = false;
+                boolean error=false;
                 if (!isValidEmail(email)) {
                     email.setError("Invalid Email");
                     email.requestFocus();
@@ -200,7 +201,7 @@ public class Contactus extends AppCompatActivity {
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.1.7")
+                .baseUrl("http:/192.168.1.13")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();

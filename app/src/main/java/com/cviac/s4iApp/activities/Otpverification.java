@@ -72,7 +72,7 @@ public class Otpverification extends AppCompatActivity {
                     okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http://192.168.1.7")
+                            .baseUrl("http://192.168.1.13")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
@@ -80,11 +80,6 @@ public class Otpverification extends AppCompatActivity {
                     RegInfo regInfo = new RegInfo();
                     regInfo.setMobile1(Mobile);
                     regInfo.setOtp(verifycode);
-                    /*regInfo.setFirstName(name1);
-                    regInfo.setEmailID1(mail1);
-                    regInfo.setCountry(contry);
-                    regInfo.setGender(radio);
-                    regInfo.setDOB(DOB);*/
                     setProgressDialog();
                     final Call<VerifyResponse> call = api.verifyPin(regInfo);
                     call.enqueue(new Callback<VerifyResponse>() {
@@ -125,7 +120,7 @@ public class Otpverification extends AppCompatActivity {
                 okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
 
                 Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://192.168.1.7")
+                        .baseUrl("http://192.168.1.13")
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(okHttpClient)
                         .build();

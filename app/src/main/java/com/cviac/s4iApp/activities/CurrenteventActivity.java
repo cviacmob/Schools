@@ -28,7 +28,7 @@ import retrofit.Retrofit;
 
 public class CurrenteventActivity extends Fragment {
     private ListView lv;
-    List<Currentevent> emps;
+    //List<Currentevent> emps;
     List<Currentevent> currentlist;
 
 
@@ -40,8 +40,8 @@ public class CurrenteventActivity extends Fragment {
 
         lv=(ListView)collegues.findViewById(R.id.collegueslist);
         lv.setDivider(null);
-        emps=getCollegues();
-        lv.setAdapter(new Currenteventadapter(emps,getActivity().getApplicationContext()));
+        currentlist=getCollegues();
+        lv.setAdapter(new Currenteventadapter(currentlist,getActivity().getApplicationContext()));
         getCurrent();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,7 +50,7 @@ public class CurrenteventActivity extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int pos1,
                                     long pos2) {
 
-                Currentevent currentevent = emps.get(pos1);
+                Currentevent currentevent = currentlist.get(pos1);
                 // Conversation cov=new Conversation();
                 //    cov.setEmpid(emp.getEmpID());
                 //   cov.setName(emp.getName());
@@ -73,7 +73,7 @@ public class CurrenteventActivity extends Fragment {
 
     private void getCurrent(){
         Retrofit ret = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.7")
+                .baseUrl("http://192.168.1.13")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = ret.create(SFIApi.class);

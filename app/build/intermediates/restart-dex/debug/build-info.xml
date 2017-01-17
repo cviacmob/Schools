@@ -5,50 +5,53 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="25254732315420"
+    timestamp="462504442997515"
     token="4486336827565665062"
     verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="304" />
+        duration="766" />
     <task
         name="instant-run-dex"
-        duration="18" />
+        duration="92" />
     <task
         name="instant-run-transform"
-        duration="36" />
+        duration="148" />
     <task
         name="verifier"
-        duration="3" />
+        duration="54" />
 
     <artifact
         location="D:\works\Schools\app\build\intermediates\reload-dex\debug\classes.dex"
         type="RELOAD_DEX" />
 
     <build
-        timestamp="21411702308335"
+        timestamp="440929823080793"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\works\Schools\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="24566184100949"
+        timestamp="451139720603962"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="D:\works\Schools\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-            type="RESOURCES" />
+            location="D:\works\Schools\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+            type="DEX" />
     </build>
     <build
-        timestamp="24826892054893"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="460272023790700"
+        verifier="FIELD_REMOVED" >
+        <artifact
+            location="D:\works\Schools\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+            type="DEX" />
         <artifact
             location="D:\works\Schools\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
             type="DEX" />
     </build>
     <build
-        timestamp="25254732315420"
+        timestamp="462504442997515"
         verifier="COMPATIBLE" >
         <artifact
             location="D:\works\Schools\app\build\intermediates\reload-dex\debug\classes.dex"

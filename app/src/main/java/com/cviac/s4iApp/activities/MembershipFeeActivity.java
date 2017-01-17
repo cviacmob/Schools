@@ -61,7 +61,7 @@ public class MembershipFeeActivity extends AppCompatActivity
 
     private void memberupdate(MemberFeeInfo memberfeeinfo){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.1.7")
+                .baseUrl("http:/192.168.1.13")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = retrofit.create(SFIApi.class);
