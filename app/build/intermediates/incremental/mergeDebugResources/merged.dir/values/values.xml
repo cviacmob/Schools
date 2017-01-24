@@ -20,12 +20,6 @@
         <item>@id/cast_button_type_empty</item>
         <item>@id/cast_button_type_play_pause_toggle</item>
     </array>
-    <string-array name="country_arrays">
-        <item>Choose social site links</item>
-        <item>Facebook</item>
-        <item>Twitter</item>
-        <item>Gmail</item>
-    </string-array>
     <string-array name="dist_0">
         <item> Srikakulam </item>
         <item>Vizianagaram </item>
@@ -783,6 +777,12 @@
     <string-array name="ty_type">
         <item>Unit</item>
         <item>Cluster</item>
+    </string-array>
+    <string-array name="web_arrays">
+        <item>Choose social site links</item>
+        <item>Facebook</item>
+        <item>Twitter</item>
+        <item>Gmail</item>
     </string-array>
     <attr format="reference" name="MediaRouteControllerWindowBackground"/>
     <attr format="reference" name="castExpandedControllerToolbarStyle"/>
@@ -1605,7 +1605,6 @@
         \nChennai- 6000087
         \nTamilnadu, India.
         \nTelephone: +91- 99400 74889</string>
-    <string name="country_prompt">Choose a country</string>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="debug_menu_ad_information">Ad Information</string>
@@ -1691,6 +1690,7 @@
     <string name="type_prompt">Choose a Type</string>
     <string name="volunter_term">What kind of work? Schools for India is  currently in the process of conducting  surveys of all  districts in the country. We are gathering all the data in the public domain relating to various villages,the population, literacy levels,the number of schools etc.Based on this research Schools for India will hire profession. &lt;a href="http://www.schoolsforindia.org/volunteers">more&lt;/a> </string>
     <string name="wallet_buy_button_place_holder">Buy with Google</string>
+    <string name="web_prompt">Choose a country</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
     <style name="Animation.AppCompat.Dialog" parent="Base.Animation.AppCompat.Dialog"/>

@@ -13,11 +13,11 @@ import java.util.Date;
 import java.util.List;
 
 @Table(name = "Notification")
-public class NotificationInfo extends Model{
+public class NotificationInfo extends Model {
     @Column(name = "description")
-   private String description;
+    private String description;
     @Column(name = "imageid")
-     private   String imageid;
+    private String imageid;
     @Column(name = "Date")
     private Date Date;
     @Column(name = "Title")
@@ -50,16 +50,16 @@ public class NotificationInfo extends Model{
     }
 
     public void setDate(Date date) {
-       this.Date = date;
+        this.Date = date;
     }
 
     public String getImageid() {
         return imageid;
     }
+
     public void setImageid(String imageid) {
         this.imageid = imageid;
     }
-
 
 
     private static String getTodayEvent() {
@@ -91,18 +91,19 @@ public class NotificationInfo extends Model{
         return result;
     }
 
-  /*  public static List<NotificationInfo> getnotfy() {
+    /*  public static List<NotificationInfo> getnotfy() {
+          return new Select()
+                  .from(NotificationInfo.class)
+                  .orderBy("event_date DESC")
+                  .execute();
+      }*/
+    public static List<NotificationInfo> getevents() {
         return new Select()
                 .from(NotificationInfo.class)
-                .orderBy("event_date DESC")
+                .orderBy("date DESC")
                 .execute();
-    }*/
-  public static List<NotificationInfo> getevents() {
-      return new Select()
-              .from(NotificationInfo.class)
-              .orderBy("date DESC")
-              .execute();
-  }
+    }
+
     public static void deleteAll() {
         new Delete().from(NotificationInfo.class).execute();
     }

@@ -19,8 +19,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:entries="@array/country_arrays"
-        android:prompt="@string/country_prompt"
+        android:entries="@array/web_arrays"
+        android:prompt="@string/web_prompt"
       />
 
       <EditText

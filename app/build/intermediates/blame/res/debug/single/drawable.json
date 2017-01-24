@@ -132,6 +132,10 @@
         "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\dppic.png",
+        "source": "D:\\works\\Schools\\app\\src\\main\\res\\drawable\\dppic.png"
+    },
+    {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\dow2.png",
         "source": "D:\\works\\Schools\\app\\src\\main\\res\\drawable\\dow2.png"
     },

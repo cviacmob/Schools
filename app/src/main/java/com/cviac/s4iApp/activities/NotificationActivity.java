@@ -48,8 +48,9 @@ public class NotificationActivity extends AppCompatActivity{
 
             }
         });
-        saveeventInfo(noty);
         NotificationInfo.deleteAll();
+        saveeventInfo(noty);
+
     }
 
     private List<NotificationInfo> getEvents() {

@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.SocialInfoAdapter;
@@ -90,17 +91,20 @@ public class SocialActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         // TODO Auto-generated method stub
-                        String schannel = imag.getSelectedItem().toString();
-
-                        //String url = text.getText().toString();
-
-                        SocialInfo info = new SocialInfo();
-                        info.setChannel(schannel);
-                        info.setUrl(text.getText().toString());
-                        socialList.add(info);
-                        //adapt.notifyDataSetInvalidated();
-                        adapt.notifyDataSetChanged();
-                        dialog.dismiss();
+                        String web = text.getText().toString();
+                        if (!web.equals("")) {
+                            String schannel = imag.getSelectedItem().toString();
+                            SocialInfo info = new SocialInfo();
+                            info.setChannel(schannel);
+                            info.setUrl(text.getText().toString());
+                            socialList.add(info);
+                            //adapt.notifyDataSetInvalidated();
+                            adapt.notifyDataSetChanged();
+                            dialog.dismiss();
+                        }
+                        else if(web.equals("")){
+                            Toast.makeText(getApplicationContext(),"Please Select Social site", Toast.LENGTH_LONG).show();
+                        }
                     }
                 };
                 okbutton.setOnClickListener(listener);

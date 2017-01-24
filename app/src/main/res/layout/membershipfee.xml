@@ -15,7 +15,7 @@
     <TextView
         android:id="@+id/amnt1"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="22dp"
+        android:layout_marginLeft="23dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/schl"
@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/annual"
         android:layout_marginTop="20dp"
-        android:text="Be a Frient"   />
+        android:text="Be a Friend"   />
 
     <TextView
         android:id="@+id/frdannual"
@@ -165,7 +165,7 @@
         android:text="Textview"
         android:layout_toRightOf="@id/frdmonth"
         android:layout_alignTop="@+id/frdmonth"
-        android:layout_marginLeft="118dp"  />
+        android:layout_marginLeft="116dp"  />
 
 
 

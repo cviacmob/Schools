@@ -74,8 +74,8 @@
     <string name="radio_female">Female</string>
     <string name="radio_others">Others</string>
 
-    <string name="country_prompt">Choose a country</string>
-    <string-array name="country_arrays">
+    <string name="web_prompt">Choose a country</string>
+    <string-array name="web_arrays">
         <item>Choose social site links</item>
         <item>Facebook</item>
         <item>Twitter</item>

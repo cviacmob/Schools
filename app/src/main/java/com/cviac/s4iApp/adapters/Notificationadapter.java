@@ -82,7 +82,7 @@ public class Notificationadapter extends ArrayAdapter<NotificationInfo> {
       /*  String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date(noteset.getDate().toString()));
         holder.txtdate.setText(timeStamp);*/
         Date date = new Date();
-        String stringDate = DateFormat.getDateTimeInstance().format(date);
+        String stringDate = DateFormat.getDateInstance().format(date);
        // String timeStam = new SimpleDateFormat("dd-MM-yy").format(noteset.getDate());
         holder.txtdate.setText(stringDate);
 

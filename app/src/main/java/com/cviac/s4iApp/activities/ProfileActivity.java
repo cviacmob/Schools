@@ -93,13 +93,13 @@ public class ProfileActivity extends AppCompatActivity {
         btnSelect = (ImageButton) findViewById(R.id.LoadPicture1);
         Picasso.with(context).load(R.drawable.imggg).resize(80, 80).transform(new CircleTransform())
                 .into(btnSelect);
-       /* memcoded=profileupload.getMemID();
+        memcoded=profileupload.getMemID();
 
         if(!memId.equals(memcoded) )
         {
 
             btnSelect.setVisibility(View.INVISIBLE);
-        }*/
+        }
 
         Picasso.with(context).load(R.drawable.imggg).resize(80, 80).transform(new CircleTransform())
                 .into(btnSelect);
@@ -111,12 +111,12 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        String imgUrl = profileinfo.getImage_url();
+        String imgUrl = profileinfo.getImage_url();  //this app not update profile picture now only including  defalut image but coding has implemented
         if (imgUrl != null && imgUrl.length() > 0) {
             Picasso.with(context).load(imgUrl).resize(220, 220).transform(new CircleTransform())
                     .into(viewImage);
         } else {
-            Picasso.with(context).load(R.drawable.ic_launcher).resize(220, 220).transform(new CircleTransform())
+            Picasso.with(context).load(R.drawable.dppic).resize(220, 220).transform(new CircleTransform())
                     .into(viewImage);
         }
         createGroupList();
