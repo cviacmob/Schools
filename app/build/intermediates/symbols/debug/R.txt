@@ -1412,7 +1412,7 @@ int id enterAlways 0x7f0f0025
 int id enterAlwaysCollapsed 0x7f0f0026
 int id eventslist 0x7f0f012b
 int id exitUntilCollapsed 0x7f0f0027
-int id exp 0x7f0f00dc
+int id exp 0x7f0f00de
 int id expand1 0x7f0f00bb
 int id expand_activities_button 0x7f0f008d
 int id expandableListView1 0x7f0f00cf
@@ -1447,7 +1447,7 @@ int id image 0x7f0f008e
 int id imageButton 0x7f0f0132
 int id imageDialog 0x7f0f00ca
 int id imageView 0x7f0f00b9
-int id imageView1 0x7f0f00de
+int id imageView1 0x7f0f00dc
 int id imageView2 0x7f0f00e9
 int id imagenotify 0x7f0f0130
 int id index_entity_types 0x7f0f0066
@@ -1603,9 +1603,9 @@ int id spacer 0x7f0f0094
 int id spin1 0x7f0f018b
 int id spin2 0x7f0f018c
 int id spinner1 0x7f0f00cb
-int id spinner2 0x7f0f0136
-int id spinner3 0x7f0f0137
-int id spinner4 0x7f0f0134
+int id spinner2 0x7f0f0134
+int id spinner3 0x7f0f0135
+int id spinner4 0x7f0f0136
 int id split_action_bar 0x7f0f0016
 int id sports 0x7f0f011b
 int id src_atop 0x7f0f002d
@@ -1620,7 +1620,7 @@ int id strict_sandbox 0x7f0f0073
 int id subedit 0x7f0f00c4
 int id submenuarrow 0x7f0f00a4
 int id submit_area 0x7f0f00b5
-int id submitbutton 0x7f0f0135
+int id submitbutton 0x7f0f0137
 int id subtitle_view 0x7f0f010d
 int id subtxt 0x7f0f00c3
 int id tabMode 0x7f0f001d

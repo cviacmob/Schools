@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @Table(name = "currentevents")
-public class Currentevent  extends Model {
+public class Currentevent extends Model {
     @Column(name = "event_name")
     private String event_name;
     @Column(name = "event_date")
@@ -66,13 +66,13 @@ public class Currentevent  extends Model {
 
 
     public static List<Currentevent> getcurrentevents() {
-        return  new Select()
+        return new Select()
                 .from(Currentevent.class)
                 .orderBy("event_date DESC")
                 .execute();
     }
 
-    public static void deleteAll(){
+    public static void deleteAll() {
         new Delete().from(Currentevent.class).execute();
     }
 }

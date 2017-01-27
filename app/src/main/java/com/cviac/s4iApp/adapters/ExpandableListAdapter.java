@@ -38,15 +38,16 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
-  //  private Profile pr;
-   // private MembershipInfo pro;
+    //  private Profile pr;
+    // private MembershipInfo pro;
     private Activity context;
     private Map<String, List<String>> laptopCollections;
     private List<String> laptops;
     private EditText result;
     private MyProfileInfo Mpi;
     MyProfileInfo myProfile;
-    String memId = Prefs.getString("MemId","");
+    String memId = Prefs.getString("MemId", "");
+
     public ExpandableListAdapter(Activity context, List<String> laptops,
                                  Map<String, List<String>> laptopCollections, MyProfileInfo Mpi) {
         this.context = context;
@@ -222,33 +223,32 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
                 if (
                         groupPosition == 1 && childPosition == 0 ||
-                        groupPosition == 1 && childPosition == 1 ||
-                        groupPosition == 1 && childPosition == 2 ||
-                        groupPosition == 2 && childPosition == 0 ||
-                        groupPosition == 2 && childPosition == 1 ||
-                        groupPosition == 2 && childPosition == 3 ||
-                        groupPosition ==3 && childPosition == 0 ||
-                        groupPosition ==3 && childPosition == 1 ||
-                        groupPosition ==3 && childPosition == 3 ){
+                                groupPosition == 1 && childPosition == 1 ||
+                                groupPosition == 1 && childPosition == 2 ||
+                                groupPosition == 2 && childPosition == 0 ||
+                                groupPosition == 2 && childPosition == 1 ||
+                                groupPosition == 2 && childPosition == 3 ||
+                                groupPosition == 3 && childPosition == 0 ||
+                                groupPosition == 3 && childPosition == 1 ||
+                                groupPosition == 3 && childPosition == 3) {
                     getEditText(item, groupPosition, childPosition, defvalue);
                 } else if
                         (groupPosition == 2 && childPosition == 2) {
-                    getStateCity(item, groupPosition, childPosition,defvalue);
+                    getStateCity(item, groupPosition, childPosition, defvalue);
 
                 } else if
                         (groupPosition == 1 && childPosition == 3) {
-                    getRadioOption(item, groupPosition, childPosition,defvalue);
+                    getRadioOption(item, groupPosition, childPosition, defvalue);
                 } else if
-                        ( groupPosition == 3 && childPosition == 2) {
-                    getstatecity2(item, groupPosition, childPosition,defvalue);
+                        (groupPosition == 3 && childPosition == 2) {
+                    getstatecity2(item, groupPosition, childPosition, defvalue);
 
                 } else if
                         (groupPosition == 0 && childPosition == 0) {
-                    getMembershiptype(item, groupPosition, childPosition,defvalue);
-                }
-                else if
+                    getMembershiptype(item, groupPosition, childPosition, defvalue);
+                } else if
                         (groupPosition == 0 && childPosition == 1) {
-                    getmembershipperiod(item, groupPosition, childPosition,defvalue);
+                    getmembershipperiod(item, groupPosition, childPosition, defvalue);
                 }
 //        if (groupPosition == 0 && childPosition ==0){
 //            AlertDialog alertDialog = alertDialogBuilder.create();
@@ -310,11 +310,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                             public void onClick(DialogInterface dialog, int id) {
                                 item.setText(userInput.getText().toString());
                                 setProfileValue(groupPosition, childPosition, item);
-                                String memId = Prefs.getString("MemId","");
-                                MyProfileInfo profile =new MyProfileInfo();
+                                String memId = Prefs.getString("MemId", "");
+                                MyProfileInfo profile = new MyProfileInfo();
                                 profile.setMemID(memId);
 
-                                if(groupPosition==1) {
+                                if (groupPosition == 1) {
                                     if (childPosition == 0) {
                                         String pro = userInput.getText().toString();
                                         profile.setFirstName(pro);
@@ -325,43 +325,36 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                         String pro2 = userInput.getText().toString();
                                         profile.setMobile2(pro2);
                                     }
+                                } else if (groupPosition == 2) {
+                                    if (childPosition == 0) {
+                                        String pro3 = userInput.getText().toString();
+                                        profile.setHouseNo(pro3);
+
+                                    } else if (childPosition == 1) {
+                                        String pro4 = userInput.getText().toString();
+                                        profile.setTown(pro4);
+
+                                    } else if (childPosition == 3) {
+                                        String pro5 = userInput.getText().toString();
+                                        profile.setPIN(pro5);
+                                    }
+                                } else if (groupPosition == 3) {
+                                    if (childPosition == 0) {
+                                        String pro6 = userInput.getText().toString();
+                                        profile.setCompNumber(pro6);
+
+                                    } else if (childPosition == 1) {
+                                        String pro7 = userInput.getText().toString();
+                                        profile.setCompTown(pro7);
+
+                                    } else if (childPosition == 3) {
+                                        String pro8 = userInput.getText().toString();
+                                        profile.setCompPIN(pro8);
+
+                                    }
                                 }
-                                else if (groupPosition==2){
-                                        if (childPosition==0){
-                                            String pro3 =userInput.getText().toString();
-                                            profile.setHouseNo(pro3);
 
-                                        }
-                                        else if (childPosition==1){
-                                            String pro4 = userInput.getText().toString();
-                                            profile.setTown(pro4);
-
-                                        }
-                                        else if (childPosition==3){
-                                            String pro5 = userInput.getText().toString();
-                                            profile.setPIN(pro5);
-                                        }
-                                    }
-                              else if (groupPosition==3){
-                                        if (childPosition==0){
-                                            String pro6 =userInput.getText().toString();
-                                            profile.setCompNumber(pro6);
-
-                                        }
-                                        else if (childPosition==1){
-                                            String pro7 = userInput.getText().toString();
-                                            profile.setCompTown(pro7);
-
-                                        }
-                                        else if (childPosition==3){
-                                            String pro8 = userInput.getText().toString();
-                                            profile.setCompPIN(pro8);
-
-                                        }
-                                    }
-
-                                  mypreg(profile);
-
+                                mypreg(profile);
 
 
                             }
@@ -380,7 +373,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         //alertDialog.getWindow().setLayout(900, 600);
     }
 
-    private void getMembershiptype(final TextView item, final int groupPosition, final int childPosition,String defValue) {
+    private void getMembershiptype(final TextView item, final int groupPosition, final int childPosition, String defValue) {
         LayoutInflater li2 = LayoutInflater.from(context);
         View promptsView = li2.inflate(R.layout.memershiptype, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -418,12 +411,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 String state = sp3.getSelectedItem().toString();
                                 item.setText(state);
                                 setProfileValue(groupPosition, childPosition, item);
-                                String memId = Prefs.getString("MemId","");
-                                MyProfileInfo profile =new MyProfileInfo();
+                                String memId = Prefs.getString("MemId", "");
+                                MyProfileInfo profile = new MyProfileInfo();
                                 profile.setMemID(memId);
-                                MyProfileInfo myProfile =new MyProfileInfo();
+                                MyProfileInfo myProfile = new MyProfileInfo();
 
-                                if(groupPosition==0) {
+                                if (groupPosition == 0) {
                                     if (childPosition == 0) {
                                         String state1 = sp3.getSelectedItem().toString();
                                         profile.setMemType(state1);
@@ -447,7 +440,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
 
-    private void getmembershipperiod(final TextView item, final int groupPosition, final int childPosition,String defValue) {
+    private void getmembershipperiod(final TextView item, final int groupPosition, final int childPosition, String defValue) {
 
         LayoutInflater li4 = LayoutInflater.from(context);
         View promptsView = li4.inflate(R.layout.membershipperiod_layout, null);
@@ -484,10 +477,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 String period = sp4.getSelectedItem().toString();
                                 item.setText(period);
                                 setProfileValue(groupPosition, childPosition, item);
-                                String memId = Prefs.getString("MemId","");
-                                MyProfileInfo profile =new MyProfileInfo();
+                                String memId = Prefs.getString("MemId", "");
+                                MyProfileInfo profile = new MyProfileInfo();
                                 profile.setMemID(memId);
-                                if(groupPosition==0) {
+                                if (groupPosition == 0) {
                                     if (childPosition == 1) {
                                         String state2 = sp4.getSelectedItem().toString();
                                         profile.setMemPlan(state2);
@@ -508,7 +501,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         // show it
         alertDialog.show();
     }
-    private void getStateCity(final TextView item, final int groupPosition, final int childPosition,String defValue) {
+
+    private void getStateCity(final TextView item, final int groupPosition, final int childPosition, String defValue) {
 
         LayoutInflater li3 = LayoutInflater.from(context);
         View promptsView = li3.inflate(R.layout.statecitydialog, null);
@@ -555,14 +549,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 String city = sp2.getSelectedItem().toString();
                                 item.setText(state + "/" + city);
                                 setProfileValue(groupPosition, childPosition, item);
-                                String memId = Prefs.getString("MemId","");
-                                MyProfileInfo profile =new MyProfileInfo();
+                                String memId = Prefs.getString("MemId", "");
+                                MyProfileInfo profile = new MyProfileInfo();
                                 profile.setMemID(memId);
-                                if(groupPosition==2) {
+                                if (groupPosition == 2) {
                                     if (childPosition == 2) {
                                         String state3 = sp1.getSelectedItem().toString();
                                         String city3 = sp2.getSelectedItem().toString();
-                                       profile.setState(state3 + "/" + city3);
+                                        profile.setState(state3 + "/" + city3);
                                     }
                                 }
                                 mypreg(profile);
@@ -580,7 +574,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         // show it
         alertDialog.show();
     }
-    private void getstatecity2(final TextView item, final int groupPosition, final int childPosition,String defValue) {
+
+    private void getstatecity2(final TextView item, final int groupPosition, final int childPosition, String defValue) {
 
         LayoutInflater lir = LayoutInflater.from(context);
         View promptsView = lir.inflate(R.layout.statecitydialog2, null);
@@ -627,10 +622,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 String city = spn.getSelectedItem().toString();
                                 item.setText(state + "/" + city);
                                 setProfileValue(groupPosition, childPosition, item);
-                                String memId = Prefs.getString("MemId","");
-                                MyProfileInfo profile =new MyProfileInfo();
+                                String memId = Prefs.getString("MemId", "");
+                                MyProfileInfo profile = new MyProfileInfo();
                                 profile.setMemID(memId);
-                                if(groupPosition==3) {
+                                if (groupPosition == 3) {
                                     if (childPosition == 2) {
                                         String state4 = sp.getSelectedItem().toString();
                                         String city4 = spn.getSelectedItem().toString();
@@ -666,8 +661,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
 
-
-    private void getRadioOption(final TextView item, final int groupPosition, final int childPosition,String defValue) {
+    private void getRadioOption(final TextView item, final int groupPosition, final int childPosition, String defValue) {
 
         LayoutInflater li = LayoutInflater.from(context);
         final View promptsView = li.inflate(R.layout.radio_child, null);
@@ -696,10 +690,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 //item.setText(selectedId);
                                 item.setText(value);
                                 setProfileValue(groupPosition, childPosition, item);
-                                String memId = Prefs.getString("MemId","");
-                                MyProfileInfo profile =new MyProfileInfo();
+                                String memId = Prefs.getString("MemId", "");
+                                MyProfileInfo profile = new MyProfileInfo();
                                 profile.setMemID(memId);
-                                if(groupPosition==1) {
+                                if (groupPosition == 1) {
                                     if (childPosition == 3) {
                                         final String value1 = ((RadioButton) promptsView.findViewById(rs.getCheckedRadioButtonId())).getText().toString();
                                         profile.setGender(value1);
@@ -745,7 +739,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    private void mypreg(MyProfileInfo profile){
+    private void mypreg(MyProfileInfo profile) {
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
@@ -771,4 +765,4 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     }
 
-    }
+}

@@ -24,9 +24,10 @@ import retrofit.Retrofit;
 
 
 public class Events extends Fragment {
-    List<Event>evenlist;
+    List<Event> evenlist;
     private ListView lv1;
-  //  List<Event> emps;
+
+    //  List<Event> emps;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,10 +35,10 @@ public class Events extends Fragment {
 
         View events = inflater.inflate(R.layout.events_frgs, container, false);
         //((TextView)event.findViewById(R.id.events)).setText("Events");
-        lv1=(ListView)events.findViewById(R.id.eventslist);
+        lv1 = (ListView) events.findViewById(R.id.eventslist);
         lv1.setDivider(null);
-        evenlist=getEvents();
-        lv1.setAdapter(new EventsAdapter(evenlist,getActivity().getApplicationContext()));
+        evenlist = getEvents();
+        lv1.setAdapter(new EventsAdapter(evenlist, getActivity().getApplicationContext()));
 
         lv1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -47,13 +48,15 @@ public class Events extends Fragment {
 
                 Event event = evenlist.get(pos1);
 
-                Toast.makeText(lv1.getContext(), "clicked:"+ event.getEvent_name(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(lv1.getContext(), "clicked:" + event.getEvent_name(), Toast.LENGTH_SHORT).show();
 
-            }});
+            }
+        });
 
 
         return events;
     }
+
     private List<Event> getEvents() {
         return Event.getevents();
     }

@@ -20,11 +20,10 @@ import retrofit.GsonConverterFactory;
 import retrofit.Response;
 import retrofit.Retrofit;
 
-public class MembershipFeeActivity extends AppCompatActivity
-{
+public class MembershipFeeActivity extends AppCompatActivity {
     MemberFeeInfo memberfee;
     ProgressDialog progressDialog;
-    String feeid = Prefs.getString("Pid","");
+    String feeid = Prefs.getString("Pid", "");
     public TextView tenscltxt;
     public TextView onescltxt;
     public TextView clstxt;
@@ -35,31 +34,31 @@ public class MembershipFeeActivity extends AppCompatActivity
     Button button2;
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.membershipfee);
         setTitle("Membership fee");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-       tenscltxt = (TextView)findViewById(R.id.amnt1);
-        onescltxt = (TextView)findViewById(R.id.amnt2);
-       clstxt = (TextView)findViewById(R.id.amt3);
-       bricktxt = (TextView)findViewById(R.id.amt4);
-       annualtxt = (TextView)findViewById(R.id.amt5);
-       frdannaultxt = (TextView)findViewById(R.id.amt6);
-       frdmonthtxt = (TextView)findViewById(R.id.amt7);
+        tenscltxt = (TextView) findViewById(R.id.amnt1);
+        onescltxt = (TextView) findViewById(R.id.amnt2);
+        clstxt = (TextView) findViewById(R.id.amt3);
+        bricktxt = (TextView) findViewById(R.id.amt4);
+        annualtxt = (TextView) findViewById(R.id.amt5);
+        frdannaultxt = (TextView) findViewById(R.id.amt6);
+        frdmonthtxt = (TextView) findViewById(R.id.amt7);
 
 
         memberupdate(memberfee);
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
     }
 
-    private void memberupdate(MemberFeeInfo memberfeeinfo){
+    private void memberupdate(MemberFeeInfo memberfeeinfo) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://schoolsforindia.com")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -99,10 +98,11 @@ public class MembershipFeeActivity extends AppCompatActivity
         });
 
     }
+
     private void setProgressDialog() {
-        progressDialog = new ProgressDialog(MembershipFeeActivity.this,R.style.AppTheme_Dark_Dialog);
+        progressDialog = new ProgressDialog(MembershipFeeActivity.this, R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
-        progressDialog.setMessage("Verifying...");
+        progressDialog.setMessage("Checking...");
         progressDialog.setCancelable(false);
         progressDialog.show();
     }

@@ -9,7 +9,7 @@ public class RegisterResponse {
     private String desc;
     private String MemID;
     private String reg_type;
-    private  String ID;
+    private String ID;
 
     public String getID() {
         return ID;
@@ -18,7 +18,6 @@ public class RegisterResponse {
     public void setID(String ID) {
         this.ID = ID;
     }
-
 
 
     public String getReg_type() {

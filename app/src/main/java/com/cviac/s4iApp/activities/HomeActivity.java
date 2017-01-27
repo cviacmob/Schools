@@ -78,9 +78,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-
-
-    public static String toddMMyy(Date day){
+    public static String toddMMyy(Date day) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yy");
         String date = formatter.format(day);
         return date;
@@ -176,4 +174,4 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
-   }
+}

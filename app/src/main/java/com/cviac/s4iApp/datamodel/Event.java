@@ -66,7 +66,7 @@ public class Event extends Model {
     }
 
     public static List<Event> getevents() {
-        return  new Select()
+        return new Select()
                 .from(Event.class)
                 .orderBy("event_date DESC")
                 .execute();

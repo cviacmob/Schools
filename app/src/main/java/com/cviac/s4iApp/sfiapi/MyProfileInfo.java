@@ -7,7 +7,7 @@ package com.cviac.s4iApp.sfiapi;
 @Table(name = "MyProfileInfo")
 */
 
-public class MyProfileInfo{
+public class MyProfileInfo {
 
     private String MemPlan;
     private String MemType;

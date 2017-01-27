@@ -24,22 +24,21 @@ public class Notificationadapter extends ArrayAdapter<NotificationInfo> {
     private int lastPostion = -1;
     Context mContext;
 
-   /* public Notificationadapter(NotificationActivity objects, List<NotificationInfo> context) {
-        super(objects,R.layout.notificaton_item , context);
-        eve = (List<NotificationInfo>) objects;
-        mContext = (Context) context;
-    }*/
-   public Notificationadapter(List<NotificationInfo> objects, Context context) {
-       super(context, R.layout.notificaton_item, objects);
-       eve = objects;
-       mContext = context;
-   }
-
+    /* public Notificationadapter(NotificationActivity objects, List<NotificationInfo> context) {
+         super(objects,R.layout.notificaton_item , context);
+         eve = (List<NotificationInfo>) objects;
+         mContext = (Context) context;
+     }*/
+    public Notificationadapter(List<NotificationInfo> objects, Context context) {
+        super(context, R.layout.notificaton_item, objects);
+        eve = objects;
+        mContext = context;
+    }
 
 
     public static class ViewHolder {
         public TextView names;
-        public TextView desc ,txtdate;
+        public TextView desc, txtdate;
         public ImageView imageid;
     }
 
@@ -68,7 +67,7 @@ public class Notificationadapter extends ArrayAdapter<NotificationInfo> {
             vw.setTag(holder);
         } else {
             holder = (ViewHolder) vw.getTag();
-    }
+        }
         String url1 = noteset.getImageid();
         if (url1 != null && url1.length() > 0) {
             Picasso.with(mContext).load(noteset.getImageid()).resize(80, 80).transform(new CircleTransform())
@@ -83,7 +82,7 @@ public class Notificationadapter extends ArrayAdapter<NotificationInfo> {
         holder.txtdate.setText(timeStamp);*/
         Date date = new Date();
         String stringDate = DateFormat.getDateInstance().format(date);
-       // String timeStam = new SimpleDateFormat("dd-MM-yy").format(noteset.getDate());
+        // String timeStam = new SimpleDateFormat("dd-MM-yy").format(noteset.getDate());
         holder.txtdate.setText(stringDate);
 
         return vw;

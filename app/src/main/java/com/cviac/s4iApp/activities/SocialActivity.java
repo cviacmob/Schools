@@ -26,7 +26,7 @@ import java.util.List;
 
 public class SocialActivity extends AppCompatActivity {
 
-    private Button buttonClick,okbutton;
+    private Button buttonClick, okbutton;
     Spinner imag;
     EditText text;
     Context context;
@@ -38,10 +38,10 @@ public class SocialActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social);
-        context=this;
+        context = this;
         socialList = new ArrayList<SocialInfo>();
         adapt = new SocialInfoAdapter(this, socialList);
-        setTitle ("Social");
+        setTitle("Social");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -86,7 +86,7 @@ public class SocialActivity extends AppCompatActivity {
                 okbutton = (Button) dialog.findViewById(R.id.button1);
                 // if button is clicked, close the custom dialog
 
-                OnClickListener listener=new OnClickListener() {
+                OnClickListener listener = new OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
@@ -101,9 +101,8 @@ public class SocialActivity extends AppCompatActivity {
                             //adapt.notifyDataSetInvalidated();
                             adapt.notifyDataSetChanged();
                             dialog.dismiss();
-                        }
-                        else if(web.equals("")){
-                            Toast.makeText(getApplicationContext(),"Please Select Social site", Toast.LENGTH_LONG).show();
+                        } else if (web.equals("")) {
+                            Toast.makeText(getApplicationContext(), "Please Select Social site", Toast.LENGTH_LONG).show();
                         }
                     }
                 };
@@ -119,10 +118,10 @@ public class SocialActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
 
-                if(arg2==0){
+                if (arg2 == 0) {
                     TextView spinnerText = (TextView) imag.getChildAt(0);
 
-                 //   spinnerText.setTextColor(Color.RED);
+                    //   spinnerText.setTextColor(Color.RED);
                     text.setText("");
                 }
 
@@ -134,6 +133,7 @@ public class SocialActivity extends AppCompatActivity {
                     text.setText("www.Gmail.com");
                 }
             }
+
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         });

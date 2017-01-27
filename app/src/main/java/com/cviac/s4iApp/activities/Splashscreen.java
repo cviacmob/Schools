@@ -47,8 +47,8 @@ public class Splashscreen extends Activity {
                     startActivity(send);
                     finish();
                 }
-				/*
-				 * if user reg test is false on oncreate then redirect the
+                /*
+                 * if user reg test is false on oncreate then redirect the
 				 * user to Registration page
 				 */
                 else {
@@ -59,4 +59,5 @@ public class Splashscreen extends Activity {
                 }
             }
         }, SPLASH_TIME_OUT);
-    }}
+    }
+}

@@ -4181,7 +4181,7 @@ containing a value of this type.
         public static final int enterAlwaysCollapsed=0x7f0f0026;
         public static final int eventslist=0x7f0f012b;
         public static final int exitUntilCollapsed=0x7f0f0027;
-        public static final int exp=0x7f0f00dc;
+        public static final int exp=0x7f0f00de;
         public static final int expand1=0x7f0f00bb;
         public static final int expand_activities_button=0x7f0f008d;
         public static final int expandableListView1=0x7f0f00cf;
@@ -4216,7 +4216,7 @@ containing a value of this type.
         public static final int imageButton=0x7f0f0132;
         public static final int imageDialog=0x7f0f00ca;
         public static final int imageView=0x7f0f00b9;
-        public static final int imageView1=0x7f0f00de;
+        public static final int imageView1=0x7f0f00dc;
         public static final int imageView2=0x7f0f00e9;
         public static final int imagenotify=0x7f0f0130;
         public static final int index_entity_types=0x7f0f0066;
@@ -4372,9 +4372,9 @@ containing a value of this type.
         public static final int spin1=0x7f0f018b;
         public static final int spin2=0x7f0f018c;
         public static final int spinner1=0x7f0f00cb;
-        public static final int spinner2=0x7f0f0136;
-        public static final int spinner3=0x7f0f0137;
-        public static final int spinner4=0x7f0f0134;
+        public static final int spinner2=0x7f0f0134;
+        public static final int spinner3=0x7f0f0135;
+        public static final int spinner4=0x7f0f0136;
         public static final int split_action_bar=0x7f0f0016;
         public static final int sports=0x7f0f011b;
         public static final int src_atop=0x7f0f002d;
@@ -4389,7 +4389,7 @@ containing a value of this type.
         public static final int subedit=0x7f0f00c4;
         public static final int submenuarrow=0x7f0f00a4;
         public static final int submit_area=0x7f0f00b5;
-        public static final int submitbutton=0x7f0f0135;
+        public static final int submitbutton=0x7f0f0137;
         public static final int subtitle_view=0x7f0f010d;
         public static final int subtxt=0x7f0f00c3;
         public static final int tabMode=0x7f0f001d;

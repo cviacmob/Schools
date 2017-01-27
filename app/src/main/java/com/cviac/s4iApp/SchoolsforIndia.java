@@ -22,7 +22,7 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 public class SchoolsforIndia extends MultiDexApplication {
-    private boolean networkStatus =true;
+    private boolean networkStatus = true;
 
     public boolean isNetworkStatus() {
         return networkStatus;
@@ -50,11 +50,11 @@ public class SchoolsforIndia extends MultiDexApplication {
                 .build();
 
 
-            Configuration.Builder configurationBuilder = new Configuration.Builder(this);
-            configurationBuilder.addModelClasses(Event.class);
-            configurationBuilder.addModelClasses(Currentevent.class);
-            configurationBuilder.addModelClasses(NotificationInfo.class);
-            ActiveAndroid.initialize(configurationBuilder.create());
+        Configuration.Builder configurationBuilder = new Configuration.Builder(this);
+        configurationBuilder.addModelClasses(Event.class);
+        configurationBuilder.addModelClasses(Currentevent.class);
+        configurationBuilder.addModelClasses(NotificationInfo.class);
+        ActiveAndroid.initialize(configurationBuilder.create());
 
 
     }

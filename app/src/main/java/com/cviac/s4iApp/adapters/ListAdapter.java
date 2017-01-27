@@ -118,8 +118,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     } else
                         Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
-                } else
-                if (groupPosition == 2 && childPosition == 0) {
+                } else if (groupPosition == 2 && childPosition == 0) {
                     regType = "SPONSER";
                     StringBuilder result = new StringBuilder();
                     result.append("Sponsor is\n");
@@ -131,8 +130,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     } else
                         Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
-                } else
-                if (groupPosition == 3 && childPosition == 0) {
+                } else if (groupPosition == 3 && childPosition == 0) {
                     regType = "PARTNER";
                     StringBuilder result = new StringBuilder();
                     result.append("Partner is\n");
@@ -144,8 +142,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     } else
                         Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
-                } else
-                if (groupPosition == 4 && childPosition == 0) {
+                } else if (groupPosition == 4 && childPosition == 0) {
                     regType = "MENTOR";
                     StringBuilder result = new StringBuilder();
                     result.append("Mentor is\n");
@@ -159,7 +156,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                                 .show();
                 }
 
-                String memId = Prefs.getString("MemId","");
+                String memId = Prefs.getString("MemId", "");
                 MembershipInfo info = new MembershipInfo();
                 info.setReg_type(regType);
                 info.setMemID(memId);

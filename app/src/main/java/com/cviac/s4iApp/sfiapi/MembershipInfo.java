@@ -10,7 +10,7 @@ public class MembershipInfo {
     private String MemType;
     private String MemPlan;
     private String reg_type;
-    private  String MemID;
+    private String MemID;
 
     public String getMemID() {
         return MemID;
@@ -60,7 +60,6 @@ public class MembershipInfo {
     public void setReg_type(String reg_type) {
         this.reg_type = reg_type;
     }
-
 
 
 }

@@ -28,6 +28,7 @@ public class FAQActivity extends AppCompatActivity {
 
     // Assign Parent list items here.
     List<String> ParentList = new ArrayList<String>();
+
     {
         ParentList.add("MEMBERSHIP");
         ParentList.add("VOLUNTEERING");
@@ -35,14 +36,15 @@ public class FAQActivity extends AppCompatActivity {
         ParentList.add("S4I ENGAGEMENT");
         ParentList.add("CURRICULUM");
     }
-    String[] AndroidName = { "How many members with S4I?"
+
+    String[] AndroidName = {"How many members with S4I?"
             + "S4I membership campaign started injune 2008 and we expecting to add by 100 members by end of march 2009."
             + "we are expecting 3000members globally in the next three years."
-            + "what is the process to be followed if I as S4I members wish to implement my idea in it?" };
-    String[] volunteering = { "default message " };
-    String[] teachingstaff = { " default message" };
-    String[] s4iengagement = { "default message " };
-    String[] curriculum = { " default message" };
+            + "what is the process to be followed if I as S4I members wish to implement my idea in it?"};
+    String[] volunteering = {"default message "};
+    String[] teachingstaff = {" default message"};
+    String[] s4iengagement = {"default message "};
+    String[] curriculum = {" default message"};
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -349,6 +351,7 @@ public class FAQActivity extends AppCompatActivity {
 
 
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

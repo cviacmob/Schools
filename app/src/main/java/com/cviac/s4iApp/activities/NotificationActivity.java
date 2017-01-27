@@ -14,7 +14,7 @@ import com.cviac.s4iApp.datamodel.NotificationInfo;
 
 import java.util.List;
 
-public class NotificationActivity extends AppCompatActivity{
+public class NotificationActivity extends AppCompatActivity {
 
     private ListView lv1;
 
@@ -27,7 +27,7 @@ public class NotificationActivity extends AppCompatActivity{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-        ListView lv1 = (ListView)findViewById(R.id.listnotify);
+        ListView lv1 = (ListView) findViewById(R.id.listnotify);
         setTitle("Notification");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         noty = getEvents();
@@ -44,8 +44,6 @@ public class NotificationActivity extends AppCompatActivity{
                 // Toast.makeText(lv1.getContext(), "clicked:" + emp.getEvent_title(), Toast.LENGTH_SHORT).show();
 
 
-
-
             }
         });
         NotificationInfo.deleteAll();
@@ -56,6 +54,7 @@ public class NotificationActivity extends AppCompatActivity{
     private List<NotificationInfo> getEvents() {
         return NotificationInfo.getevents();
     }
+
     private void saveeventInfo(List<NotificationInfo> empInfos) {
         for (NotificationInfo empinfo : noty) {
             NotificationInfo empp = new NotificationInfo();
@@ -67,6 +66,7 @@ public class NotificationActivity extends AppCompatActivity{
 
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

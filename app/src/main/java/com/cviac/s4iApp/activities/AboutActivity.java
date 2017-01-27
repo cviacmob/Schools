@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+
 import com.cviac.s4iApp.R;
 
 public class AboutActivity extends AppCompatActivity {

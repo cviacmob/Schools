@@ -14,12 +14,8 @@ public class RegInfo {
     private String Gender;
     private String DOB;
     private String Country;
-    private  String otp;
+    private String otp;
     private Date StartDate;
-
-
-
-
 
 
     public String getOtp() {
@@ -85,8 +81,6 @@ public class RegInfo {
     public void setStartDate(Date startDate) {
         StartDate = startDate;
     }
-
-
 
 
 }

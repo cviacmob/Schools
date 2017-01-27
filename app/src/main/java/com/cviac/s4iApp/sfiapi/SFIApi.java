@@ -36,10 +36,10 @@ public interface SFIApi {
     Call<RegisterResponse> memberreg(@Body MembershipInfo membershipApi);
 
     @POST("/S4IAPI/S4Idbop.php/profile_update")
-   Call<MyProfileInfo> updateProfile(@Body MyProfileInfo myProfileApi);
+    Call<MyProfileInfo> updateProfile(@Body MyProfileInfo myProfileApi);
 
     @GET("/S4IAPI/S4Idbop.php/members/{MemID}")
-    Call<List<MyProfileInfo>> getmyprofile(@Path("MemID")String MemID);
+    Call<List<MyProfileInfo>> getmyprofile(@Path("MemID") String MemID);
 
     @POST("/S4IAPI/S4Idbop.php/contactus")
     Call<ContactInfo> contatctreg(@Body ContactInfo contactApi);

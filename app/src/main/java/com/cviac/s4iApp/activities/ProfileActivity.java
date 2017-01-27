@@ -23,6 +23,7 @@ import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.CircleTransform;
@@ -34,6 +35,7 @@ import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.picasso.Picasso;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -78,25 +80,25 @@ public class ProfileActivity extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private String memId, memcoded;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        memId = Prefs.getString("MemId","");
+        memId = Prefs.getString("MemId", "");
         MyProfileInfo profileinfo = new MyProfileInfo();
-      //  MyProfileInfo profileinfo = MyProfileInfo.updateProfileImageUrl(memId);
-        setTitle ("My Profile");
-        ProfilePicUpload profileupload= new ProfilePicUpload();
-        viewImage=(ImageView)findViewById(R.id.imageView1);
+        //  MyProfileInfo profileinfo = MyProfileInfo.updateProfileImageUrl(memId);
+        setTitle("My Profile");
+        ProfilePicUpload profileupload = new ProfilePicUpload();
+        viewImage = (ImageView) findViewById(R.id.imageView1);
         Picasso.with(context).load(R.drawable.imggg).resize(220, 220).transform(new CircleTransform())
-               .into(viewImage);
+                .into(viewImage);
         btnSelect = (ImageButton) findViewById(R.id.LoadPicture1);
         Picasso.with(context).load(R.drawable.imggg).resize(80, 80).transform(new CircleTransform())
                 .into(btnSelect);
-        memcoded=profileupload.getMemID();
+        memcoded = profileupload.getMemID();
 
-        if(!memId.equals(memcoded) )
-        {
+        if (!memId.equals(memcoded)) {
 
             btnSelect.setVisibility(View.INVISIBLE);
         }
@@ -130,7 +132,7 @@ public class ProfileActivity extends AppCompatActivity {
         expListView = (ExpandableListView) findViewById(R.id.exp);
 
         //setGroupIndicatorToRight();
-        final ExpandableListAdapter expListAdapter = new ExpandableListAdapter(ProfileActivity.this, groupList, defValuesCollection,Mpi);
+        final ExpandableListAdapter expListAdapter = new ExpandableListAdapter(ProfileActivity.this, groupList, defValuesCollection, Mpi);
         expListView.setAdapter(expListAdapter);
 
         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
@@ -150,10 +152,9 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void getProfileInof() {
-        String memId = Prefs.getString("MemId","");
-        MyProfileInfo profile =new MyProfileInfo();
+        String memId = Prefs.getString("MemId", "");
+        MyProfileInfo profile = new MyProfileInfo();
         profile.setMemID(memId);
-
 
 
         Retrofit retrofit = new Retrofit.Builder()
@@ -161,25 +162,24 @@ public class ProfileActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = retrofit.create(SFIApi.class);
-        final Call<List<MyProfileInfo>> call =api.getmyprofile(memId);
+        final Call<List<MyProfileInfo>> call = api.getmyprofile(memId);
         call.enqueue(new Callback<List<MyProfileInfo>>() {
             @Override
             public void onResponse(Response<List<MyProfileInfo>> response, Retrofit retrofit) {
                 List<MyProfileInfo> minfolist = response.body();
                 if (minfolist.size() > 0) {
                     MyProfileInfo Mpi = minfolist.get(0);
-                    final ExpandableListAdapter expListAdapter = new ExpandableListAdapter(ProfileActivity.this, groupList, defValuesCollection,Mpi);
+                    final ExpandableListAdapter expListAdapter = new ExpandableListAdapter(ProfileActivity.this, groupList, defValuesCollection, Mpi);
                     expListView.setAdapter(expListAdapter);
                 }
             }
+
             @Override
             public void onFailure(Throwable t) {
                 t.printStackTrace();
             }
         });
     }
-
-
 
 
     private void createGroupList() {
@@ -194,18 +194,18 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void createCollection() {
         // preparing laptops collection(child)
-        String[] mi = { "MEMBERSHIP TYPE","MEMBERSHIP PERIOD" };
-        String[] bi = { "NAME","E MAIL","MOBILE","GENDER" };
-        String[] ra = { "ADDRESS 1","ADDRESS 2","CITY/STATE","ZIP CODE" };
-        String[] oa = { "ADDRESS 1","ADDRESS 2","CITY/STATE","ZIP CODE" };
+        String[] mi = {"MEMBERSHIP TYPE", "MEMBERSHIP PERIOD"};
+        String[] bi = {"NAME", "E MAIL", "MOBILE", "GENDER"};
+        String[] ra = {"ADDRESS 1", "ADDRESS 2", "CITY/STATE", "ZIP CODE"};
+        String[] oa = {"ADDRESS 1", "ADDRESS 2", "CITY/STATE", "ZIP CODE"};
 
 
         defValuesCollection = new LinkedHashMap<String, List<String>>();
 
         for (String laptop : groupList) {
-           if (laptop.equals("MEMBERSHIP INFORMATION"))
+            if (laptop.equals("MEMBERSHIP INFORMATION"))
                 loadChild(mi);
-           else if (laptop.equals("BASIC INFORMATION")) {
+            else if (laptop.equals("BASIC INFORMATION")) {
                 loadChild(bi);
             } else if (laptop.equals("RESIDENTIAL ADDRESS"))
                 loadChild(ra);
@@ -243,9 +243,10 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-      // getMenuInflater().inflate(R.menu.main, menu);
+        // getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
     private void selectImage() {
         final CharSequence[] items = {"Take Photo", "Choose from Library",
                 "Cancel"};
@@ -273,8 +274,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
 
-    private void galleryIntent()
-    {
+    private void galleryIntent() {
         if ((ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) &&
                 (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)) {
             Intent galleryIntent = new Intent(Intent.ACTION_PICK,
@@ -286,8 +286,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-    private void cameraIntent()
-    {
+    private void cameraIntent() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(intent, REQUEST_CAMERA);
@@ -365,9 +364,9 @@ public class ProfileActivity extends AppCompatActivity {
                 .baseUrl("http://schoolsforindia.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        final String memId = Prefs.getString("MemId","");
-        ProfilePicUpload profileupload =new ProfilePicUpload();
-       profileupload.setMemID(memId);
+        final String memId = Prefs.getString("MemId", "");
+        ProfilePicUpload profileupload = new ProfilePicUpload();
+        profileupload.setMemID(memId);
 
         SFIApi api = retrofit.create(SFIApi.class);
         File file = new File(targetPath);
@@ -378,7 +377,7 @@ public class ProfileActivity extends AppCompatActivity {
             public void onResponse(Response<ProfilePicUpload> response, Retrofit retrofit) {
                 ProfilePicUpload rsp = response.body();
                 if (rsp.getImage_url() != null) {
-                 //  MyProfileInfo.updateProfileImageUrl(memId,rsp.getImage_url());
+                    //  MyProfileInfo.updateProfileImageUrl(memId,rsp.getImage_url());
                 }
             }
 
@@ -389,20 +388,21 @@ public class ProfileActivity extends AppCompatActivity {
         });
     }
 
-    private static File getOutputMediaFile(){
+    private static File getOutputMediaFile() {
         File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_PICTURES), "CameraDemo");
 
-        if (!mediaStorageDir.exists()){
-            if (!mediaStorageDir.mkdirs()){
+        if (!mediaStorageDir.exists()) {
+            if (!mediaStorageDir.mkdirs()) {
                 return null;
             }
         }
 
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         return new File(mediaStorageDir.getPath() + File.separator +
-                "IMG_"+ timeStamp + ".jpg");
+                "IMG_" + timeStamp + ".jpg");
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

@@ -39,7 +39,7 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 public class Contactus extends AppCompatActivity {
-    private EditText email,phon,name,msg;
+    private EditText email, phon, name, msg;
     private Activity context;
     TextView tv1;
     TextView tv2;
@@ -50,24 +50,23 @@ public class Contactus extends AppCompatActivity {
     Button call;
     private static final int MY_PERMISSION_CALL_PHONE = 10;
 
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contactus);
-        setTitle ("Contact us");
+        setTitle("Contact us");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
-        email = (EditText)findViewById(R.id.emailedit);
-        name = (EditText)findViewById(R.id.nameedit);
-        feed =(Spinner)findViewById(R.id.feedbackspin);
-        msg =(EditText)findViewById(R.id.msgedit);
+        email = (EditText) findViewById(R.id.emailedit);
+        name = (EditText) findViewById(R.id.nameedit);
+        feed = (Spinner) findViewById(R.id.feedbackspin);
+        msg = (EditText) findViewById(R.id.msgedit);
 
 /*
         tv1 = (TextView) findViewById(R.id.textView1);
         tv2 = (TextView) findViewById(R.id.textView2);
         tv4 = (TextView) findViewById(R.id.textView4);*/
-        call= (Button) findViewById(R.id.callbtn);
+        call = (Button) findViewById(R.id.callbtn);
         call.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,8 +81,8 @@ public class Contactus extends AppCompatActivity {
         });
 
         phon = (EditText) findViewById(R.id.subedit);
-         b1=(Button)findViewById(R.id.scbmitbtn);
-        b1.setOnClickListener(new OnClickListener(){
+        b1 = (Button) findViewById(R.id.scbmitbtn);
+        b1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -102,7 +101,7 @@ public class Contactus extends AppCompatActivity {
                     error = true;
                 }
                 String phn = phon.getText().toString();
-		/* Pattern pattern = Pattern.compile("\\d{3}-\\d{7}");
+        /* Pattern pattern = Pattern.compile("\\d{3}-\\d{7}");
 		Matcher matcher = pattern.matcher(phn);*/
                 if (phon.length() < 1) {
                     phon.setError("invalid message");
@@ -125,18 +124,18 @@ public class Contactus extends AppCompatActivity {
                     error = true;
                 }
                 if (error == false) {
-                String msgBody = getMessagebody(nam, emai, sub, message, spin);
+                    String msgBody = getMessagebody(nam, emai, sub, message, spin);
 
-                SchoolsforIndia school = (SchoolsforIndia) getApplicationContext();
+                    SchoolsforIndia school = (SchoolsforIndia) getApplicationContext();
 
-                if (school.isNetworkStatus()) {
-                    school.sendEmail("kathiravankrishnans@gmail.com", "Contact Us", msgBody);
-                } else {
-                    Toast.makeText(getApplicationContext(),
-                            "Please Check Your Internet Connection and try again", Toast.LENGTH_LONG).show();
-                }
+                    if (school.isNetworkStatus()) {
+                        school.sendEmail("kathiravankrishnans@gmail.com", "Contact Us", msgBody);
+                    } else {
+                        Toast.makeText(getApplicationContext(),
+                                "Please Check Your Internet Connection and try again", Toast.LENGTH_LONG).show();
+                    }
 
-                //  finish();
+                    //  finish();
 
                     String memId = Prefs.getString("MemId", "");
                     ContactInfo contact = new ContactInfo();
@@ -153,7 +152,7 @@ public class Contactus extends AppCompatActivity {
 
         //phon=(EditText)findViewById(R.id.editText3);
 
-        Spinner sp=(Spinner)findViewById(R.id.feedbackspin);
+        Spinner sp = (Spinner) findViewById(R.id.feedbackspin);
         List<String> list = new ArrayList<String>();
         list.add("select category");
         list.add("FAQ");
@@ -168,9 +167,10 @@ public class Contactus extends AppCompatActivity {
 
 
     }
+
     protected boolean isValidEmail(EditText email2) {
         // TODO Auto-generated method stub
-        String emi=email2.getText().toString();
+        String emi = email2.getText().toString();
 
         String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -197,12 +197,14 @@ public class Contactus extends AppCompatActivity {
             }
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();
         return true;
     }
-    private void contreg(ContactInfo contact){
+
+    private void contreg(ContactInfo contact) {
         OkHttpClient okHttpClient = new OkHttpClient();
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
@@ -225,10 +227,11 @@ public class Contactus extends AppCompatActivity {
                 t.printStackTrace();
             }
         });
-        Toast.makeText(getApplicationContext(), "Submited Successfully" , Toast.LENGTH_SHORT ).show();
+        Toast.makeText(getApplicationContext(), "Submited Successfully", Toast.LENGTH_SHORT).show();
 
 
     }
+
     private String getMessagebody(String Name, String Emailid, String Subject, String msg, String feedback) {
 
         StringBuilder msgBody = new StringBuilder();

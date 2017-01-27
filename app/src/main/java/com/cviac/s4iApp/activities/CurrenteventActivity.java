@@ -32,16 +32,15 @@ public class CurrenteventActivity extends Fragment {
     List<Currentevent> currentlist;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View collegues = inflater.inflate(R.layout.currentevent_frgs, container, false);
 
-        lv=(ListView)collegues.findViewById(R.id.collegueslist);
+        lv = (ListView) collegues.findViewById(R.id.collegueslist);
         lv.setDivider(null);
-        currentlist=getCollegues();
-        lv.setAdapter(new Currenteventadapter(currentlist,getActivity().getApplicationContext()));
+        currentlist = getCollegues();
+        lv.setAdapter(new Currenteventadapter(currentlist, getActivity().getApplicationContext()));
         getCurrent();
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -58,9 +57,10 @@ public class CurrenteventActivity extends Fragment {
 //                i.putExtra("conversewith", cov);
                 //    startActivity(i);
 
-                Toast.makeText(lv.getContext(), "clicked:"+ currentevent.getEvent_name(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(lv.getContext(), "clicked:" + currentevent.getEvent_name(), Toast.LENGTH_SHORT).show();
 
-            }});
+            }
+        });
 
 
         return collegues;
@@ -71,17 +71,17 @@ public class CurrenteventActivity extends Fragment {
     }
 
 
-    private void getCurrent(){
+    private void getCurrent() {
         Retrofit ret = new Retrofit.Builder()
                 .baseUrl("http://schoolsforindia.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = ret.create(SFIApi.class);
-        final Call<List<Currentevent>> call =api.getCurrent();
+        final Call<List<Currentevent>> call = api.getCurrent();
         call.enqueue(new Callback<List<Currentevent>>() {
             @Override
             public void onResponse(Response<List<Currentevent>> response, Retrofit retrofit) {
-                currentlist =response.body();
+                currentlist = response.body();
                 Currentevent.deleteAll();
                 currentsavedinfo(currentlist);
             }
@@ -96,9 +96,9 @@ public class CurrenteventActivity extends Fragment {
 
     }
 
-    private void currentsavedinfo(List<Currentevent> currentinfo){
-        for (Currentevent cuinfo : currentlist){
-            Currentevent ctevent =new Currentevent();
+    private void currentsavedinfo(List<Currentevent> currentinfo) {
+        for (Currentevent cuinfo : currentlist) {
+            Currentevent ctevent = new Currentevent();
             ctevent.setEvent_name(cuinfo.getEvent_name());
             ctevent.setEvent_description(cuinfo.getEvent_description());
             ctevent.setLocation(cuinfo.getLocation());

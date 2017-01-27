@@ -42,8 +42,8 @@ public class Currenteventadapter extends ArrayAdapter<Currentevent> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View vw = convertView;
         ViewHolder holder;
-        Currentevent current= emps.get(position);
-        if(convertView==null){
+        Currentevent current = emps.get(position);
+        if (convertView == null) {
 
             LayoutInflater inf = LayoutInflater.from(getContext());
             vw = inf.inflate(R.layout.currentevent_item, parent, false);
@@ -51,8 +51,8 @@ public class Currenteventadapter extends ArrayAdapter<Currentevent> {
 
             holder.nameView = (TextView) vw.findViewById(R.id.colleguesname);
             holder.mobile = (TextView) vw.findViewById(R.id.textemail);
-            holder.place =(TextView) vw.findViewById(R.id.place);
-            holder.sports =(TextView)vw.findViewById(R.id.sports);
+            holder.place = (TextView) vw.findViewById(R.id.place);
+            holder.sports = (TextView) vw.findViewById(R.id.sports);
             holder.empimage = (ImageView) vw.findViewById(R.id.empimage);
             vw.setTag(holder);
 
@@ -62,9 +62,8 @@ public class Currenteventadapter extends ArrayAdapter<Currentevent> {
             // .into(holder.empimage);
 
 
-        }else
-        {
-            holder=(ViewHolder)vw.getTag();
+        } else {
+            holder = (ViewHolder) vw.getTag();
         }
 //Currentevent currentevent = new Currentevent();
         Date date = null;

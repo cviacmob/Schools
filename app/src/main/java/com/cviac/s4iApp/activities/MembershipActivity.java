@@ -78,10 +78,6 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
             public void onClick(View v) {
 
                 SchoolsforIndia app = (SchoolsforIndia) MembershipActivity.this.getApplication();
-                String state = spinnerCountry.getSelectedItem().toString();
-                String dis = spinnerCity.getSelectedItem().toString();
-                plan = spinnerPlan.getSelectedItem().toString();
-                String type = spinnertype.getSelectedItem().toString();
                 boolean error = false;
                 if (error == false) {
                     progressDialog = new ProgressDialog(MembershipActivity.this, R.style.AppTheme_Dark_Dialog);
@@ -99,9 +95,13 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                             .build();
                     api = retrofit.create(SFIApi.class);
                     MembershipInfo membershipApi = new MembershipInfo();
+                    String state = spinnerCountry.getSelectedItem().toString();
                     membershipApi.setMemState(state);
+                    String dis = spinnerCity.getSelectedItem().toString();
                     membershipApi.setMemDis(dis);
+                    plan = spinnerPlan.getSelectedItem().toString();
                     membershipApi.setMemPlan(plan);
+                    String type = spinnertype.getSelectedItem().toString();
                     membershipApi.setMemType(type);
                     membershipApi.setMemID(memidd);
                     membershipApi.setReg_type("Member");
@@ -117,6 +117,12 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                                 startActivity(intent);
                                 progressDialog.dismiss();
 
+                            }
+                            RegisterResponse rsp = response.body();
+                            int code = rsp.getCode();
+                            if (code == 1013) {
+                                Toast.makeText(MembershipActivity.this, "Already Registered Please change your plan", Toast.LENGTH_LONG).show();
+                                finish();
                             }
 
 
@@ -224,10 +230,10 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                         AlarmManager.INTERVAL_DAY, alarmIntent);
 
                         calendar.setTime(today);*/
-                        calendar.add(Calendar.YEAR, 1);
-                        Date Year = calendar.getTime();
-                        alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                                AlarmManager.INTERVAL_DAY, alarmIntent);
+                calendar.add(Calendar.YEAR, 1);
+                Date Year = calendar.getTime();
+                alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                        AlarmManager.INTERVAL_DAY, alarmIntent);
                 break;
             case "Halfyearly":
                 calendar = Calendar.getInstance();
@@ -238,9 +244,9 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                 alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                         AlarmManager.INTERVAL_DAY, alarmIntent);
                         calendar.setTime(today);*/
-                        calendar.add(Calendar.MONTH, 6);
-                        Date half = calendar.getTime();
-                        alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+                calendar.add(Calendar.MONTH, 6);
+                Date half = calendar.getTime();
+                alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
                 break;
             case "Quartyearly":
                 calendar = Calendar.getInstance();
@@ -251,9 +257,9 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                 alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                         AlarmManager.INTERVAL_DAY, alarmIntent);
                         calendar.setTime(today);*/
-                        calendar.add(Calendar.MONTH, 3);
-                        Date qurt = calendar.getTime();
-                        alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+                calendar.add(Calendar.MONTH, 3);
+                Date qurt = calendar.getTime();
+                alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
                 break;
             case "Monthly":
                 calendar = Calendar.getInstance();
@@ -264,77 +270,13 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                 alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                         AlarmManager.INTERVAL_DAY, alarmIntent);
                         calendar.setTime(today);*/
-                        calendar.add(Calendar.DAY_OF_MONTH, 30);
-                        Date month = calendar.getTime();
-                        alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+                calendar.add(Calendar.DAY_OF_MONTH, 30);
+                Date month = calendar.getTime();
+                alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
                 break;
 
         }
 
-    /*    Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                1000 * 60 * 2, alarmIntent);*/
-
-      /*  spinnerPlan.setOnItemSelectedListener(new OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
-                value = parent.getItemAtPosition(position);
-                if (plan.equalsIgnoreCase("Annual")) {
-                    Calendar calendar = Calendar.getInstance();
-                    //    calendar.setTime(today);
-                    calendar.setTimeInMillis(System.currentTimeMillis());
-                    calendar.set(Calendar.HOUR_OF_DAY, 10);
-                    calendar.set(Calendar.MINUTE, 12);
-
-
-                    alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                            AlarmManager.INTERVAL_DAY, alarmIntent);
-                } else if (plan.equalsIgnoreCase("Halfyearly")) {
-                    Calendar calendar = Calendar.getInstance();
-                    //  calendar.setTime(today);
-                    calendar.setTimeInMillis(System.currentTimeMillis());
-                    calendar.set(Calendar.HOUR_OF_DAY, 10);
-                    calendar.set(Calendar.MINUTE, 13);
-
-                    alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                            AlarmManager.INTERVAL_DAY, alarmIntent);
-                } else if (plan.equalsIgnoreCase("Quartyearly")) {
-                    Calendar calendar = Calendar.getInstance();
-                    // calendar.setTime(today);
-                    calendar.setTimeInMillis(System.currentTimeMillis());
-                    calendar.set(Calendar.HOUR_OF_DAY, 12);
-                    calendar.set(Calendar.MINUTE, 30);
-
-
-                    alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                            AlarmManager.INTERVAL_DAY, alarmIntent);
-
-
-                } else if (plan.equalsIgnoreCase("Monthly")) {
-                    Calendar calendar = Calendar.getInstance();
-                    //   calendar.setTime(today);
-                    calendar.setTimeInMillis(System.currentTimeMillis());
-                    calendar.set(Calendar.HOUR_OF_DAY, 12);
-                    calendar.set(Calendar.MINUTE, 35);
-
-
-                    alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                            AlarmManager.INTERVAL_DAY, alarmIntent);
-                }
-
-            }
-
-
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });*/
 
     }
 }

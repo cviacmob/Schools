@@ -25,6 +25,7 @@ public class ApplyActivity extends AppCompatActivity {
     ExpandableListView expandablelistView;
 
     List<String> ParentList = new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,31 +35,28 @@ public class ApplyActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-
         String memterm = getString(R.string.member_term);
-        String voluterm= getString(R.string.volunter_term);
-        String sponterm= getString(R.string.sponsor_term);
-        String partnerterm= getString(R.string.partner_term);
-        String mentorterm= getString(R.string.mentor_term);
+        String voluterm = getString(R.string.volunter_term);
+        String sponterm = getString(R.string.sponsor_term);
+        String partnerterm = getString(R.string.partner_term);
+        String mentorterm = getString(R.string.mentor_term);
        /* String commterm= getString(R.string.community_term);
         String socialterm= getString(R.string.social_term);*/
-
-
 
 
         ParentListItems = new LinkedHashMap<String, List<String>>();
 
         for (String HoldItem : ParentList) {
             if (HoldItem.equals("MEMBER")) {
-                loadChild(new String[] { memterm });
+                loadChild(new String[]{memterm});
             } else if (HoldItem.equals("VOLUNTEER"))
-                loadChild(new String[] { voluterm });
+                loadChild(new String[]{voluterm});
             else if (HoldItem.equals("SPONSOR"))
-                loadChild(new String[] { sponterm});
+                loadChild(new String[]{sponterm});
             else if (HoldItem.equals("PARTNER"))
-                loadChild(new String[] { partnerterm});
+                loadChild(new String[]{partnerterm});
             else if (HoldItem.equals("MENTOR"))
-                loadChild(new String[] { mentorterm});
+                loadChild(new String[]{mentorterm});
           /*  else if (HoldItem.equals("COMMUNITY CHAMPIONS"))
                 loadChild(new String[] { commterm});
             else if (HoldItem.equals("SOCIAL MEDIA LINKS"))
@@ -102,6 +100,7 @@ public class ApplyActivity extends AppCompatActivity {
             ParentList.add(applyas[i]);
         }
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         onBackPressed();

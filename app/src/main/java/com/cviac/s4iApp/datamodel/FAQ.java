@@ -8,11 +8,11 @@ public class FAQ {
 
     public FAQ() {
         // TODO Auto-generated constructor stub
-        topics=new ArrayList<Topic>();// TODO Auto-g
+        topics = new ArrayList<Topic>();// TODO Auto-g
     }
 
 
-    public void addTopic(Topic t){
+    public void addTopic(Topic t) {
         topics.add(t);
     }
 

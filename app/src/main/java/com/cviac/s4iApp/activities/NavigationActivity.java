@@ -30,7 +30,6 @@ public class NavigationActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       // setAlaram();
 
         final int applied = Prefs.getInt("applied", 0);
         //Prefs.putInt("applied", 1);
@@ -46,8 +45,7 @@ public class NavigationActivity extends AppCompatActivity
                 if (applied == 0) {
                     Intent in1 = new Intent(NavigationActivity.this, ApplyActivity.class);
                     startActivity(in1);
-                }
-                else {
+                } else {
                     Intent in1 = new Intent(NavigationActivity.this, ProfileActivity.class);
                     startActivity(in1);
                 }
@@ -125,40 +123,39 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
 
-            // Handle the camera action
+        // Handle the camera action
         if (id == R.id.nav_events) {
-            Intent i=new Intent(NavigationActivity.this,HomeActivity.class);
+            Intent i = new Intent(NavigationActivity.this, HomeActivity.class);
             startActivity(i);
 
 
         } else if (id == R.id.nav_profile) {
-            Intent i=new Intent(NavigationActivity.this,ProfileActivity.class);
+            Intent i = new Intent(NavigationActivity.this, ProfileActivity.class);
             startActivity(i);
 
 
         } else if (id == R.id.nav_social) {
-            Intent i=new Intent(NavigationActivity.this,SocialActivity.class);
+            Intent i = new Intent(NavigationActivity.this, SocialActivity.class);
             startActivity(i);
 
 
         } else if (id == R.id.nav_notifi) {
-            Intent i=new Intent(NavigationActivity.this,NotificationActivity.class);
+            Intent i = new Intent(NavigationActivity.this, NotificationActivity.class);
             startActivity(i);
 
 
-        }
-        else if (id == R.id.nav_Contact) {
-            Intent i=new Intent(NavigationActivity.this,Contactus.class);
+        } else if (id == R.id.nav_Contact) {
+            Intent i = new Intent(NavigationActivity.this, Contactus.class);
             startActivity(i);
 
 
         } else if (id == R.id.nav_about) {
-            Intent i=new Intent(NavigationActivity.this,AboutActivity.class);
+            Intent i = new Intent(NavigationActivity.this, AboutActivity.class);
             startActivity(i);
 
 
         } else if (id == R.id.nav_faq) {
-            Intent i=new Intent(NavigationActivity.this,FAQActivity.class);
+            Intent i = new Intent(NavigationActivity.this, FAQActivity.class);
             startActivity(i);
 
 

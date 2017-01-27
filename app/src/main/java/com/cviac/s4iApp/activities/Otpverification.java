@@ -37,10 +37,11 @@ public class Otpverification extends AppCompatActivity {
     String radio;
     String DOB;
     String verifycode;
-    Button buttonverify,resendbtn;
+    Button buttonverify, resendbtn;
     EditText pin;
     ProgressDialog progressDialog;
-   // SFIApi api;
+
+    // SFIApi api;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class Otpverification extends AppCompatActivity {
 
         Intent i = getIntent();
         Mobile = i.getStringExtra("mobile");
-         mail1 = i.getStringExtra("Email");
+        mail1 = i.getStringExtra("Email");
         name1 = i.getStringExtra("Name");
         DOB = i.getStringExtra("DOB");
         contry = i.getStringExtra("Country");
@@ -88,14 +89,14 @@ public class Otpverification extends AppCompatActivity {
                             VerifyResponse otp = response.body();
                             int code = otp.getCode();
                             if (code == 0) {
-                              //  progressDialog.set Message("Retrieving Contacts from Server...");
+                                //  progressDialog.set Message("Retrieving Contacts from Server...");
 
                                 Prefs.putString("isregistered", "true");
-                                Intent mainIntent = new Intent(Otpverification.this,NavigationActivity
+                                Intent mainIntent = new Intent(Otpverification.this, NavigationActivity
                                         .class);
                                 startActivity(mainIntent);
                                 finish();
-                            } else if (code == 1002){
+                            } else if (code == 1002) {
                                 progressDialog.dismiss();
                                 Toast.makeText(Otpverification.this, "Invalid Mobile number Or Pin", Toast.LENGTH_SHORT).show();
                             }
@@ -132,7 +133,7 @@ public class Otpverification extends AppCompatActivity {
                 regInfo.setGender(radio);
                 regInfo.setDOB(DOB);
                 regInfo.setMobile1(Mobile);
-                final Call<RegisterResponse> call =api.registerMobile(regInfo);
+                final Call<RegisterResponse> call = api.registerMobile(regInfo);
                 call.enqueue(new Callback<RegisterResponse>() {
                     @Override
                     public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
@@ -157,8 +158,9 @@ public class Otpverification extends AppCompatActivity {
         /*Toast.makeText(getApplicationContext(), "Resend OTP Sucessfully " , Toast.LENGTH_SHORT ).show();*/
 
     }
+
     private void setProgressDialog() {
-        progressDialog = new ProgressDialog(Otpverification.this,R.style.AppTheme_Dark_Dialog);
+        progressDialog = new ProgressDialog(Otpverification.this, R.style.AppTheme_Dark_Dialog);
         progressDialog.setIndeterminate(true);
         progressDialog.setMessage("Please wait");
         progressDialog.setCancelable(false);
