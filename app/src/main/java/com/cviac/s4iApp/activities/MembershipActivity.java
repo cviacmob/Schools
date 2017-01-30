@@ -277,6 +277,70 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
 
         }
 
+    /*    Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                1000 * 60 * 2, alarmIntent);*/
+
+      /*  spinnerPlan.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+                value = parent.getItemAtPosition(position);
+                if (plan.equalsIgnoreCase("Annual")) {
+                    Calendar calendar = Calendar.getInstance();
+                    //    calendar.setTime(today);
+                    calendar.setTimeInMillis(System.currentTimeMillis());
+                    calendar.set(Calendar.HOUR_OF_DAY, 10);
+                    calendar.set(Calendar.MINUTE, 12);
+
+
+                    alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                            AlarmManager.INTERVAL_DAY, alarmIntent);
+                } else if (plan.equalsIgnoreCase("Halfyearly")) {
+                    Calendar calendar = Calendar.getInstance();
+                    //  calendar.setTime(today);
+                    calendar.setTimeInMillis(System.currentTimeMillis());
+                    calendar.set(Calendar.HOUR_OF_DAY, 10);
+                    calendar.set(Calendar.MINUTE, 13);
+
+                    alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                            AlarmManager.INTERVAL_DAY, alarmIntent);
+                } else if (plan.equalsIgnoreCase("Quartyearly")) {
+                    Calendar calendar = Calendar.getInstance();
+                    // calendar.setTime(today);
+                    calendar.setTimeInMillis(System.currentTimeMillis());
+                    calendar.set(Calendar.HOUR_OF_DAY, 12);
+                    calendar.set(Calendar.MINUTE, 30);
+
+
+                    alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                            AlarmManager.INTERVAL_DAY, alarmIntent);
+
+
+                } else if (plan.equalsIgnoreCase("Monthly")) {
+                    Calendar calendar = Calendar.getInstance();
+                    //   calendar.setTime(today);
+                    calendar.setTimeInMillis(System.currentTimeMillis());
+                    calendar.set(Calendar.HOUR_OF_DAY, 12);
+                    calendar.set(Calendar.MINUTE, 35);
+
+
+                    alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                            AlarmManager.INTERVAL_DAY, alarmIntent);
+                }
+
+            }
+
+
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });*/
 
     }
 }

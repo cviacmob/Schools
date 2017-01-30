@@ -12,7 +12,7 @@ import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.datamodel.NotificationInfo;
 import com.squareup.picasso.Picasso;
 
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -78,12 +78,11 @@ public class Notificationadapter extends ArrayAdapter<NotificationInfo> {
         }
         holder.names.setText(noteset.getTitle());
         holder.desc.setText(noteset.getDescription());
-      /*  String timeStamp = new SimpleDateFormat("yyyy-MM-dd").format(new Date(noteset.getDate().toString()));
-        holder.txtdate.setText(timeStamp);*/
-        Date date = new Date();
+        String timeStamp = new SimpleDateFormat("yyyy-MMM-dd").format(new Date(noteset.getDate().toString()));
+        holder.txtdate.setText(timeStamp);
+      /*  Date date = new Date();
         String stringDate = DateFormat.getDateInstance().format(date);
-        // String timeStam = new SimpleDateFormat("dd-MM-yy").format(noteset.getDate());
-        holder.txtdate.setText(stringDate);
+        holder.txtdate.setText(stringDate);*/
 
         return vw;
 

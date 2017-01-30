@@ -252,6 +252,13 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                                 Prefs.putString("Pid", id);
 
                             } else if (code == 1004) {
+
+                                Prefs.edit();
+                                Prefs.putString("Name", name1);
+                                Prefs.putString("Email", mail1);
+                                Prefs.putString("Mobile", Mobile);
+                                Prefs.putString("MemId", Mem);
+                                Prefs.putString("Pid", id);
                                 Prefs.putString("isregistered", "true");
                                 Toast.makeText(RegistrationActivity.this, "Already Registered", Toast.LENGTH_LONG).show();
                                 Intent intent = new Intent(RegistrationActivity.this, NavigationActivity.class);
