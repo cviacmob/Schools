@@ -1289,7 +1289,7 @@ int id action_mode_bar 0x7f0f00a7
 int id action_mode_bar_stub 0x7f0f00a6
 int id action_mode_close_button 0x7f0f008b
 int id action_text 0x7f0f0168
-int id actions 0x7f0f0175
+int id actions 0x7f0f0176
 int id activity_chooser_view_content 0x7f0f008c
 int id ad_container 0x7f0f00f7
 int id ad_in_progress_label 0x7f0f00f9
@@ -1438,7 +1438,7 @@ int id homeAsUp 0x7f0f001f
 int id html 0x7f0f0060
 int id hybrid 0x7f0f0058
 int id icon 0x7f0f0091
-int id icon_group 0x7f0f0176
+int id icon_group 0x7f0f0177
 int id icon_only 0x7f0f006a
 int id icon_uri 0x7f0f0047
 int id icon_view 0x7f0f010b
@@ -1524,7 +1524,7 @@ int id navigation_header_container 0x7f0f0124
 int id never 0x7f0f005e
 int id none 0x7f0f0020
 int id normal 0x7f0f001c
-int id notification_background 0x7f0f0174
+int id notification_background 0x7f0f0175
 int id notification_main_column 0x7f0f016f
 int id notification_main_column_container 0x7f0f016e
 int id omnibox_title_section 0x7f0f0068
@@ -1561,7 +1561,7 @@ int id radioSex 0x7f0f0187
 int id resendbtn 0x7f0f00db
 int id rfc822 0x7f0f0062
 int id right 0x7f0f0039
-int id right_icon 0x7f0f0177
+int id right_icon 0x7f0f0174
 int id right_side 0x7f0f0170
 int id sandbox 0x7f0f0072
 int id satellite 0x7f0f0059

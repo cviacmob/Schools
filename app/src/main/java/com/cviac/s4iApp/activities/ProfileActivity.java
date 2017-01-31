@@ -100,7 +100,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (!memId.equals(memcoded)) {
 
-            btnSelect.setVisibility(View.INVISIBLE);
+            btnSelect.setVisibility(View.INVISIBLE);   //this app not update profile picture now only including  default image but coding has implemented
         }
 
         Picasso.with(context).load(R.drawable.imggg).resize(80, 80).transform(new CircleTransform())
@@ -113,7 +113,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        String imgUrl = profileinfo.getImage_url();  //this app not update profile picture now only including  defalut image but coding has implemented
+        String imgUrl = profileinfo.getImage_url();
         if (imgUrl != null && imgUrl.length() > 0) {
             Picasso.with(context).load(imgUrl).resize(220, 220).transform(new CircleTransform())
                     .into(viewImage);

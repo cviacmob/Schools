@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_gallery.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_gallery.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_camera.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_camera.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_profile.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_profile.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_manage.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_manage.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_home.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_home.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_faq.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_faq.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_social.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_social.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_about.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_about.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_send.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_send.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_slideshow.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\phone.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\phone.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_share.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_share.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_contact.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_contact.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_events.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_events.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21\\ic_menu_notification.xml",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_menu_notification.xml"
+    }
+]

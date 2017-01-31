@@ -550,7 +550,7 @@ public final class R {
 		public static final int action_mode_bar_stub = 0x7f0f00a6;
 		public static final int action_mode_close_button = 0x7f0f008b;
 		public static final int action_text = 0x7f0f0168;
-		public static final int actions = 0x7f0f0175;
+		public static final int actions = 0x7f0f0176;
 		public static final int activity_chooser_view_content = 0x7f0f008c;
 		public static final int add = 0x7f0f002a;
 		public static final int alertTitle = 0x7f0f0098;
@@ -576,7 +576,7 @@ public final class R {
 		public static final int home = 0x7f0f0012;
 		public static final int homeAsUp = 0x7f0f001f;
 		public static final int icon = 0x7f0f0091;
-		public static final int icon_group = 0x7f0f0176;
+		public static final int icon_group = 0x7f0f0177;
 		public static final int ifRoom = 0x7f0f005d;
 		public static final int image = 0x7f0f008e;
 		public static final int info = 0x7f0f0173;
@@ -590,14 +590,14 @@ public final class R {
 		public static final int never = 0x7f0f005e;
 		public static final int none = 0x7f0f0020;
 		public static final int normal = 0x7f0f001c;
-		public static final int notification_background = 0x7f0f0174;
+		public static final int notification_background = 0x7f0f0175;
 		public static final int notification_main_column = 0x7f0f016f;
 		public static final int notification_main_column_container = 0x7f0f016e;
 		public static final int parentPanel = 0x7f0f0095;
 		public static final int progress_circular = 0x7f0f0014;
 		public static final int progress_horizontal = 0x7f0f0015;
 		public static final int radio = 0x7f0f00a3;
-		public static final int right_icon = 0x7f0f0177;
+		public static final int right_icon = 0x7f0f0174;
 		public static final int right_side = 0x7f0f0170;
 		public static final int screen = 0x7f0f002c;
 		public static final int scrollIndicatorDown = 0x7f0f009d;

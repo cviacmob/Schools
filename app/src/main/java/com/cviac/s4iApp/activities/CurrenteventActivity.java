@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.Currenteventadapter;
@@ -57,7 +56,7 @@ public class CurrenteventActivity extends Fragment {
 //                i.putExtra("conversewith", cov);
                 //    startActivity(i);
 
-                Toast.makeText(lv.getContext(), "clicked:" + currentevent.getEvent_name(), Toast.LENGTH_SHORT).show();
+               // Toast.makeText(lv.getContext(), "clicked:" + currentevent.getEvent_name(), Toast.LENGTH_SHORT).show();
 
             }
         });

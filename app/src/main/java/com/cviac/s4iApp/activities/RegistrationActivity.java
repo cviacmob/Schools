@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -119,6 +120,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
         email = (EditText) findViewById(R.id.editText2);
         name = (EditText) findViewById(R.id.editText1);
         phon = (EditText) findViewById(R.id.editText3);
+        phon.setRawInputType(Configuration.KEYBOARD_12KEY);
         dob = (EditText) findViewById(R.id.editText4);
         country = (Spinner) findViewById(R.id.country);
 

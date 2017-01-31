@@ -1,7 +1,7 @@
-#Mon Jan 30 10:58:40 IST 2017
-base.0=D\:\\works\\Schools\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_94d3f92b5275a77562fc306c697d90967ecd78df
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=D\:\\works\\Schools\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_96c58f894a5ca69c312085e81e5117eac61536d0\\classes.dex
-base.1=D\:\\works\\Schools\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_96c58f894a5ca69c312085e81e5117eac61536d0
-file.0=D\:\\works\\Schools\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_94d3f92b5275a77562fc306c697d90967ecd78df\\classes.dex
+#Tue Jan 31 10:54:21 IST 2017
+base.0=D\:\\works\\Schools\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=D\:\\works\\Schools\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes2.dex
+base.1=D\:\\works\\Schools\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+file.0=D\:\\works\\Schools\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

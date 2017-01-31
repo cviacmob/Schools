@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.EventsAdapter;
@@ -48,7 +47,7 @@ public class Events extends Fragment {
 
                 Event event = evenlist.get(pos1);
 
-                Toast.makeText(lv1.getContext(), "clicked:" + event.getEvent_name(), Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(lv1.getContext(), "clicked:" + event.getEvent_name(), Toast.LENGTH_SHORT).show();
 
             }
         });

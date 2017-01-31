@@ -4058,7 +4058,7 @@ containing a value of this type.
         public static final int action_mode_bar_stub=0x7f0f00a6;
         public static final int action_mode_close_button=0x7f0f008b;
         public static final int action_text=0x7f0f0168;
-        public static final int actions=0x7f0f0175;
+        public static final int actions=0x7f0f0176;
         public static final int activity_chooser_view_content=0x7f0f008c;
         public static final int ad_container=0x7f0f00f7;
         public static final int ad_in_progress_label=0x7f0f00f9;
@@ -4207,7 +4207,7 @@ containing a value of this type.
         public static final int html=0x7f0f0060;
         public static final int hybrid=0x7f0f0058;
         public static final int icon=0x7f0f0091;
-        public static final int icon_group=0x7f0f0176;
+        public static final int icon_group=0x7f0f0177;
         public static final int icon_only=0x7f0f006a;
         public static final int icon_uri=0x7f0f0047;
         public static final int icon_view=0x7f0f010b;
@@ -4293,7 +4293,7 @@ containing a value of this type.
         public static final int never=0x7f0f005e;
         public static final int none=0x7f0f0020;
         public static final int normal=0x7f0f001c;
-        public static final int notification_background=0x7f0f0174;
+        public static final int notification_background=0x7f0f0175;
         public static final int notification_main_column=0x7f0f016f;
         public static final int notification_main_column_container=0x7f0f016e;
         public static final int omnibox_title_section=0x7f0f0068;
@@ -4330,7 +4330,7 @@ containing a value of this type.
         public static final int resendbtn=0x7f0f00db;
         public static final int rfc822=0x7f0f0062;
         public static final int right=0x7f0f0039;
-        public static final int right_icon=0x7f0f0177;
+        public static final int right_icon=0x7f0f0174;
         public static final int right_side=0x7f0f0170;
         public static final int sandbox=0x7f0f0072;
         public static final int satellite=0x7f0f0059;
