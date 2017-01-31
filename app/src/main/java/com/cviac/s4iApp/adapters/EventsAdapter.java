@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cviac.s4iApp.R;
-import com.cviac.s4iApp.datamodel.Event;
+import com.cviac.s4iApp.datamodel.PastEvent;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -17,15 +17,15 @@ import java.util.Date;
 import java.util.List;
 
 
-public class EventsAdapter extends ArrayAdapter<Event> {
+public class EventsAdapter extends ArrayAdapter<PastEvent> {
 
-    private List<Event> eve;
+    private List<PastEvent> eve;
 
     private int lastPostion = -1;
 
     Context mContext;
 
-    public EventsAdapter(List<Event> objects, Context context) {
+    public EventsAdapter(List<PastEvent> objects, Context context) {
         super(context, R.layout.events_item, objects);
         eve = objects;
         mContext = context;
@@ -44,7 +44,7 @@ public class EventsAdapter extends ArrayAdapter<Event> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View vw = convertView;
         ViewHolder holder;
-        Event even = getItem(position);
+        PastEvent even = getItem(position);
         if (convertView == null) {
 
             LayoutInflater inf = LayoutInflater.from(getContext());

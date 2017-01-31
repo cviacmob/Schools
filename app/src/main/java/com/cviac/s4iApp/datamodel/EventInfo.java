@@ -1,28 +1,25 @@
 package com.cviac.s4iApp.datamodel;
 
-
-import com.activeandroid.Model;
-import com.activeandroid.annotation.Column;
-import com.activeandroid.annotation.Table;
-import com.activeandroid.query.Delete;
-import com.activeandroid.query.Select;
-
 import java.util.Date;
-import java.util.List;
 
-@Table(name = "currentevents")
-public class CurrentEvent extends Model {
-    @Column(name = "event_name")
+/**
+ * Created by Cviac on 31/01/2017.
+ */
+
+public class EventInfo {
+
     private String event_name;
-    @Column(name = "event_date")
+
     private Date event_date;
-    @Column(name = "event_description")
+
     private String event_description;
-    @Column(name = "location")
+
     private String location;
-    @Column(name = "image_url")
+
     private String image_url;
 
+    public EventInfo() {
+    }
 
     public String getEvent_name() {
         return event_name;
@@ -62,17 +59,5 @@ public class CurrentEvent extends Model {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
-    }
-
-
-    public static List<CurrentEvent> getcurrentevents() {
-        return new Select()
-                .from(CurrentEvent.class)
-                .orderBy("event_date DESC")
-                .execute();
-    }
-
-    public static void deleteAll() {
-        new Delete().from(CurrentEvent.class).execute();
     }
 }

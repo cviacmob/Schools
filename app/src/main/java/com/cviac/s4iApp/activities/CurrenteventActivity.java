@@ -10,9 +10,11 @@ import android.widget.ListView;
 
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.Currenteventadapter;
-import com.cviac.s4iApp.datamodel.Currentevent;
+import com.cviac.s4iApp.datamodel.CurrentEvent;
+import com.cviac.s4iApp.datamodel.EventInfo;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.Call;
@@ -25,10 +27,10 @@ import retrofit.Retrofit;
  * Created by john on 11/25/2016.
  */
 
-public class CurrenteventActivity extends Fragment {
+public class CurrentEventActivity extends Fragment {
     private ListView lv;
-    //List<Currentevent> emps;
-    List<Currentevent> currentlist;
+    //List<CurrentEvent> emps;
+    List<CurrentEvent> currentlist;
 
 
     @Override
@@ -48,7 +50,7 @@ public class CurrenteventActivity extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int pos1,
                                     long pos2) {
 
-                Currentevent currentevent = currentlist.get(pos1);
+                CurrentEvent currentevent = currentlist.get(pos1);
                 // Conversation cov=new Conversation();
                 //    cov.setEmpid(emp.getEmpID());
                 //   cov.setName(emp.getName());
@@ -65,8 +67,8 @@ public class CurrenteventActivity extends Fragment {
         return collegues;
     }
 
-    private List<Currentevent> getCollegues() {
-        return Currentevent.getcurrentevents();
+    private List<CurrentEvent> getCollegues() {
+        return CurrentEvent.getcurrentevents();
     }
 
 
@@ -76,18 +78,33 @@ public class CurrenteventActivity extends Fragment {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = ret.create(SFIApi.class);
-        final Call<List<Currentevent>> call = api.getCurrent();
-        call.enqueue(new Callback<List<Currentevent>>() {
+        final Call<List<EventInfo>> call = api.getCurrent();
+        call.enqueue(new Callback<List<EventInfo>>() {
             @Override
-            public void onResponse(Response<List<Currentevent>> response, Retrofit retrofit) {
-                currentlist = response.body();
-                Currentevent.deleteAll();
+            public void onResponse(Response<List<EventInfo>> response, Retrofit retrofit) {
+                List<EventInfo> list = response.body();
+                if (list == null) {
+                    return;
+                }
+                List<CurrentEvent> currevents = new ArrayList<CurrentEvent>();
+                for (EventInfo info : list) {
+                    CurrentEvent evt = new CurrentEvent();
+                    evt.setEvent_name(info.getEvent_name());
+                    evt.setEvent_description(info.getEvent_description());
+                    evt.setEvent_date(info.getEvent_date());
+                    evt.setLocation(info.getLocation());
+                    evt.setImage_url(info.getImage_url());
+                    currevents.add(evt);
+                }
+                currentlist = currevents;
+                CurrentEvent.deleteAll();
                 currentsavedinfo(currentlist);
             }
 
             @Override
             public void onFailure(Throwable t) {
-               /* Toast.makeText(CurrenteventActivity.this, "API Invoke Error :" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                t.printStackTrace();
+               /* Toast.makeText(CurrentEventActivity.this, "API Invoke Error :" + t.getMessage(), Toast.LENGTH_SHORT).show();
 */
             }
         });
@@ -95,9 +112,9 @@ public class CurrenteventActivity extends Fragment {
 
     }
 
-    private void currentsavedinfo(List<Currentevent> currentinfo) {
-        for (Currentevent cuinfo : currentlist) {
-            Currentevent ctevent = new Currentevent();
+    private void currentsavedinfo(List<CurrentEvent> currentinfo) {
+        for (CurrentEvent cuinfo : currentlist) {
+            CurrentEvent ctevent = new CurrentEvent();
             ctevent.setEvent_name(cuinfo.getEvent_name());
             ctevent.setEvent_description(cuinfo.getEvent_description());
             ctevent.setLocation(cuinfo.getLocation());

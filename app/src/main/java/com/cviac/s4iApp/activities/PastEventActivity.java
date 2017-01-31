@@ -10,9 +10,11 @@ import android.widget.ListView;
 
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.EventsAdapter;
-import com.cviac.s4iApp.datamodel.Event;
+import com.cviac.s4iApp.datamodel.PastEvent;
+import com.cviac.s4iApp.datamodel.EventInfo;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.Call;
@@ -22,18 +24,18 @@ import retrofit.Response;
 import retrofit.Retrofit;
 
 
-public class Events extends Fragment {
-    List<Event> evenlist;
+public class PastEventActivity extends Fragment {
+    List<PastEvent> evenlist;
     private ListView lv1;
 
-    //  List<Event> emps;
+    //  List<PastEvent> emps;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         getevents();
 
         View events = inflater.inflate(R.layout.events_frgs, container, false);
-        //((TextView)event.findViewById(R.id.events)).setText("Events");
+        //((TextView)event.findViewById(R.id.events)).setText("PastEventActivity");
         lv1 = (ListView) events.findViewById(R.id.eventslist);
         lv1.setDivider(null);
         evenlist = getEvents();
@@ -45,7 +47,7 @@ public class Events extends Fragment {
             public void onItemClick(AdapterView<?> arg0, View arg1, int pos1,
                                     long pos2) {
 
-                Event event = evenlist.get(pos1);
+                PastEvent event = evenlist.get(pos1);
 
               //  Toast.makeText(lv1.getContext(), "clicked:" + event.getEvent_name(), Toast.LENGTH_SHORT).show();
 
@@ -56,8 +58,8 @@ public class Events extends Fragment {
         return events;
     }
 
-    private List<Event> getEvents() {
-        return Event.getevents();
+    private List<PastEvent> getEvents() {
+        return PastEvent.getevents();
     }
 
     private void getevents() {
@@ -68,28 +70,42 @@ public class Events extends Fragment {
 
 
         SFIApi api = ret.create(SFIApi.class);
-        final Call<List<Event>> call = api.getEvents();
-        call.enqueue(new Callback<List<Event>>() {
+        final Call<List<EventInfo>> call = api.getEvents();
+        call.enqueue(new Callback<List<EventInfo>>() {
             @Override
-            public void onResponse(Response<List<Event>> response, Retrofit retrofit) {
-                evenlist = response.body();
-                Event.deleteAll();
+            public void onResponse(Response<List<EventInfo>> response, Retrofit retrofit) {
+                List<EventInfo> list =  response.body();
+                if (list == null)
+                    return;
+                List<PastEvent> pastevents = new ArrayList<PastEvent>();
+                for (EventInfo info : list) {
+                    PastEvent evt = new PastEvent();
+                    evt.setEvent_name(info.getEvent_name());
+                    evt.setEvent_description(info.getEvent_description());
+                    evt.setEvent_date(info.getEvent_date());
+                    evt.setLocation(info.getLocation());
+                    evt.setImage_url(info.getImage_url());
+                    pastevents.add(evt);
+                }
+                evenlist = pastevents;
+                PastEvent.deleteAll();
                 saveeventInfo(evenlist);
             }
 
 
             @Override
             public void onFailure(Throwable throwable) {
+                throwable.printStackTrace();
 
-             /*  Toast.makeText(Events.this, "API Invoke Error :" + throwable.getMessage(), Toast.LENGTH_SHORT).show();*/
+             /*  Toast.makeText(PastEventActivity.this, "API Invoke Error :" + throwable.getMessage(), Toast.LENGTH_SHORT).show();*/
                 //notifys = null;
             }
         });
     }
 
-    private void saveeventInfo(List<Event> empInfos) {
-        for (Event empinfo : evenlist) {
-            Event empp = new Event();
+    private void saveeventInfo(List<PastEvent> empInfos) {
+        for (PastEvent empinfo : evenlist) {
+            PastEvent empp = new PastEvent();
             empp.setEvent_name(empinfo.getEvent_name());
             empp.setEvent_description(empinfo.getEvent_description());
             empp.setLocation(empinfo.getLocation());

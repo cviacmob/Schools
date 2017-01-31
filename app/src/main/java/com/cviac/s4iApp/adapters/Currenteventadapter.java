@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cviac.s4iApp.R;
-import com.cviac.s4iApp.datamodel.Currentevent;
+import com.cviac.s4iApp.datamodel.CurrentEvent;
 import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
@@ -17,14 +17,14 @@ import java.util.Date;
 import java.util.List;
 
 
-public class Currenteventadapter extends ArrayAdapter<Currentevent> {
+public class Currenteventadapter extends ArrayAdapter<CurrentEvent> {
 
-    private List<Currentevent> emps;
+    private List<CurrentEvent> emps;
     private int lastPostion = -1;
 
     Context mContext;
 
-    public Currenteventadapter(List<Currentevent> objects, Context context) {
+    public Currenteventadapter(List<CurrentEvent> objects, Context context) {
         super(context, R.layout.currentevent_item, objects);
         emps = objects;
         mContext = context;
@@ -42,7 +42,7 @@ public class Currenteventadapter extends ArrayAdapter<Currentevent> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View vw = convertView;
         ViewHolder holder;
-        Currentevent current = emps.get(position);
+        CurrentEvent current = emps.get(position);
         if (convertView == null) {
 
             LayoutInflater inf = LayoutInflater.from(getContext());
@@ -65,7 +65,7 @@ public class Currenteventadapter extends ArrayAdapter<Currentevent> {
         } else {
             holder = (ViewHolder) vw.getTag();
         }
-//Currentevent currentevent = new Currentevent();
+//CurrentEvent currentevent = new CurrentEvent();
         Date date = null;
         holder.nameView.setText(current.getEvent_name());
         holder.mobile.setText(current.getEvent_description());

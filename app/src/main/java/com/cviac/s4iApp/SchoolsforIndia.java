@@ -8,9 +8,9 @@ import android.widget.Toast;
 
 import com.activeandroid.ActiveAndroid;
 import com.activeandroid.Configuration;
-import com.cviac.s4iApp.datamodel.Currentevent;
+import com.cviac.s4iApp.datamodel.CurrentEvent;
 import com.cviac.s4iApp.datamodel.EmailInfo;
-import com.cviac.s4iApp.datamodel.Event;
+import com.cviac.s4iApp.datamodel.PastEvent;
 import com.cviac.s4iApp.datamodel.NotificationInfo;
 import com.cviac.s4iApp.datamodel.SendEmailResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
@@ -51,8 +51,8 @@ public class SchoolsforIndia extends MultiDexApplication {
 
 
         Configuration.Builder configurationBuilder = new Configuration.Builder(this);
-        configurationBuilder.addModelClasses(Event.class);
-        configurationBuilder.addModelClasses(Currentevent.class);
+        configurationBuilder.addModelClasses(PastEvent.class);
+        configurationBuilder.addModelClasses(CurrentEvent.class);
         configurationBuilder.addModelClasses(NotificationInfo.class);
         ActiveAndroid.initialize(configurationBuilder.create());
 

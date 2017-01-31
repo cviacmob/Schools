@@ -13,7 +13,7 @@ import java.util.List;
  * Created by john on 11/25/2016.
  */
 @Table(name = "events")
-public class Event extends Model {
+public class PastEvent extends Model {
     @Column(name = "event_name")
     private String event_name;
     @Column(name = "event_date")
@@ -65,9 +65,9 @@ public class Event extends Model {
         this.image_url = image_url;
     }
 
-    public static List<Event> getevents() {
+    public static List<PastEvent> getevents() {
         return new Select()
-                .from(Event.class)
+                .from(PastEvent.class)
                 .orderBy("event_date DESC")
                 .execute();
 
@@ -75,6 +75,6 @@ public class Event extends Model {
 
 
     public static void deleteAll() {
-        new Delete().from(Event.class).execute();
+        new Delete().from(PastEvent.class).execute();
     }
 }

@@ -17,16 +17,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cviac.s4iApp.R;
-import com.cviac.s4iApp.datamodel.Currentevent;
-import com.cviac.s4iApp.datamodel.Event;
+import com.cviac.s4iApp.datamodel.CurrentEvent;
+import com.cviac.s4iApp.datamodel.PastEvent;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
-    List<Event> evenlist;
-    List<Currentevent> currentlist;
+    List<PastEvent> evenlist;
+    List<CurrentEvent> currentlist;
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
      * fragments for each of the sections. We use a
@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        setTitle("Events");
+        setTitle("PastEventActivity");
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -149,9 +149,9 @@ public class HomeActivity extends AppCompatActivity {
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position + 1) {
                 case 1:
-                    return new CurrenteventActivity();
+                    return new CurrentEventActivity();
                 case 2:
-                    return new Events();
+                    return new PastEventActivity();
             }
             return null;
         }
