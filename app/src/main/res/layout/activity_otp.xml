@@ -10,11 +10,12 @@
 
     <TextView
         android:id="@+id/textView1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="OTP Verification" />
+        android:text="@string/content_text" />
 
     <TextView
         android:id="@+id/textView2"
@@ -43,6 +44,8 @@
          android:text="Resend OTP"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
+         android:background="@drawable/roundshapebtn"
+         android:textColor="#FFFFFF"
          android:layout_below="@+id/editverify"
          android:layout_toEndOf="@+id/verifybutton"
          android:layout_marginStart="16dp"
@@ -52,10 +55,13 @@
      <Button
          android:id="@+id/verifybutton"
          android:layout_width="wrap_content"
+         android:background="@drawable/roundshapebtn"
+         android:textColor="#FFFFFF"
          android:layout_height="wrap_content"
          android:text="Verify"
+         android:textAllCaps="false"
          android:layout_below="@+id/editverify"
-         android:layout_toEndOf="@+id/textView1"
-         android:textAllCaps="false" />
+         android:layout_alignRight="@+id/textView1"
+         android:layout_alignEnd="@+id/textView1" />
 
  </RelativeLayout>

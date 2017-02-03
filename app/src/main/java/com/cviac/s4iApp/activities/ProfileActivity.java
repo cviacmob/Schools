@@ -189,12 +189,11 @@ public class ProfileActivity extends AppCompatActivity {
         groupList.add("RESIDENTIAL ADDRESS");
         groupList.add("OFFICE ADDRESS");
 
-
     }
 
     private void createCollection() {
         // preparing laptops collection(child)
-        String[] mi = {"MEMBERSHIP TYPE", "MEMBERSHIP PERIOD"};
+        String[] mi = {"STATE", "DISTRICT", "MEMBERSHIP TYPE", "MEMBERSHIP PERIOD","EDIT YOUR MEMBERSHIP"};
         String[] bi = {"NAME", "E MAIL", "MOBILE", "GENDER"};
         String[] ra = {"ADDRESS 1", "ADDRESS 2", "CITY/STATE", "ZIP CODE"};
         String[] oa = {"ADDRESS 1", "ADDRESS 2", "CITY/STATE", "ZIP CODE"};

@@ -40,12 +40,12 @@
         "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_menu_gallery.png"
     },
     {
-        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_menu_faq.png",
-        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_menu_faq.png"
-    },
-    {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_menu_profile.png",
         "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_menu_profile.png"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_menu_faq.png",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_menu_faq.png"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_menu_contact.png",

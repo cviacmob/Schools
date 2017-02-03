@@ -20,12 +20,12 @@
         "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_events.png"
     },
     {
-        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\phone.png",
-        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\phone.png"
-    },
-    {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_menu_contact.png",
         "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_menu_contact.png"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\phone.png",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\phone.png"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_menu_profile.png",

@@ -23,8 +23,8 @@ import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.activities.MembershipActivity;
 import com.cviac.s4iApp.activities.TermActivity;
-import com.cviac.s4iApp.sfiapi.MembershipInfo;
-import com.cviac.s4iApp.sfiapi.RegisterResponse;
+import com.cviac.s4iApp.datamodel.MembershipInfo;
+import com.cviac.s4iApp.datamodel.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
 

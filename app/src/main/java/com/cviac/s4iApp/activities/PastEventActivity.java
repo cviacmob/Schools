@@ -49,7 +49,7 @@ public class PastEventActivity extends Fragment {
 
                 PastEvent event = evenlist.get(pos1);
 
-              //  Toast.makeText(lv1.getContext(), "clicked:" + event.getEvent_name(), Toast.LENGTH_SHORT).show();
+                //  Toast.makeText(lv1.getContext(), "clicked:" + event.getEvent_name(), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -75,8 +75,9 @@ public class PastEventActivity extends Fragment {
             @Override
             public void onResponse(Response<List<EventInfo>> response, Retrofit retrofit) {
                 List<EventInfo> list =  response.body();
-                if (list == null)
+                if (list == null) {
                     return;
+                }
                 List<PastEvent> pastevents = new ArrayList<PastEvent>();
                 for (EventInfo info : list) {
                     PastEvent evt = new PastEvent();

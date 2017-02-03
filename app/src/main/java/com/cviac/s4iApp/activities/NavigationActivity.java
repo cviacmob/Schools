@@ -19,7 +19,7 @@ import com.cviac.s4iApp.R;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    Button btn;
+    public static Button btn;
 
 
     @Override

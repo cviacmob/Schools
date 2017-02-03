@@ -4,8 +4,12 @@ import com.cviac.s4iApp.datamodel.ContactInfo;
 import com.cviac.s4iApp.datamodel.EmailInfo;
 import com.cviac.s4iApp.datamodel.EventInfo;
 import com.cviac.s4iApp.datamodel.MemberFeeInfo;
+import com.cviac.s4iApp.datamodel.MembershipInfo;
 import com.cviac.s4iApp.datamodel.ProfilePicUpload;
+import com.cviac.s4iApp.datamodel.RegisterResponse;
 import com.cviac.s4iApp.datamodel.SendEmailResponse;
+import com.cviac.s4iApp.datamodel.SocialInfo;
+import com.cviac.s4iApp.datamodel.VerifyResponse;
 import com.squareup.okhttp.RequestBody;
 
 import java.util.List;
@@ -59,6 +63,9 @@ public interface SFIApi {
     @POST("/CVIACAPI/cviacdbop.php/sendemail")
     Call<SendEmailResponse> sendEmail(@Body EmailInfo emailinfo);
 
+
+    @POST("/S4IAPI/S4Idbop.php/contactus")
+    Call<SocialInfo> socialreg(@Body SocialInfo socialApi);
 
 }
 

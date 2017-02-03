@@ -57,8 +57,8 @@ public class SocialInfoAdapter extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             rowView = inflater.inflate(R.layout.activity_socialinfoadapter, null);
-            holder.tv = (TextView) rowView.findViewById(R.id.textView1);
-            holder.img = (ImageView) rowView.findViewById(R.id.imageView1);
+            holder.tv = (TextView) rowView.findViewById(R.id.txtsocial);
+            holder.img = (ImageView) rowView.findViewById(R.id.imgsocial);
 
             rowView.setTag(holder);
         } else {
@@ -72,6 +72,8 @@ public class SocialInfoAdapter extends BaseAdapter {
         } else if (obj.getChannel().equalsIgnoreCase("gmail")) {
             holder.img.setImageResource(R.drawable.gmail);
         }
+        holder.tv.setText(obj.getSocial());
+
         return rowView;
     }
 }

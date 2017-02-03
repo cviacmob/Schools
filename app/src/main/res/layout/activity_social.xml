@@ -4,7 +4,7 @@
     android:orientation="vertical" >
 
 	<ListView
-	    android:id="@+id/listView1"
+	    android:id="@+id/listsocial"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_above="@+id/buttonClick"
@@ -13,13 +13,13 @@
 
 	<Button
 		android:id="@+id/addbutton"
-		android:layout_width="50dp"
-		android:layout_height="50dp"
+		android:layout_width="60dp"
+		android:layout_height="60dp"
 		android:layout_alignParentBottom="true"
 		android:layout_alignParentRight="true"
 		android:layout_marginBottom="21dp"
 		android:layout_marginRight="18dp"
-		android:background="@drawable/vini"
+		android:background="@drawable/addsocial"
 		/>
 
 </RelativeLayout>

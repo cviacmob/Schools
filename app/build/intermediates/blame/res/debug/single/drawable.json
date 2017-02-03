@@ -16,6 +16,10 @@
         "source": "D:\\works\\Schools\\app\\src\\main\\res\\drawable\\twitter.png"
     },
     {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\addsocial.png",
+        "source": "D:\\works\\Schools\\app\\src\\main\\res\\drawable\\addsocial.png"
+    },
+    {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_notification_rewind.xml",
         "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.6.0\\res\\drawable\\cast_ic_notification_rewind.xml"
     },
@@ -324,8 +328,16 @@
         "source": "D:\\works\\Schools\\app\\src\\main\\res\\drawable\\ic_launcher.png"
     },
     {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\roundshapebtn.xml",
+        "source": "D:\\works\\Schools\\app\\src\\main\\res\\drawable\\roundshapebtn.xml"
+    },
+    {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_closed_caption.xml",
         "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.6.0\\res\\drawable\\cast_ic_mini_controller_closed_caption.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\pencil2.png",
+        "source": "D:\\works\\Schools\\app\\src\\main\\res\\drawable\\pencil2.png"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\aboutus.png",
@@ -348,12 +360,12 @@
         "source": "D:\\works\\Schools\\app\\src\\main\\res\\drawable\\cricket.png"
     },
     {
-        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_mute.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.6.0\\res\\drawable\\cast_ic_mini_controller_mute.xml"
-    },
-    {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_mini_controller_progress_drawable.xml",
         "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.6.0\\res\\drawable\\cast_mini_controller_progress_drawable.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\cast_ic_mini_controller_mute.xml",
+        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-cast-framework\\9.6.0\\res\\drawable\\cast_ic_mini_controller_mute.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\terms.jpg",

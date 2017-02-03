@@ -16,9 +16,9 @@ import android.widget.Toast;
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.sfiapi.RegInfo;
-import com.cviac.s4iApp.sfiapi.RegisterResponse;
+import com.cviac.s4iApp.datamodel.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
-import com.cviac.s4iApp.sfiapi.VerifyResponse;
+import com.cviac.s4iApp.datamodel.VerifyResponse;
 import com.squareup.okhttp.OkHttpClient;
 
 import java.util.concurrent.TimeUnit;
@@ -140,6 +140,7 @@ public class Otpverification extends AppCompatActivity {
                         if (progressDialog != null) {
                             progressDialog.dismiss();
                         }
+
                     }
 
                     @Override
@@ -153,9 +154,11 @@ public class Otpverification extends AppCompatActivity {
                     }
 
                 });
+                Toast.makeText(Otpverification.this, "Resend OTP", Toast.LENGTH_SHORT).show();
+
             }
+
         });
-        /*Toast.makeText(getApplicationContext(), "Resend OTP Sucessfully " , Toast.LENGTH_SHORT ).show();*/
 
     }
 

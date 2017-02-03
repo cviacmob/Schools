@@ -34,6 +34,8 @@
 
             <Button
                 android:text="Apply"
+                android:background="@drawable/roundshapebtn"
+                android:textColor="#FFFFFF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/applaybtn" />

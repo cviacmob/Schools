@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.adapters.SocialInfoAdapter;
 import com.cviac.s4iApp.datamodel.SocialInfo;
@@ -39,17 +40,31 @@ public class SocialActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social);
         context = this;
+
+
         socialList = new ArrayList<SocialInfo>();
+
+
         adapt = new SocialInfoAdapter(this, socialList);
         setTitle("Social");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        ListView vw = (ListView) findViewById(R.id.listsocial);
 
-        ListView vw = (ListView) findViewById(R.id.listView1);
         vw.setAdapter(adapt);
 
+
         // adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+
+
+     vw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+         @Override
+         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+
+         }
+     });
 
         buttonClick = (Button) findViewById(R.id.addbutton);
 
@@ -66,15 +81,15 @@ public class SocialActivity extends AppCompatActivity {
 
 
                 // set the custom dialog components - text, image and button
-                text = (EditText) dialog.findViewById(R.id.editText1);
+                text = (EditText) dialog.findViewById(R.id.linkedit);
                 text.setText("Custom dialog Android example.");
-                imag = (Spinner) dialog.findViewById(R.id.spinner1);
+                imag = (Spinner) dialog.findViewById(R.id.linkspin);
 
                 itemselect();
 
                 dialog.show();
 
-                Button declineButton = (Button) dialog.findViewById(R.id.button2);
+                Button declineButton = (Button) dialog.findViewById(R.id.cancelbtn);
                 // if button is clicked, close the custom dialog
                 declineButton.setOnClickListener(new OnClickListener() {
                     @Override
@@ -83,27 +98,37 @@ public class SocialActivity extends AppCompatActivity {
                     }
                 });
 
-                okbutton = (Button) dialog.findViewById(R.id.button1);
+                okbutton = (Button) dialog.findViewById(R.id.okbtn);
                 // if button is clicked, close the custom dialog
 
-                OnClickListener listener = new OnClickListener() {
+                 OnClickListener listener = new OnClickListener() {
 
                     @Override
                     public void onClick(View v) {
+
                         // TODO Auto-generated method stub
                         String web = text.getText().toString();
                         if (!web.equals("")) {
+                            String memId = Prefs.getString("MemId", "");
                             String schannel = imag.getSelectedItem().toString();
+                            String nam = text.getText().toString();
+                            String nam1 = text.getText().toString();
                             SocialInfo info = new SocialInfo();
+                            info.setMemId(memId);
+                             info.setSocial(nam);
                             info.setChannel(schannel);
-                            info.setUrl(text.getText().toString());
+                            info.setUrl(nam1);
+                           // info.setUrl(text.getText().toString());
                             socialList.add(info);
+                        //    soreg(info);
                             //adapt.notifyDataSetInvalidated();
                             adapt.notifyDataSetChanged();
                             dialog.dismiss();
                         } else if (web.equals("")) {
                             Toast.makeText(getApplicationContext(), "Please Select Social site", Toast.LENGTH_LONG).show();
                         }
+
+
                     }
                 };
                 okbutton.setOnClickListener(listener);
@@ -144,4 +169,32 @@ public class SocialActivity extends AppCompatActivity {
         onBackPressed();
         return true;
     }
+
+  /*  private void soreg(SocialInfo social) {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
+        okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://schoolsforindia.com")
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okHttpClient)
+                .build();
+        SFIApi api = retrofit.create(SFIApi.class);
+        final Call<SocialInfo> call = api.socialreg(social);
+        call.enqueue(new Callback<SocialInfo>() {
+            @Override
+            public void onResponse(Response<SocialInfo> response, Retrofit retrofit) {
+                Toast.makeText(getApplicationContext(), "Submited Successfully", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Toast.makeText(SocialActivity.this, "Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                t.printStackTrace();
+            }
+        });
+       // Toast.makeText(getApplicationContext(), "Submited Successfully", Toast.LENGTH_SHORT).show();
+
+
+    }*/
 }

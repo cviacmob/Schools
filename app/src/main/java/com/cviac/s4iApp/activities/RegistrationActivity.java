@@ -26,7 +26,7 @@ import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.SchoolsforIndia;
 import com.cviac.s4iApp.sfiapi.RegInfo;
-import com.cviac.s4iApp.sfiapi.RegisterResponse;
+import com.cviac.s4iApp.datamodel.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -86,7 +86,7 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         setTitle("Registration");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         btnCalendar = (ImageView) findViewById(R.id.imageView2);
 
         Spinner sp = (Spinner) findViewById(R.id.country);

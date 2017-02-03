@@ -815,6 +815,7 @@
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
     <bool name="abc_config_closeDialogWhenTouchOutside">true</bool>
     <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+    <color name="White">#FFFFFF</color>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
@@ -847,6 +848,7 @@
     <color name="cast_mini_controller_disabled_button_drawable_tint_color">#7FFFFFFF</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDarak">#4c58af</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
     <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
@@ -1533,7 +1535,7 @@
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
     <string name="action_settings1">Settings1</string>
-    <string name="app_name">Schools For India</string>
+    <string name="app_name">S4I</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="cast_ad_label">Ad</string>
@@ -1604,7 +1606,8 @@
         \n83, Alwarthirunagar Annexe,
         \nChennai- 6000087
         \nTamilnadu, India.
-        \nTelephone: +91- 99400 74889</string>
+        \nTelephone: +91- 99400 74889\n</string>
+    <string name="content_text">School For India will send an SMS \n message to verify your OTP"</string>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="debug_menu_ad_information">Ad Information</string>

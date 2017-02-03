@@ -6,6 +6,7 @@
 
     <Spinner
         android:id="@+id/spinner1"
+        android:layout_marginLeft="21dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@+id/textView1"
@@ -13,6 +14,7 @@
         android:prompt="@string/state_prompt" />
     <Spinner
         android:id="@+id/spinner2"
+        android:layout_marginLeft="21dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentRight="true"

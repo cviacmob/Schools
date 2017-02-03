@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
+import com.cviac.s4iApp.activities.ApplyActivity;
 import com.cviac.s4iApp.sfiapi.MyProfileInfo;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
@@ -44,6 +47,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Map<String, List<String>> laptopCollections;
     private List<String> laptops;
     private EditText result;
+    ImageView img;
     private MyProfileInfo Mpi;
     MyProfileInfo myProfile;
     String memId = Prefs.getString("MemId", "");
@@ -121,15 +125,22 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 break;
             case 0:
                 switch (childPosition) {
+
                     case 0:
-                        vw.setText(Mpi.getMemType() == null ? defvalue : Mpi.getMemType());
+                        vw.setText(Mpi.getMemState() == null ? defvalue : Mpi.getMemState());
                         break;
                     case 1:
+                        vw.setText(Mpi.getMemDis() == null ? defvalue : Mpi.getMemDis());
+                        break;
+                    case 2:
+                        vw.setText(Mpi.getMemType() == null ? defvalue : Mpi.getMemType());
+                        break;
+                    case 3:
                         vw.setText(Mpi.getMemPlan() == null ? defvalue : Mpi.getMemPlan());
                         break;
-                   /* case 2:
-                        vw.setText(pr.getDoj() == null ? defvalue : pr.getDoj());
-                        break;*/
+                    case 4:
+                        vw.setText(Mpi.getEditmember() == null ? defvalue : Mpi.getEditmember());
+                        break;
                 }
                 break;
         }
@@ -188,18 +199,103 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             case 0:
                 switch (childPosition) {
                     case 0:
-                        Mpi.setMemType(vw.getText().toString());
+                        Mpi.setMemState(vw.getText().toString());
                         break;
                     case 1:
+                        Mpi.setMemDis(vw.getText().toString());
+                        break;
+                    case 2:
+                        Mpi.setMemType(vw.getText().toString());
+                        break;
+                    case 3:
                         Mpi.setMemPlan(vw.getText().toString());
                         break;
-                   /* case 2:
-                        pr.setDoj(vw.getText().toString());
-                        break;*/
                 }
+
                 break;
         }
     }
+
+    /*  public void getgroupView(final int groupPosition, final int childPosition,
+                                boolean isLastChild, View convertView, ViewGroup parent) {
+          final String defvalue = (String) getChild(groupPosition, childPosition);
+          LayoutInflater inflater = context.getLayoutInflater();
+          if (convertView == null) {
+              convertView = inflater.inflate(R.layout.apply_btn_expandable, null);
+
+          }
+          final TextView item = (TextView) convertView.findViewById(R.id.text1);
+
+          setValue(groupPosition, childPosition, item, defvalue);
+
+          Button butnaply = (Button) convertView.findViewById(R.id.myButton);
+          }
+  */
+ /* private void setImgValue(int groupPosition, final int childPosition) {
+      switch (groupPosition) {
+          case 0:
+              switch (childPosition) {
+                  case 0:
+                      img.setVisibility(View.INVISIBLE);
+                      break;
+                  case 1:
+                      img.setVisibility(View.INVISIBLE);
+                      break;
+                  case 2:
+                      img.setVisibility(View.INVISIBLE);
+                      break;
+                  case 3:
+                      img.setVisibility(View.INVISIBLE);
+                      break;
+              }
+          case 1:
+              switch (childPosition) {
+                  case 0:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+                  case 1:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+                  case 2:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+                  case 3:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+              }
+          case 2:
+              switch (childPosition) {
+                  case 0:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+                  case 1:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+                  case 2:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+                  case 3:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+              }
+          case 3:
+              switch (childPosition) {
+                  case 0:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+                  case 1:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+                  case 2:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+                  case 3:
+                      img.setVisibility(View.VISIBLE);
+                      break;
+              }
+              break;
+      }
+  }*/
 
     public View getChildView(final int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
@@ -211,12 +307,26 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         }
         //final View myLayout = inflater.inflate(R.layout.editor, null);
 
-        final TextView item = (TextView) convertView.findViewById(R.id.laptop);
+        final TextView item = (TextView) convertView.findViewById(R.id.txtpen);
 
 
         setValue(groupPosition, childPosition, item, defvalue);
+        img = (ImageView) convertView.findViewById(R.id.write);
+        //  setImgValue(groupPosition,childPosition);
 
-        ImageView img = (ImageView) convertView.findViewById(R.id.write);
+       /* if (groupPosition == 0 && childPosition == 0) {
+                img.setVisibility(View.GONE);
+        }
+         if(groupPosition == 0 && childPosition == 1){
+            img.setVisibility(View.GONE);
+        }
+        if (groupPosition == 0 && childPosition == 2){
+            img.setVisibility(View.GONE);
+        }
+        if (groupPosition == 0 && childPosition == 3){
+            img.setVisibility(View.GONE);
+        }
+*/
         img.setOnClickListener(new OnClickListener() {
 
             public void onClick(View v) {
@@ -242,21 +352,17 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 } else if
                         (groupPosition == 3 && childPosition == 2) {
                     getstatecity2(item, groupPosition, childPosition, defvalue);
-
-                } else if
-                        (groupPosition == 0 && childPosition == 0) {
-                    getMembershiptype(item, groupPosition, childPosition, defvalue);
-                } else if
-                        (groupPosition == 0 && childPosition == 1) {
-                    getmembershipperiod(item, groupPosition, childPosition, defvalue);
+                } else if (groupPosition == 0 && childPosition == 4) {
+                    Intent mainIntent = new Intent(context,ApplyActivity.class);
+                    context.startActivity(mainIntent);
                 }
+
 //        if (groupPosition == 0 && childPosition ==0){
 //            AlertDialog alertDialog = alertDialogBuilder.create();
                 // }
 
             }
         });
-
         // item.setText(laptop);
         return convertView;
     }
@@ -284,7 +390,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         // builder.setMessage("Enter");
 
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                 context);
 
         // set prompts.xml to alertdialog builder
@@ -298,7 +404,22 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         } else {
             userInput.setText(item.getText().toString());
         }
+        if (groupPosition == 1) {
+            if (childPosition == 2) {
+                userInput.setRawInputType(Configuration.KEYBOARD_12KEY);
+            }
+        }
+        if (groupPosition == 2) {
+            if (childPosition == 3) {
+                userInput.setRawInputType(Configuration.KEYBOARD_12KEY);
+            }
+        }
 
+        if (groupPosition == 3){
+            if (childPosition == 3) {
+                userInput.setRawInputType(Configuration.KEYBOARD_12KEY);
+            }
+        }
 
         // set dialog message
         alertDialogBuilder
@@ -324,6 +445,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                     } else if (childPosition == 2) {
                                         String pro2 = userInput.getText().toString();
                                         profile.setMobile2(pro2);
+
                                     }
                                 } else if (groupPosition == 2) {
                                     if (childPosition == 0) {
@@ -370,7 +492,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         // show it
         alertDialog.show();
-        //alertDialog.getWindow().setLayout(900, 600);
+        //  alertDialog.getWindow().setLayout(900, 600);
     }
 
     private void getMembershiptype(final TextView item, final int groupPosition, final int childPosition, String defValue) {
@@ -417,13 +539,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 MyProfileInfo myProfile = new MyProfileInfo();
 
                                 if (groupPosition == 0) {
-                                    if (childPosition == 0) {
+                                    if (childPosition == 2) {
                                         String state1 = sp3.getSelectedItem().toString();
                                         profile.setMemType(state1);
                                     }
                                 }
                                 mypreg(profile);
-
                             }
                         })
                 .setNegativeButton("Cancel",
@@ -481,7 +602,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 MyProfileInfo profile = new MyProfileInfo();
                                 profile.setMemID(memId);
                                 if (groupPosition == 0) {
-                                    if (childPosition == 1) {
+                                    if (childPosition == 3) {
                                         String state2 = sp4.getSelectedItem().toString();
                                         profile.setMemPlan(state2);
                                     }
@@ -722,13 +843,23 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.profile_group_item,
-                    null);
+            convertView = infalInflater.inflate(R.layout.profile_group_item, null);
         }
-        TextView item = (TextView) convertView.findViewById(R.id.laptop);
+        TextView item = (TextView) convertView.findViewById(R.id.txtpen);
+
         item.setTypeface(null, Typeface.BOLD);
         item.setText(laptopName);
+       /* img =(ImageView) convertView.findViewById(R.id.write);
+        if( groupPosition == 0 ) {
+            img .setVisibility( View.INVISIBLE );
+        }*/
+        setImgValue();
+
         return convertView;
+    }
+
+    private void setImgValue() {
+
     }
 
     public boolean hasStableIds() {
@@ -764,5 +895,4 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         });
 
     }
-
 }

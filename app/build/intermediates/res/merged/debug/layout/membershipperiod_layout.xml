@@ -6,6 +6,7 @@
     <Spinner
         android:id="@+id/spinner4"
         android:layout_width="match_parent"
+        android:layout_marginLeft="21dp"
         android:layout_height="50dp"
         android:entries="@array/ty_plan"
         android:prompt="@string/plan_prompt"

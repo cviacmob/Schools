@@ -276,6 +276,10 @@
         "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout\\apply_btn_expandable.xml",
+        "source": "D:\\works\\Schools\\app\\src\\main\\res\\layout\\apply_btn_expandable.xml"
+    },
+    {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
         "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },

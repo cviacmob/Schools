@@ -11,6 +11,8 @@ public class MyProfileInfo {
 
     private String MemPlan;
     private String MemType;
+    private String MemState;
+    private String MemDis;
     private String FirstName;
     private String EmailID2;
     private String Mobile2;
@@ -25,6 +27,7 @@ public class MyProfileInfo {
     private String CompPIN;
     private String MemID;
     private String Image_url;
+    private String Editmember;
 
     public MyProfileInfo() {
     }
@@ -46,9 +49,26 @@ public class MyProfileInfo {
         MemPlan = memPlan;
     }
 
+    public String getMemState() {
+        return MemState;
+    }
+
+    public void setMemState(String memState) {
+        MemState = memState;
+    }
+
+    public String getMemDis() {
+        return MemDis;
+    }
+
+    public void setMemDis(String memDis) {
+        MemDis = memDis;
+    }
+
     public String getMemType() {
         return MemType;
     }
+
 
     public void setMemType(String memType) {
         MemType = memType;
@@ -156,6 +176,14 @@ public class MyProfileInfo {
 
     public void setMemID(String memID) {
         MemID = memID;
+    }
+
+    public String getEditmember() {
+        return Editmember;
+    }
+
+    public void setEditmember(String editmember) {
+        Editmember = editmember;
     }
 
 

@@ -21,8 +21,8 @@ import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.SchoolsforIndia;
 import com.cviac.s4iApp.notificationreceiver.AlarmReceiver;
-import com.cviac.s4iApp.sfiapi.MembershipInfo;
-import com.cviac.s4iApp.sfiapi.RegisterResponse;
+import com.cviac.s4iApp.datamodel.MembershipInfo;
+import com.cviac.s4iApp.datamodel.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
 
@@ -44,7 +44,8 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
     String memidd = Prefs.getString("MemId", "");
     private Spinner spinner1, spinner2, spinner3, spinner4, spinnerCountry, spinnerCity, spinnerPlan, spinnertype;
     private Button button2;
-    private Button btton1;
+    Button btn;
+    Button btton1;
     private AlarmManager alarmMgr;
     private PendingIntent alarmIntent;
     String plan;
@@ -53,6 +54,8 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
         setTitle("Membership");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.membership);
+       // setContentView(R.layout.content_navigation);
+        btn = (Button) findViewById(R.id.applaybtn);
         spinnerCountry = (Spinner) findViewById(R.id.spinner1);
         spinnerCity = (Spinner) findViewById(R.id.spinner2);
         spinnerPlan = (Spinner) findViewById(R.id.spinner4);
@@ -69,14 +72,11 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
             public void onClick(View v) {
                 Intent i = new Intent(MembershipActivity.this, MembershipFeeActivity.class);
                 startActivity(i);
-
-
             }
         });
         btton1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 SchoolsforIndia app = (SchoolsforIndia) MembershipActivity.this.getApplication();
                 boolean error = false;
                 if (error == false) {
@@ -110,13 +110,12 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                         @Override
                         public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
                             if (progressDialog != null) {
-
                                 Toast.makeText(getApplicationContext(), "Submited Successfully", Toast.LENGTH_SHORT).show();
                                 setAlarm();
+                                NavigationActivity.btn.setVisibility(View.INVISIBLE);
                                 Intent intent = new Intent(MembershipActivity.this, NavigationActivity.class);
                                 startActivity(intent);
                                 progressDialog.dismiss();
-
                             }
                             RegisterResponse rsp = response.body();
                             int code = rsp.getCode();
@@ -125,9 +124,7 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                                 finish();
                             }
 
-
                         }
-
                         @Override
                         public void onFailure(Throwable t) {
                             if (progressDialog != null) {
@@ -155,7 +152,7 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
 
         });
 
-
+        NavigationActivity.btn.setVisibility(View.GONE);
     }
 
 
