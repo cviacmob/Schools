@@ -102,7 +102,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                                 MembershipActivity.class);
                         context.startActivity(mainIntent);
                     } else
-                        Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
+                        Toast.makeText(context, "please check and accept the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
                     return;
                 }
@@ -116,7 +116,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                      /*   Toast.makeText(context, result.toString(),
                                 Toast.LENGTH_SHORT).show();*/
                     } else
-                        Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
+                        Toast.makeText(context, "please  check and accept the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
                 } else if (groupPosition == 2 && childPosition == 0) {
                     regType = "SPONSER";
@@ -128,7 +128,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                        /* Toast.makeText(context, result.toString(),
                                 Toast.LENGTH_SHORT).show();*/
                     } else
-                        Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
+                        Toast.makeText(context, "please check and accept the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
                 } else if (groupPosition == 3 && childPosition == 0) {
                     regType = "PARTNER";
@@ -140,7 +140,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                       /*  Toast.makeText(context, result.toString(),
                                 Toast.LENGTH_SHORT).show();*/
                     } else
-                        Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
+                        Toast.makeText(context, "please check and accept the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
                 } else if (groupPosition == 4 && childPosition == 0) {
                     regType = "MENTOR";
@@ -152,7 +152,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                        /* Toast.makeText(context, result.toString(),
                                 Toast.LENGTH_SHORT).show();*/
                     } else
-                        Toast.makeText(context, "please accept and check the terms and conditions", Toast.LENGTH_LONG)
+                        Toast.makeText(context, "please check and accept the terms and conditions", Toast.LENGTH_LONG)
                                 .show();
                 }
 

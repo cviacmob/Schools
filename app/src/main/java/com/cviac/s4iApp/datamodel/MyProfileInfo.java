@@ -1,4 +1,4 @@
-package com.cviac.s4iApp.sfiapi;
+package com.cviac.s4iApp.datamodel;
 
 /**
  * Created by john on 12/28/2016.

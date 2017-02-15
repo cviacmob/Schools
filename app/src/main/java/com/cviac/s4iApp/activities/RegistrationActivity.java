@@ -25,7 +25,7 @@ import android.widget.Toast;
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.SchoolsforIndia;
-import com.cviac.s4iApp.sfiapi.RegInfo;
+import com.cviac.s4iApp.datamodel.RegInfo;
 import com.cviac.s4iApp.datamodel.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.google.android.gms.appindexing.Action;
@@ -58,7 +58,6 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
     Calendar c = Calendar.getInstance();
     int startYear = c.get(Calendar.YEAR);
     int startMonth = c.get(Calendar.MONTH);
-
     int startDay = c.get(Calendar.DAY_OF_MONTH);
     String value;
     RadioButton maleRadioButton, femaleRadioButton, otherbutton;

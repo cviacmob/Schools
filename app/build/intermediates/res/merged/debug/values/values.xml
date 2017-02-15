@@ -6,7 +6,7 @@
         <item>SPONSOR</item>
         <item>PARTNER</item>
         <item>MENTOR</item>
-       <!-- <item>COMMUNITY CHAMPIONS </item>
+        <!-- <item>COMMUNITY CHAMPIONS </item>
         <item>SOCIAL MEDIA LINKS</item>-->
     </string-array>
     <array name="cast_expanded_controller_default_control_buttons">
@@ -1535,7 +1535,7 @@
     <string name="action_example">Example action</string>
     <string name="action_settings">Settings</string>
     <string name="action_settings1">Settings1</string>
-    <string name="app_name">S4I</string>
+    <string name="app_name">S4India</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="cast_ad_label">Ad</string>
@@ -1602,12 +1602,12 @@
     <string name="contact_us">Would you like to know more about us, please contact
         <b>contactus@schoolsforindia.org</b>
         \nOr write to us at
-        \nSchools for India Trust
+       <b> \nSchools for India Trust</b>
         \n83, Alwarthirunagar Annexe,
         \nChennai- 6000087
         \nTamilnadu, India.
         \nTelephone: +91- 99400 74889\n</string>
-    <string name="content_text">School For India will send an SMS \n message to verify your OTP"</string>
+    <string name="content_text">School For India will send as SMS \nto verify your OTP"</string>
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="debug_menu_ad_information">Ad Information</string>
@@ -1680,6 +1680,9 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="title_activity_web_view">WebViewActivity</string>
+    <string name="title_activity_web_view2">WebViewActivity2</string>
+    <string name="title_activity_web_view_activty3">WebViewActivty3</string>
     <string name="title_home">Home</string>
     <string name="title_section1">Home</string>
     <string name="title_section2">Apply</string>

@@ -127,7 +127,7 @@ public class FAQActivity extends AppCompatActivity {
         faq.addTopic(tp);
 
         Topic tp2 = new Topic();
-        tp2.setName("Volunterring");
+        tp2.setName("Volunteering");
 
         q = new Question();
         q.setQuestion("Do I Need to be in India to be a volunteer?");
@@ -215,7 +215,7 @@ public class FAQActivity extends AppCompatActivity {
 
         faq.addTopic(tp4);
         Topic tp5 = new Topic();
-        tp5.setName("curriculum");
+        tp5.setName("Curriculum");
 
         q = new Question();
         q.setQuestion("What will be curriculum that will be followed in the S4I School?");

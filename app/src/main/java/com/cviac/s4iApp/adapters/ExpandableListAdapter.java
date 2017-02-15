@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,7 +26,7 @@ import android.widget.Toast;
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 import com.cviac.s4iApp.activities.ApplyActivity;
-import com.cviac.s4iApp.sfiapi.MyProfileInfo;
+import com.cviac.s4iApp.datamodel.MyProfileInfo;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.OkHttpClient;
 
@@ -33,6 +34,8 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import retrofit.Call;
 import retrofit.Callback;
@@ -47,11 +50,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Map<String, List<String>> laptopCollections;
     private List<String> laptops;
     private EditText result;
+   private EditText userInput;
     ImageView img;
     private MyProfileInfo Mpi;
     MyProfileInfo myProfile;
     String memId = Prefs.getString("MemId", "");
-
+boolean error;
+    //  boolean error;
     public ExpandableListAdapter(Activity context, List<String> laptops,
                                  Map<String, List<String>> laptopCollections, MyProfileInfo Mpi) {
         this.context = context;
@@ -296,7 +301,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
               break;
       }
   }*/
-
     public View getChildView(final int groupPosition, final int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
         final String defvalue = (String) getChild(groupPosition, childPosition);
@@ -312,6 +316,26 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         setValue(groupPosition, childPosition, item, defvalue);
         img = (ImageView) convertView.findViewById(R.id.write);
+
+
+     /*   switch (groupPosition) {
+            case 0:
+                switch (childPosition) {
+                    case 0:
+                        img.setVisibility(View.INVISIBLE);
+                        break;
+                    case 1:
+                        img.setVisibility(View.INVISIBLE);
+                        break;
+                    case 2:
+                        img.setVisibility(View.INVISIBLE);
+                        break;
+                    case 3:
+                        img.setVisibility(View.INVISIBLE);
+                        break;
+                }
+        }*/
+
         //  setImgValue(groupPosition,childPosition);
 
        /* if (groupPosition == 0 && childPosition == 0) {
@@ -353,7 +377,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                         (groupPosition == 3 && childPosition == 2) {
                     getstatecity2(item, groupPosition, childPosition, defvalue);
                 } else if (groupPosition == 0 && childPosition == 4) {
-                    Intent mainIntent = new Intent(context,ApplyActivity.class);
+                    Intent mainIntent = new Intent(context, ApplyActivity.class);
                     context.startActivity(mainIntent);
                 }
 
@@ -387,6 +411,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         LayoutInflater li = LayoutInflater.from(context);
         View promptsView = li.inflate(R.layout.editor, null);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         // builder.setMessage("Enter");
 
@@ -396,7 +421,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         // set prompts.xml to alertdialog builder
         alertDialogBuilder.setView(promptsView);
 
-        final EditText userInput = (EditText) promptsView
+       userInput = (EditText) promptsView
                 .findViewById(R.id.edit1);
 
         if (item.getText().toString().equals(defValue)) {
@@ -404,9 +429,15 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         } else {
             userInput.setText(item.getText().toString());
         }
+        error = false;
         if (groupPosition == 1) {
             if (childPosition == 2) {
                 userInput.setRawInputType(Configuration.KEYBOARD_12KEY);
+                if (userInput.length() < 10) {
+                    userInput.setError("invalid phone number");
+                    userInput.requestFocus();
+                    error = true;
+                }
             }
         }
         if (groupPosition == 2) {
@@ -415,13 +446,24 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             }
         }
 
-        if (groupPosition == 3){
+        if (groupPosition == 3) {
             if (childPosition == 3) {
                 userInput.setRawInputType(Configuration.KEYBOARD_12KEY);
             }
         }
+        if (groupPosition == 1) {
+            if (childPosition == 1) {
+                userInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
+                if (isValidEmail(userInput.getText().toString()) == false) {
+                    userInput.setError("Enter valid email");
+                    userInput.requestFocus();
+                    error = true;
+                }
+            }
+        }
 
         // set dialog message
+
         alertDialogBuilder
                 .setTitle("EDIT " + defValue)
                 .setCancelable(false)
@@ -445,7 +487,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                     } else if (childPosition == 2) {
                                         String pro2 = userInput.getText().toString();
                                         profile.setMobile2(pro2);
-
                                     }
                                 } else if (groupPosition == 2) {
                                     if (childPosition == 0) {
@@ -455,7 +496,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                     } else if (childPosition == 1) {
                                         String pro4 = userInput.getText().toString();
                                         profile.setTown(pro4);
-
                                     } else if (childPosition == 3) {
                                         String pro5 = userInput.getText().toString();
                                         profile.setPIN(pro5);
@@ -603,6 +643,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                 profile.setMemID(memId);
                                 if (groupPosition == 0) {
                                     if (childPosition == 3) {
+                                        img.setVisibility(View.INVISIBLE);
                                         String state2 = sp4.getSelectedItem().toString();
                                         profile.setMemPlan(state2);
                                     }
@@ -871,28 +912,54 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     private void mypreg(MyProfileInfo profile) {
-        OkHttpClient okHttpClient = new OkHttpClient();
-        okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
-        okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://schoolsforindia.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClient)
-                .build();
-        SFIApi api = retrofit.create(SFIApi.class);
-        final Call<MyProfileInfo> call = api.updateProfile(profile);
-        call.enqueue(new Callback<MyProfileInfo>() {
-            @Override
-            public void onResponse(Response<MyProfileInfo> response, Retrofit retrofit) {
-                Toast.makeText(context, "Apply Success", Toast.LENGTH_SHORT).show();
-            }
+        if (error == false) {
+            OkHttpClient okHttpClient = new OkHttpClient();
+            okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
+            okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://schoolsforindia.com")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(okHttpClient)
+                    .build();
+            SFIApi api = retrofit.create(SFIApi.class);
+            final Call<MyProfileInfo> call = api.updateProfile(profile);
+            call.enqueue(new Callback<MyProfileInfo>() {
+                @Override
+                public void onResponse(Response<MyProfileInfo> response, Retrofit retrofit) {
+                    Toast.makeText(context, "Apply Success", Toast.LENGTH_SHORT).show();
+                }
 
-            @Override
-            public void onFailure(Throwable t) {
-                Toast.makeText(context, "Apply Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
-                t.printStackTrace();
-            }
-        });
+                @Override
+                public void onFailure(Throwable t) {
+                    Toast.makeText(context, "Apply Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                    t.printStackTrace();
+                }
+            });
 
+        }
+    }
+
+
+
+    protected boolean isValidEmail(String email) {
+        // TODO Auto-generated method stub
+        // String emi=email.getText().toString();
+
+        String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    private boolean validate(int groupPosition, int childPosition) {
+        String MobilePattern = "[0-9]{10}";
+        if (groupPosition == 1) {
+            if (childPosition == 2) {
+
+            }
+        }
+        return false;
     }
 }

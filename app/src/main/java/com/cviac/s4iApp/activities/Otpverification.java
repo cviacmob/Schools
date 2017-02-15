@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
-import com.cviac.s4iApp.sfiapi.RegInfo;
+import com.cviac.s4iApp.datamodel.RegInfo;
 import com.cviac.s4iApp.datamodel.RegisterResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.cviac.s4iApp.datamodel.VerifyResponse;

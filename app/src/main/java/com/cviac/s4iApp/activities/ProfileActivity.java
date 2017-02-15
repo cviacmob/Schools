@@ -30,7 +30,7 @@ import com.cviac.s4iApp.adapters.CircleTransform;
 import com.cviac.s4iApp.adapters.ExpandableListAdapter;
 import com.cviac.s4iApp.datamodel.Profile;
 import com.cviac.s4iApp.datamodel.ProfilePicUpload;
-import com.cviac.s4iApp.sfiapi.MyProfileInfo;
+import com.cviac.s4iApp.datamodel.MyProfileInfo;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.RequestBody;

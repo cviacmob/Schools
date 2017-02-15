@@ -22,7 +22,7 @@ import retrofit.Retrofit;
 
 public class MembershipFeeActivity extends AppCompatActivity {
     MemberFeeInfo memberfee;
-    ProgressDialog progressDialog;
+        ProgressDialog progressDialog;
     String feeid = Prefs.getString("Pid", "");
     public TextView tenscltxt;
     public TextView onescltxt;

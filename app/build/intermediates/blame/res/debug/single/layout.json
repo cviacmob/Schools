@@ -216,6 +216,10 @@
         "source": "D:\\works\\Schools\\app\\src\\main\\res\\layout\\currentevent_item.xml"
     },
     {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_web_view.xml",
+        "source": "D:\\works\\Schools\\app\\src\\main\\res\\layout\\activity_web_view.xml"
+    },
+    {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_dailoge.xml",
         "source": "D:\\works\\Schools\\app\\src\\main\\res\\layout\\activity_dailoge.xml"
     },
@@ -410,6 +414,10 @@
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
         "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\layout\\notification_template_lines_media.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout\\content_web_view.xml",
+        "source": "D:\\works\\Schools\\app\\src\\main\\res\\layout\\content_web_view.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_navigation.xml",

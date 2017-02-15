@@ -24,7 +24,7 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:layout_marginTop="150dp"
-        android:text="Please enter your OTP below" />
+        android:text="Enter OTP" />
 
     <EditText
         android:id="@+id/editverify"

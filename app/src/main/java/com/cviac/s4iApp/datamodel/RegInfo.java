@@ -1,4 +1,4 @@
-package com.cviac.s4iApp.sfiapi;
+package com.cviac.s4iApp.datamodel;
 
 import java.util.Date;
 

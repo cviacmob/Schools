@@ -25,6 +25,7 @@
 
     <Button
           android:id="@+id/cancelbtn"
+          android:background="@drawable/roundshapebtn"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_alignBaseline="@+id/okbtn"
@@ -32,16 +33,6 @@
           android:layout_alignParentRight="true"
           android:layout_marginRight="28dp"
           android:text="cancel" />
-
-    <Button
-        android:id="@+id/okbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="94dp"
-        android:text="ok"
-        android:layout_below="@+id/linkedit"
-        android:layout_toEndOf="@+id/imageDialog"
-        android:layout_marginStart="41dp" />
 
     <EditText
         android:id="@+id/linkedit"
@@ -55,5 +46,17 @@
 
         <requestFocus />
     </EditText>
+
+    <Button
+        android:id="@+id/okbtn"
+        android:background="@drawable/roundshapebtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ok"
+        android:layout_marginStart="42dp"
+        android:layout_below="@+id/linkedit"
+        android:layout_toRightOf="@+id/imageDialog"
+        android:layout_toEndOf="@+id/imageDialog"
+        android:layout_marginLeft="42dp" />
 
 </RelativeLayout>

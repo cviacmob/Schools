@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
@@ -33,7 +34,7 @@ public class SocialActivity extends AppCompatActivity {
     Context context;
     List<SocialInfo> socialList;
     SocialInfoAdapter adapt;
-
+    WebView mWebView;
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -50,20 +51,51 @@ public class SocialActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        ListView vw = (ListView) findViewById(R.id.listsocial);
+     final ListView vw = (ListView) findViewById(R.id.listsocial);
 
         vw.setAdapter(adapt);
 
 
         // adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-
+        mWebView = (WebView)findViewById(R.id.webview);
+        mWebView.setBackgroundColor(0);
+        mWebView.getSettings().setBuiltInZoomControls(true);
 
      vw.setOnItemClickListener(new AdapterView.OnItemClickListener() {
          @Override
-         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
 
+         /*   Intent i = new Intent(getApplicationContext(), WebViewActivity.class);
+             // sending data to new activity
+             i.putExtra("pos", position);
+             startActivity(i);
+             int pos = getIntent().getIntExtra("pos",0);*/
+           /*  if (position == 0) {
+                 //   spinnerText.setTextColor(Color.RED);
+                 text.setText("");
+             }*/
 
+             switch (position) {
+                 case 0:
+                     /*String selectedFromList =(vw.getItemAtPosition(position).toString());
+                     mWebView.loadUrl(selectedFromList);*/
+                     mWebView.loadUrl("https://facebook.com/login");
+                     break;
+                 case 1:
+                     mWebView.loadUrl("https://twitter.com/login");
+                     break;
+                 case 2:
+                     mWebView.loadUrl("https://www.google.com/gmail/");
+                     break;
+             }
+
+             // selected = adapterView.getItemAtPosition(vw.getFirstVisiblePosition() + position).toString();
+            // String data=(String)adapterView.getItemAtPosition(position);
+            // String itemString=vw.getSelectedItem().toString();
+           /*  String selectedFromList =(vw.getItemAtPosition(position).toString());
+             mWebView.loadUrl(selectedFromList);*/
          }
+
      });
 
         buttonClick = (Button) findViewById(R.id.addbutton);
@@ -115,7 +147,7 @@ public class SocialActivity extends AppCompatActivity {
                             String nam1 = text.getText().toString();
                             SocialInfo info = new SocialInfo();
                             info.setMemId(memId);
-                             info.setSocial(nam);
+                            info.setSocial(nam);
                             info.setChannel(schannel);
                             info.setUrl(nam1);
                            // info.setUrl(text.getText().toString());

@@ -1,5 +1,6 @@
 package com.cviac.s4iApp.activities;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -27,7 +28,7 @@ import retrofit.Retrofit;
 public class PastEventActivity extends Fragment {
     List<PastEvent> evenlist;
     private ListView lv1;
-
+    ProgressDialog progressDialog;
     //  List<PastEvent> emps;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -74,6 +75,9 @@ public class PastEventActivity extends Fragment {
         call.enqueue(new Callback<List<EventInfo>>() {
             @Override
             public void onResponse(Response<List<EventInfo>> response, Retrofit retrofit) {
+                if (progressDialog != null) {
+                    progressDialog.dismiss();
+                }
                 List<EventInfo> list =  response.body();
                 if (list == null) {
                     return;
@@ -96,6 +100,10 @@ public class PastEventActivity extends Fragment {
 
             @Override
             public void onFailure(Throwable throwable) {
+                if (progressDialog != null) {
+                    progressDialog.dismiss();
+                    // progressDialog = null;
+                }
                 throwable.printStackTrace();
 
              /*  Toast.makeText(PastEventActivity.this, "API Invoke Error :" + throwable.getMessage(), Toast.LENGTH_SHORT).show();*/

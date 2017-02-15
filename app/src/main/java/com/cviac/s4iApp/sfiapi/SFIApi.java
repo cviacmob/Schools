@@ -5,7 +5,9 @@ import com.cviac.s4iApp.datamodel.EmailInfo;
 import com.cviac.s4iApp.datamodel.EventInfo;
 import com.cviac.s4iApp.datamodel.MemberFeeInfo;
 import com.cviac.s4iApp.datamodel.MembershipInfo;
+import com.cviac.s4iApp.datamodel.MyProfileInfo;
 import com.cviac.s4iApp.datamodel.ProfilePicUpload;
+import com.cviac.s4iApp.datamodel.RegInfo;
 import com.cviac.s4iApp.datamodel.RegisterResponse;
 import com.cviac.s4iApp.datamodel.SendEmailResponse;
 import com.cviac.s4iApp.datamodel.SocialInfo;
@@ -47,10 +49,10 @@ public interface SFIApi {
     @POST("/S4IAPI/S4Idbop.php/contactus")
     Call<ContactInfo> contatctreg(@Body ContactInfo contactApi);
 
-    @GET("/S4IAPI/S4Idbop.php/PastEventActivity/PAST")
+    @GET("/S4IAPI/S4Idbop.php/Events/PAST")
     Call<List<EventInfo>> getEvents();
 
-    @GET("/S4IAPI/S4Idbop.php/PastEventActivity/Current")
+    @GET("/S4IAPI/S4Idbop.php/Events/Current")
     Call<List<EventInfo>> getCurrent();
 
     @GET("/S4IAPI/S4Idbop.php/membershipfeeinfo")

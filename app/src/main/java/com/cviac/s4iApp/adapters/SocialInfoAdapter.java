@@ -56,7 +56,7 @@ public class SocialInfoAdapter extends BaseAdapter {
             holder = new Holder();
             LayoutInflater inflater = (LayoutInflater) context.
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            rowView = inflater.inflate(R.layout.activity_socialinfoadapter, null);
+            rowView = inflater.inflate(R.layout.activity_socialinfoadapter,parent,false);
             holder.tv = (TextView) rowView.findViewById(R.id.txtsocial);
             holder.img = (ImageView) rowView.findViewById(R.id.imgsocial);
 
@@ -64,7 +64,7 @@ public class SocialInfoAdapter extends BaseAdapter {
         } else {
             holder = (Holder) rowView.getTag();
         }
-        holder.tv.setText(obj.getUrl().toString());
+      //  holder.tv.setText(obj.getUrl().toString());
         if (obj.getChannel().equalsIgnoreCase("facebook")) {
             holder.img.setImageResource(R.drawable.fb);
         } else if (obj.getChannel().equalsIgnoreCase("twitter")) {

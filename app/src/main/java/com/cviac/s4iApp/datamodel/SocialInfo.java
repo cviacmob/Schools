@@ -3,9 +3,8 @@ package com.cviac.s4iApp.datamodel;
 public class SocialInfo {
 
     private String channel;
-
     private String url;
-  private String social;
+    private String social;
     private String MemId;
 
     public String getSocial() {
