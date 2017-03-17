@@ -10,7 +10,6 @@ import com.cviac.s4iApp.datamodel.ProfilePicUpload;
 import com.cviac.s4iApp.datamodel.RegInfo;
 import com.cviac.s4iApp.datamodel.RegisterResponse;
 import com.cviac.s4iApp.datamodel.SendEmailResponse;
-import com.cviac.s4iApp.datamodel.SocialInfo;
 import com.cviac.s4iApp.datamodel.VerifyResponse;
 import com.squareup.okhttp.RequestBody;
 
@@ -66,8 +65,7 @@ public interface SFIApi {
     Call<SendEmailResponse> sendEmail(@Body EmailInfo emailinfo);
 
 
-    @POST("/S4IAPI/S4Idbop.php/contactus")
-    Call<SocialInfo> socialreg(@Body SocialInfo socialApi);
-
+  /*  @PUT("/S4IAPI/S4Idbop.php/updatesocial")
+    Call<SocialResponse> socialreg(@Body Socialupdate socialInfo);*/
 }
 

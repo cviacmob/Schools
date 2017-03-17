@@ -108,14 +108,6 @@
             android:hint="Date OF Birth" />
     </android.support.design.widget.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/cbgvbv"
-        android:layout_alignBottom="@+id/dobtxt"
-        android:layout_alignParentEnd="true" />
-
     <Spinner
         android:id="@+id/country"
         android:layout_width="match_parent"
@@ -135,6 +127,15 @@
         android:layout_below="@+id/country"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/cbgvbv"
+        android:layout_above="@+id/country"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

@@ -16,11 +16,11 @@
             android:icon="@drawable/ic_menu_profile"
             android:title="My Profile" />
 
-        <item
+        <!--<item
             android:id="@+id/nav_social"
             android:icon="@drawable/ic_menu_social"
             android:title="Social" />
-
+-->
         <item
             android:id="@+id/nav_notifi"
             android:icon="@drawable/ic_menu_notification"

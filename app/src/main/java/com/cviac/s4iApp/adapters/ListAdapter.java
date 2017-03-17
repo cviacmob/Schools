@@ -112,7 +112,11 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     result.append("Volunteer is\n");
                     if (chkbox.isChecked()) {
                         result.append("accepted");
-
+                        String memId = Prefs.getString("MemId", "");
+                        MembershipInfo info = new MembershipInfo();
+                        info.setReg_type(regType);
+                        info.setMemID(memId);
+                        memRegister(info);
                      /*   Toast.makeText(context, result.toString(),
                                 Toast.LENGTH_SHORT).show();*/
                     } else
@@ -124,7 +128,11 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     result.append("Sponsor is\n");
                     if (chkbox.isChecked()) {
                         result.append("accepted");
-
+                        String memId = Prefs.getString("MemId", "");
+                        MembershipInfo info = new MembershipInfo();
+                        info.setReg_type(regType);
+                        info.setMemID(memId);
+                        memRegister(info);
                        /* Toast.makeText(context, result.toString(),
                                 Toast.LENGTH_SHORT).show();*/
                     } else
@@ -136,7 +144,11 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     result.append("Partner is\n");
                     if (chkbox.isChecked()) {
                         result.append("accepted");
-
+                        String memId = Prefs.getString("MemId", "");
+                        MembershipInfo info = new MembershipInfo();
+                        info.setReg_type(regType);
+                        info.setMemID(memId);
+                        memRegister(info);
                       /*  Toast.makeText(context, result.toString(),
                                 Toast.LENGTH_SHORT).show();*/
                     } else
@@ -148,7 +160,11 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     result.append("Mentor is\n");
                     if (chkbox.isChecked()) {
                         result.append("accepted");
-
+                        String memId = Prefs.getString("MemId", "");
+                        MembershipInfo info = new MembershipInfo();
+                        info.setReg_type(regType);
+                        info.setMemID(memId);
+                        memRegister(info);
                        /* Toast.makeText(context, result.toString(),
                                 Toast.LENGTH_SHORT).show();*/
                     } else
@@ -156,11 +172,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
                                 .show();
                 }
 
-                String memId = Prefs.getString("MemId", "");
-                MembershipInfo info = new MembershipInfo();
-                info.setReg_type(regType);
-                info.setMemID(memId);
-                memRegister(info);
+
             }
         });
 

@@ -10,8 +10,8 @@ import com.activeandroid.ActiveAndroid;
 import com.activeandroid.Configuration;
 import com.cviac.s4iApp.datamodel.CurrentEvent;
 import com.cviac.s4iApp.datamodel.EmailInfo;
-import com.cviac.s4iApp.datamodel.PastEvent;
 import com.cviac.s4iApp.datamodel.NotificationInfo;
+import com.cviac.s4iApp.datamodel.PastEvent;
 import com.cviac.s4iApp.datamodel.SendEmailResponse;
 import com.cviac.s4iApp.sfiapi.SFIApi;
 
@@ -54,6 +54,9 @@ public class SchoolsforIndia extends MultiDexApplication {
         configurationBuilder.addModelClasses(PastEvent.class);
         configurationBuilder.addModelClasses(CurrentEvent.class);
         configurationBuilder.addModelClasses(NotificationInfo.class);
+/*
+        configurationBuilder.addModelClasses(SocialInfo.class);
+*/
         ActiveAndroid.initialize(configurationBuilder.create());
 
 

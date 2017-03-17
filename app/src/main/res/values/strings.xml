@@ -9,7 +9,7 @@
     <!-- <string name="title_Apply">Apply</string>-->
     <string name="title_Events">Events</string>
     <string name="content_text">School For India will send as SMS \nto verify your OTP"</string>
-    <string name="title_Social">Social</string>
+    <!--<string name="title_Social">Social</string>-->
     <string name="title_News">News</string>
     <string name="title_Notifications">Notifications</string>
     <string name="title_MyProfile">My Profile</string>
@@ -79,7 +79,9 @@
         <item>Choose social site links</item>
         <item>Facebook</item>
         <item>Twitter</item>
-        <item>Gmail</item>
+        <item>Blog</item>
+        <item>Flickr</item>
+        <item>Linkedin</item>
     </string-array>
 
     <string name="title_activity_SocialInfoAdapter">SocialInfoAdapter</string>

@@ -134,12 +134,12 @@ public class NavigationActivity extends AppCompatActivity
             startActivity(i);
 
 
-        } else if (id == R.id.nav_social) {
+        } /*else if (id == R.id.nav_social) {
             Intent i = new Intent(NavigationActivity.this, SocialActivity.class);
             startActivity(i);
 
 
-        } else if (id == R.id.nav_notifi) {
+        }*/ else if (id == R.id.nav_notifi) {
             Intent i = new Intent(NavigationActivity.this, NotificationActivity.class);
             startActivity(i);
 

@@ -50,12 +50,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private Map<String, List<String>> laptopCollections;
     private List<String> laptops;
     private EditText result;
-   private EditText userInput;
+    private EditText userInput;
     ImageView img;
     private MyProfileInfo Mpi;
     MyProfileInfo myProfile;
     String memId = Prefs.getString("MemId", "");
-boolean error;
+    boolean error;
     //  boolean error;
     public ExpandableListAdapter(Activity context, List<String> laptops,
                                  Map<String, List<String>> laptopCollections, MyProfileInfo Mpi) {
@@ -80,6 +80,26 @@ boolean error;
 
     private void setValue(int groupPosition, final int childPosition, TextView vw, String defvalue) {
         switch (groupPosition) {
+            case 0:
+                switch (childPosition) {
+
+                    case 0:
+                        vw.setText(Mpi.getMemState() == null ? defvalue : Mpi.getMemState());
+                        break;
+                    case 1:
+                        vw.setText(Mpi.getMemDis() == null ? defvalue : Mpi.getMemDis());
+                        break;
+                    case 2:
+                        vw.setText(Mpi.getMemType() == null ? defvalue : Mpi.getMemType());
+                        break;
+                    case 3:
+                        vw.setText(Mpi.getMemPlan() == null ? defvalue : Mpi.getMemPlan());
+                        break;
+                    case 4:
+                        vw.setText(Mpi.getEditmember() == null ? defvalue : Mpi.getEditmember());
+                        break;
+                }
+                break;
             case 1:
                 switch (childPosition) {
                     case 0:
@@ -128,31 +148,48 @@ boolean error;
                         break;
                 }
                 break;
-            case 0:
+
+            case 4:
                 switch (childPosition) {
 
                     case 0:
-                        vw.setText(Mpi.getMemState() == null ? defvalue : Mpi.getMemState());
+                        vw.setText(Mpi.getFacebook() == null ? defvalue : Mpi.getFacebook());
                         break;
                     case 1:
-                        vw.setText(Mpi.getMemDis() == null ? defvalue : Mpi.getMemDis());
+                        vw.setText(Mpi.getLinkedin() == null ? defvalue : Mpi.getLinkedin());
                         break;
                     case 2:
-                        vw.setText(Mpi.getMemType() == null ? defvalue : Mpi.getMemType());
+                        vw.setText(Mpi.getBlog() == null ? defvalue : Mpi.getBlog());
                         break;
                     case 3:
-                        vw.setText(Mpi.getMemPlan() == null ? defvalue : Mpi.getMemPlan());
+                        vw.setText(Mpi.getFlickr() == null ? defvalue : Mpi.getFlickr());
                         break;
                     case 4:
-                        vw.setText(Mpi.getEditmember() == null ? defvalue : Mpi.getEditmember());
+                        vw.setText(Mpi.getTwitter() == null ? defvalue : Mpi.getTwitter());
                         break;
                 }
-                break;
+
         }
     }
 
     private void setProfileValue(int groupPosition, final int childPosition, TextView vw) {
         switch (groupPosition) {
+            case 0:
+                switch (childPosition) {
+                    case 0:
+                        Mpi.setMemState(vw.getText().toString());
+                        break;
+                    case 1:
+                        Mpi.setMemDis(vw.getText().toString());
+                        break;
+                    case 2:
+                        Mpi.setMemType(vw.getText().toString());
+                        break;
+                    case 3:
+                        Mpi.setMemPlan(vw.getText().toString());
+                        break;
+                }
+                break;
             case 1:
                 switch (childPosition) {
                     case 0:
@@ -200,23 +237,26 @@ boolean error;
                         Mpi.setCompPIN(vw.getText().toString());
                         break;
                 }
-                break;
-            case 0:
+
+
+            case 4:
                 switch (childPosition) {
                     case 0:
-                        Mpi.setMemState(vw.getText().toString());
+                        Mpi.setFacebook(vw.getText().toString());
                         break;
                     case 1:
-                        Mpi.setMemDis(vw.getText().toString());
+                        Mpi.setLinkedin(vw.getText().toString());
                         break;
                     case 2:
-                        Mpi.setMemType(vw.getText().toString());
+                        Mpi.setBlog(vw.getText().toString());
                         break;
                     case 3:
-                        Mpi.setMemPlan(vw.getText().toString());
+                        Mpi.setFlickr(vw.getText().toString());
+                        break;
+                    case 4:
+                        Mpi.setTwitter(vw.getText().toString());
                         break;
                 }
-
                 break;
         }
     }
@@ -364,7 +404,12 @@ boolean error;
                                 groupPosition == 2 && childPosition == 3 ||
                                 groupPosition == 3 && childPosition == 0 ||
                                 groupPosition == 3 && childPosition == 1 ||
-                                groupPosition == 3 && childPosition == 3) {
+                                groupPosition == 3 && childPosition == 3 ||
+                                groupPosition == 4 && childPosition == 0 ||
+                                groupPosition == 4 && childPosition == 1 ||
+                                groupPosition == 4 && childPosition == 2 ||
+                                groupPosition == 4 && childPosition == 3 ||
+                                groupPosition == 4 && childPosition == 4) {
                     getEditText(item, groupPosition, childPosition, defvalue);
                 } else if
                         (groupPosition == 2 && childPosition == 2) {
@@ -421,7 +466,7 @@ boolean error;
         // set prompts.xml to alertdialog builder
         alertDialogBuilder.setView(promptsView);
 
-       userInput = (EditText) promptsView
+        userInput = (EditText) promptsView
                 .findViewById(R.id.edit1);
 
         if (item.getText().toString().equals(defValue)) {
@@ -433,11 +478,6 @@ boolean error;
         if (groupPosition == 1) {
             if (childPosition == 2) {
                 userInput.setRawInputType(Configuration.KEYBOARD_12KEY);
-                if (userInput.length() < 10) {
-                    userInput.setError("invalid phone number");
-                    userInput.requestFocus();
-                    error = true;
-                }
             }
         }
         if (groupPosition == 2) {
@@ -454,11 +494,11 @@ boolean error;
         if (groupPosition == 1) {
             if (childPosition == 1) {
                 userInput.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-                if (isValidEmail(userInput.getText().toString()) == false) {
+               /* if (isValidEmail(userInput.getText().toString()) == false) {
                     userInput.setError("Enter valid email");
                     userInput.requestFocus();
                     error = true;
-                }
+                }*/
             }
         }
 
@@ -488,7 +528,7 @@ boolean error;
                                         String pro2 = userInput.getText().toString();
                                         profile.setMobile2(pro2);
                                     }
-                                } else if (groupPosition == 2) {
+                                } if (groupPosition == 2) {
                                     if (childPosition == 0) {
                                         String pro3 = userInput.getText().toString();
                                         profile.setHouseNo(pro3);
@@ -500,7 +540,7 @@ boolean error;
                                         String pro5 = userInput.getText().toString();
                                         profile.setPIN(pro5);
                                     }
-                                } else if (groupPosition == 3) {
+                                } if (groupPosition == 3) {
                                     if (childPosition == 0) {
                                         String pro6 = userInput.getText().toString();
                                         profile.setCompNumber(pro6);
@@ -512,6 +552,27 @@ boolean error;
                                     } else if (childPosition == 3) {
                                         String pro8 = userInput.getText().toString();
                                         profile.setCompPIN(pro8);
+                                    }
+                                }if (groupPosition == 4) {
+                                    if (childPosition == 0) {
+                                        String pro9 = userInput.getText().toString();
+                                        profile.setFacebook(pro9);
+
+                                    } else if (childPosition == 1) {
+                                        String pro10 = userInput.getText().toString();
+                                        profile.setLinkedin(pro10);
+
+                                    } else if (childPosition == 2) {
+                                        String pro11 = userInput.getText().toString();
+                                        profile.setBlog(pro11);
+
+                                    }else if (childPosition == 3) {
+                                        String pro12 = userInput.getText().toString();
+                                        profile.setFlickr(pro12);
+
+                                    } else if (childPosition == 4) {
+                                        String pro13 = userInput.getText().toString();
+                                        profile.setTwitter(pro13);
 
                                     }
                                 }

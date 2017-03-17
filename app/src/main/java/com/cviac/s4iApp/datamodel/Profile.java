@@ -21,6 +21,12 @@ public class Profile {
     public String MembershipPeriod;
     public String Doj;
 
+    private String Facebook;
+    private String Blog;
+    private String Linkedin;
+    private String Flickr;
+    private String Twitter;
+
     public Profile() {
     }
 
@@ -29,6 +35,48 @@ public class Profile {
         Name = name;
         Mobile = mobile;
     }
+
+
+    public String getFacebook() {
+        return Facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        Facebook = facebook;
+    }
+
+    public String getBlog() {
+        return Blog;
+    }
+
+    public void setBlog(String blog) {
+        Blog = blog;
+    }
+
+    public String getLinkedin() {
+        return Linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        Linkedin = linkedin;
+    }
+
+    public String getFlickr() {
+        return Flickr;
+    }
+
+    public void setFlickr(String flickr) {
+        Flickr = flickr;
+    }
+
+    public String getTwitter() {
+        return Twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        Twitter = twitter;
+    }
+
 
 
     public String getMobile() {

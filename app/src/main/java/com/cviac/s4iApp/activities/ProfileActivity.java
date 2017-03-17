@@ -188,29 +188,32 @@ public class ProfileActivity extends AppCompatActivity {
         groupList.add("BASIC INFORMATION");
         groupList.add("RESIDENTIAL ADDRESS");
         groupList.add("OFFICE ADDRESS");
+        groupList.add("SOCIAL");
 
     }
 
     private void createCollection() {
         // preparing laptops collection(child)
-        String[] mi = {"STATE", "DISTRICT", "MEMBERSHIP TYPE", "MEMBERSHIP PERIOD","EDIT YOUR MEMBERSHIP"};
+        String[] mi = {"STATE", "DISTRICT", "MEMBERSHIP TYPE", "MEMBERSHIP PERIOD", "EDIT YOUR MEMBERSHIP"};
         String[] bi = {"NAME", "E MAIL", "MOBILE", "GENDER"};
         String[] ra = {"ADDRESS 1", "ADDRESS 2", "CITY/STATE", "ZIP CODE"};
         String[] oa = {"ADDRESS 1", "ADDRESS 2", "CITY/STATE", "ZIP CODE"};
+        String[] so = {"FACEBOOK", "LINKEDIN", "BLOG", "FLICKR" ,"TWITTER"};
 
 
         defValuesCollection = new LinkedHashMap<String, List<String>>();
 
         for (String laptop : groupList) {
-            if (laptop.equals("MEMBERSHIP INFORMATION"))
+            if (laptop.equals("MEMBERSHIP INFORMATION")) {
                 loadChild(mi);
-            else if (laptop.equals("BASIC INFORMATION")) {
+            } else if (laptop.equals("BASIC INFORMATION")) {
                 loadChild(bi);
-            } else if (laptop.equals("RESIDENTIAL ADDRESS"))
+            } else if (laptop.equals("RESIDENTIAL ADDRESS")) {
                 loadChild(ra);
-            else if (laptop.equals("OFFICE ADDRESS"))
+            }else if (laptop.equals("OFFICE ADDRESS")) {
                 loadChild(oa);
-
+            }else if (laptop.equals("SOCIAL"))
+                loadChild(so);
             defValuesCollection.put(laptop, childList);
         }
     }

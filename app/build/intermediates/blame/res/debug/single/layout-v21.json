@@ -1,22 +1,22 @@
 [
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\place_autocomplete_fragment.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\9.6.0\\res\\layout-v21\\place_autocomplete_fragment.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0fd5a3919b8f19b2b96ff8d3377337c0235ac54d\\output\\res\\layout-v21\\place_autocomplete_fragment.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_custom_big.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\layout-v21\\notification_template_custom_big.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_template_icon_group.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\layout-v21\\notification_template_icon_group.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\layout-v21\\notification_action.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\layout-v21\\notification_action.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21\\notification_action_tombstone.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\layout-v21\\notification_action_tombstone.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\layout-v21\\notification_action_tombstone.xml"
     }
 ]

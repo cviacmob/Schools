@@ -1,102 +1,106 @@
 [
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_btn_checkable.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_tint_btn_checkable.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_tint_btn_checkable.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_secondary_text_material_dark.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_secondary_text_material_dark.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_error.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.1\\res\\color\\design_error.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\561fd5aa1adb6ecd9009147ba2478b73124c94f7\\output\\res\\color\\design_error.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_track.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_tint_switch_track.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_tint_switch_track.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_light.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\color\\common_google_signin_btn_text_light.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\45c2c8ecfc18b108783f7d8852bba603cc161810\\output\\res\\color\\common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\switch_thumb_material_light.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\switch_thumb_material_light.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_borderless_text_material.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_btn_colored_borderless_text_material.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_default.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_tint_default.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_tint_default.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_tint_edittext.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_tint_edittext.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_secondary_text_holo_dark.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-wallet\\9.6.0\\res\\color\\wallet_secondary_text_holo_dark.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\adc6bb062e468428532c19d5a8b1ff3526a306d5\\output\\res\\color\\wallet_secondary_text_holo_dark.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_primary_text_holo_light.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-wallet\\9.6.0\\res\\color\\wallet_primary_text_holo_light.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\adc6bb062e468428532c19d5a8b1ff3526a306d5\\output\\res\\color\\wallet_primary_text_holo_light.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_search_url_text.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_search_url_text.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_secondary_text_material_light.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_tint_switch_thumb.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_tint_switch_thumb.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_tint_password_toggle.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.1\\res\\color\\design_tint_password_toggle.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\561fd5aa1adb6ecd9009147ba2478b73124c94f7\\output\\res\\color\\design_tint_password_toggle.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\switch_thumb_material_dark.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_primary_text_material_light.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_primary_text_material_light.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_dark.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_hint_foreground_material_dark.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_hint_foreground_material_dark.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_seek_thumb.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_tint_seek_thumb.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_text_material.xml",
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_btn_colored_text_material.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_tint_spinner.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_tint_spinner.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_dark.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.6.0\\res\\color\\common_google_signin_btn_text_dark.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\45c2c8ecfc18b108783f7d8852bba603cc161810\\output\\res\\color\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_light.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_hint_foreground_material_light.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_hint_foreground_material_light.xml"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
-        "source": "D:\\works\\Schools\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.0.1\\res\\color\\abc_primary_text_material_dark.xml"
+        "source": "C:\\Users\\john\\.android\\build-cache\\0cf19fdafd9e4ccceb4d41a8477b311cd5bf3eed\\output\\res\\color\\abc_primary_text_material_dark.xml"
     }
 ]

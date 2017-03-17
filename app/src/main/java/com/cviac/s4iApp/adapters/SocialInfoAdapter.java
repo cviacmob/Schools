@@ -1,3 +1,4 @@
+/*
 package com.cviac.s4iApp.adapters;
 
 import android.content.Context;
@@ -9,16 +10,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cviac.s4iApp.R;
-import com.cviac.s4iApp.datamodel.SocialInfo;
+import com.cviac.s4iApp.datamodel.Socialupdate;
 
 import java.util.List;
 
 public class SocialInfoAdapter extends BaseAdapter {
 
-    List<SocialInfo> socialList;
+    List<Socialupdate> socialList;
     Context context;
 
-    public SocialInfoAdapter(Context ctx, List<SocialInfo> prgmNameList) {
+    public SocialInfoAdapter(Context ctx, List<Socialupdate> prgmNameList) {
         // TODO Auto-generated constructor stub
         socialList = prgmNameList;
         context = ctx;
@@ -49,7 +50,7 @@ public class SocialInfoAdapter extends BaseAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        SocialInfo obj = socialList.get(position);
+        Socialupdate obj = socialList.get(position);
         View rowView = convertView;
         Holder holder;
         if (convertView == null) {
@@ -65,15 +66,20 @@ public class SocialInfoAdapter extends BaseAdapter {
             holder = (Holder) rowView.getTag();
         }
       //  holder.tv.setText(obj.getUrl().toString());
-        if (obj.getChannel().equalsIgnoreCase("facebook")) {
+        if (obj.getSocial().equalsIgnoreCase("Facebook")) {
             holder.img.setImageResource(R.drawable.fb);
-        } else if (obj.getChannel().equalsIgnoreCase("twitter")) {
+        } else if (obj.getSocial().equalsIgnoreCase("Twitter")) {
             holder.img.setImageResource(R.drawable.twitter);
-        } else if (obj.getChannel().equalsIgnoreCase("gmail")) {
-            holder.img.setImageResource(R.drawable.gmail);
+        } else if (obj.getSocial().equalsIgnoreCase("Blog")) {
+            holder.img.setImageResource(R.drawable.blog);
+        } else if (obj.getSocial().equalsIgnoreCase("Flickr")) {
+            holder.img.setImageResource(R.drawable.flickr);
+        } else if (obj.getSocial().equalsIgnoreCase("Linkedin")) {
+            holder.img.setImageResource(R.drawable.linkedin);
         }
         holder.tv.setText(obj.getSocial());
 
         return rowView;
     }
 }
+*/

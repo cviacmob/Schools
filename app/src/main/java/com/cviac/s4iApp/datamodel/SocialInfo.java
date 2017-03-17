@@ -1,11 +1,27 @@
+/*
 package com.cviac.s4iApp.datamodel;
 
-public class SocialInfo {
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
 
+import java.util.List;
+
+@Table(name = "socialinfo")
+public class SocialInfo extends Model {
+
+    @Column(name = "channel")
     private String channel;
+    @Column(name = "url")
     private String url;
+    @Column(name = "social")
     private String social;
-    private String MemId;
+    @Column(name = "MemID")
+    private String MemID;
+
+    public SocialInfo() {
+    }
 
     public String getSocial() {
         return social;
@@ -15,13 +31,16 @@ public class SocialInfo {
         this.social = social;
     }
 
-    public String getMemId() {
-        return MemId;
+
+    public String getMemID() {
+        return MemID;
     }
 
-    public void setMemId(String memId) {
-        MemId = memId;
+    public void setMemID(String memID) {
+        MemID = memID;
     }
+
+
 
     public String getUrl() {
         return url;
@@ -39,4 +58,11 @@ public class SocialInfo {
         this.channel = channel;
     }
 
+    public static List<SocialInfo> getsocial() {
+        return new Select()
+                .from(SocialInfo.class)
+                .execute();
+
+    }
 }
+*/

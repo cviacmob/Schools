@@ -28,6 +28,12 @@ public class MyProfileInfo {
     private String MemID;
     private String Image_url;
     private String Editmember;
+    private String Facebook;
+    private String Blog;
+    private String Linkedin;
+    private String Flickr;
+    private String Twitter;
+
 
     public MyProfileInfo() {
     }
@@ -185,15 +191,47 @@ public class MyProfileInfo {
     public void setEditmember(String editmember) {
         Editmember = editmember;
     }
+    public String getFacebook() {
+        return Facebook;
+    }
+
+    public void setFacebook(String facebook) {
+        Facebook = facebook;
+    }
+
+    public String getBlog() {
+        return Blog;
+    }
+
+    public void setBlog(String blog) {
+        Blog = blog;
+    }
+
+    public String getLinkedin() {
+        return Linkedin;
+    }
+
+    public void setLinkedin(String linkedin) {
+        Linkedin = linkedin;
+    }
+
+    public String getFlickr() {
+        return Flickr;
+    }
+
+    public void setFlickr(String flickr) {
+        Flickr = flickr;
+    }
+
+
+    public String getTwitter() {
+        return Twitter;
+    }
+
+    public void setTwitter(String twitter) {
+        Twitter = twitter;
+    }
 
 
 
-
-  /*  public static void updateProfileImageUrl(String memId, String url) {
-        new Update(MyProfileInfo.class)
-                .set("imageUrl = ?", url)
-                .where("MemID = ?", memId)
-                .execute();
-                return;
-    }*/
 }
