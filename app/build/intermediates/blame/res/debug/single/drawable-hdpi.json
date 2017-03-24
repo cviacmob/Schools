@@ -36,12 +36,12 @@
         "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_menu_faq.png"
     },
     {
-        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\phone.png",
-        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\phone.png"
-    },
-    {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_menu_manage.png",
         "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_menu_manage.png"
+    },
+    {
+        "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\phone.png",
+        "source": "D:\\works\\Schools\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\phone.png"
     },
     {
         "merged": "D:\\works\\Schools\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_menu_camera.png",

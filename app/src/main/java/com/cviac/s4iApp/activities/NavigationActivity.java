@@ -1,6 +1,9 @@
 package com.cviac.s4iApp.activities;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,50 +20,30 @@ import android.widget.TextView;
 import com.cviac.s4iApp.Prefs;
 import com.cviac.s4iApp.R;
 
-public class NavigationActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
-    public static Button btn;
+public class NavigationActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    public static Button btn;
+    private BroadcastReceiver listenmembership;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_navigation);
         setContentView(R.layout.activity_navigation);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
         final int applied = Prefs.getInt("applied", 0);
-        //Prefs.putInt("applied", 1);
-        if (applied == 1) {
-            btn.setText("View Profile");
-        }
 
         btn = (Button) findViewById(R.id.applaybtn);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (applied == 0) {
-                    Intent in1 = new Intent(NavigationActivity.this, ApplyActivity.class);
-                    startActivity(in1);
-                } else {
-                    Intent in1 = new Intent(NavigationActivity.this, ProfileActivity.class);
-                    startActivity(in1);
-                }
+                Intent in1 = new Intent(NavigationActivity.this, ApplyActivity.class);
+                startActivity(in1);
             }
         });
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -70,6 +53,20 @@ public class NavigationActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         setUserdetails(navigationView);
+
+        listenmembership = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                btn.setVisibility(View.GONE);
+            }
+        };
+        registerReceiver(listenmembership, new IntentFilter("notifyapply"));
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(listenmembership);
     }
 
     private void setUserdetails(NavigationView navigationView) {
@@ -122,43 +119,25 @@ public class NavigationActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-
         // Handle the camera action
         if (id == R.id.nav_events) {
             Intent i = new Intent(NavigationActivity.this, HomeActivity.class);
             startActivity(i);
-
-
         } else if (id == R.id.nav_profile) {
             Intent i = new Intent(NavigationActivity.this, ProfileActivity.class);
             startActivity(i);
-
-
-        } /*else if (id == R.id.nav_social) {
-            Intent i = new Intent(NavigationActivity.this, SocialActivity.class);
-            startActivity(i);
-
-
-        }*/ else if (id == R.id.nav_notifi) {
+        } else if (id == R.id.nav_notifi) {
             Intent i = new Intent(NavigationActivity.this, NotificationActivity.class);
             startActivity(i);
-
-
         } else if (id == R.id.nav_Contact) {
             Intent i = new Intent(NavigationActivity.this, Contactus.class);
             startActivity(i);
-
-
         } else if (id == R.id.nav_about) {
             Intent i = new Intent(NavigationActivity.this, AboutActivity.class);
             startActivity(i);
-
-
         } else if (id == R.id.nav_faq) {
             Intent i = new Intent(NavigationActivity.this, FAQActivity.class);
             startActivity(i);
-
-
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

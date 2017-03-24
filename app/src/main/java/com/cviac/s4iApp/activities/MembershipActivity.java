@@ -54,7 +54,7 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
         setTitle("Membership");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.membership);
-       // setContentView(R.layout.content_navigation);
+        // setContentView(R.layout.content_navigation);
         btn = (Button) findViewById(R.id.applaybtn);
         spinnerCountry = (Spinner) findViewById(R.id.spinner1);
         spinnerCity = (Spinner) findViewById(R.id.spinner2);
@@ -109,45 +109,44 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                     call.enqueue(new Callback<RegisterResponse>() {
                         @Override
                         public void onResponse(Response<RegisterResponse> response, Retrofit retrofit) {
-                            if (progressDialog != null) {
-                                Toast.makeText(getApplicationContext(), "Submited Successfully", Toast.LENGTH_SHORT).show();
-                                setAlarm();
-                                NavigationActivity.btn.setVisibility(View.INVISIBLE);
-                                Intent intent = new Intent(MembershipActivity.this, NavigationActivity.class);
-                                startActivity(intent);
-                                progressDialog.dismiss();
-                            }
                             RegisterResponse rsp = response.body();
                             int code = rsp.getCode();
+                            if (progressDialog != null) {
+                                progressDialog.dismiss();
+                            }
+                            if (code == 0) {
+                                setAlarm();
+                                Toast.makeText(getApplicationContext(), "Submited Successfully", Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(MembershipActivity.this, NavigationActivity.class);
+                                startActivity(intent);
+                                finish();
+
+                                SchoolsforIndia app = (SchoolsforIndia) getApplication();
+                                app.notifyapply();
+                            }
                             if (code == 1013) {
                                 Toast.makeText(MembershipActivity.this, "Already Registered Please change your plan", Toast.LENGTH_LONG).show();
+
+                                SchoolsforIndia app = (SchoolsforIndia) getApplication();
+                                app.notifyapply();
+
+                                Intent intent = new Intent(MembershipActivity.this, NavigationActivity.class);
+                                startActivity(intent);
                                 finish();
                             }
-
                         }
+
                         @Override
                         public void onFailure(Throwable t) {
                             if (progressDialog != null) {
                                 progressDialog.dismiss();
-                                // progressDialog = null;
                             }
                             Toast.makeText(MembershipActivity.this, "Error: " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                             t.printStackTrace();
                         }
                     });
-
                 }
-
-
-                //Toast.makeText(MembershipActivity.this,"success",Toast.LENGTH_LONG).show();
-//
-//                Toast.makeText(MembershipActivity.this,
-//                        "OnClickListener : " +
-//                                "\nSpinner 1 : "+ String.valueOf(spinner1.getSelectedItem()) +
-//                                "\nSpinner 2 : "+ String.valueOf(spinner2.getSelectedItem())+
-//                                "\nSpinner 3 : "+ String.valueOf(spinner3.getSelectedItem()) +
-//                                "\nSpinner 4 : "+ String.valueOf(spinner4.getSelectedItem()),
-//                        Toast.LENGTH_SHORT).show();
             }
 
         });
@@ -193,9 +192,6 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
         spinner2 = (Spinner) findViewById(R.id.spinner2);
         spinner3 = (Spinner) findViewById(R.id.spinner3);
         spinner4 = (Spinner) findViewById(R.id.spinner4);
-        // btton1 = (Button) findViewById(R.id.submitbutton);
-
-
     }
 
     @Override
@@ -271,10 +267,6 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                 Date month = calendar.getTime();
                 alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
                 break;
-
         }
-
-
-
     }
 }

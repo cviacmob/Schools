@@ -2,6 +2,7 @@ package com.cviac.s4iApp;
 
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.widget.Toast;
@@ -49,17 +50,17 @@ public class SchoolsforIndia extends MultiDexApplication {
                 .setUseDefaultSharedPreference(true)
                 .build();
 
-
         Configuration.Builder configurationBuilder = new Configuration.Builder(this);
         configurationBuilder.addModelClasses(PastEvent.class);
         configurationBuilder.addModelClasses(CurrentEvent.class);
         configurationBuilder.addModelClasses(NotificationInfo.class);
-/*
-        configurationBuilder.addModelClasses(SocialInfo.class);
-*/
+
         ActiveAndroid.initialize(configurationBuilder.create());
+    }
 
-
+    public void notifyapply() {
+        Intent i = new Intent("notifyapply");
+        sendBroadcast(i);
     }
 
     public void sendEmail(String emailid, String subject, String msgBody) {

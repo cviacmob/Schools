@@ -189,6 +189,16 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
                 }
 
                 if (error == false) {
+                    String msgBody = getMessagebody(name1, mail1,Mobile,radio ,contry);
+
+                    SchoolsforIndia school = (SchoolsforIndia) getApplicationContext();
+
+                    if (school.isNetworkStatus()) {
+                        school.sendEmail("kathiravankrishnans@gmail.com", "New Register", msgBody);
+                    } else {
+                        Toast.makeText(getApplicationContext(),
+                                "Please Check Your Internet Connection and try again", Toast.LENGTH_LONG).show();
+                    }
                     progressDialog = new ProgressDialog(RegistrationActivity.this, R.style.AppTheme_Dark_Dialog);
                     progressDialog.setIndeterminate(true);
                     // progressDialog.setIndeterminateDrawable(R.drawable.custom_progress_dialog);
@@ -378,5 +388,15 @@ public class RegistrationActivity extends AppCompatActivity implements OnClickLi
         onBackPressed();
         return true;
     }
+    private String getMessagebody(String Name, String Emailid, String mobile, String Country, String gender) {
 
+        StringBuilder msgBody = new StringBuilder();
+        msgBody.append("Name: " + Name + "\n");
+        msgBody.append("Email: " + Emailid + "\n");
+        msgBody.append("Mobile: " + mobile + "\n");
+        msgBody.append("Gender: " + gender + "\n");
+        msgBody.append("Country: " + Country + "\n");
+
+        return msgBody.toString();
+    }
 }

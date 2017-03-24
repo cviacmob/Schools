@@ -424,6 +424,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 } else if (groupPosition == 0 && childPosition == 4) {
                     Intent mainIntent = new Intent(context, ApplyActivity.class);
                     context.startActivity(mainIntent);
+                    context.finish();
                 }
 
 //        if (groupPosition == 0 && childPosition ==0){
@@ -474,6 +475,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         } else {
             userInput.setText(item.getText().toString());
         }
+
         error = false;
         if (groupPosition == 1) {
             if (childPosition == 2) {

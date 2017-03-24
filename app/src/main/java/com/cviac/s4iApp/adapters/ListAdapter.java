@@ -95,9 +95,6 @@ public class ListAdapter extends BaseExpandableListAdapter {
                     if (chkbox.isChecked()) {
                         result.append("accepted");
 
-                    /*    Toast.makeText(context, result.toString(),
-                                Toast.LENGTH_SHORT).show();*/
-
                         Intent mainIntent = new Intent(context,
                                 MembershipActivity.class);
                         context.startActivity(mainIntent);
