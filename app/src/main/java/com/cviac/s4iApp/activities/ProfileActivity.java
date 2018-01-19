@@ -157,7 +157,7 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.1.13")
+                .baseUrl("http://schoolsforindia.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = retrofit.create(SFIApi.class);
@@ -362,7 +362,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void uploadProfileImage(String targetPath) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.1.7")
+                .baseUrl("http://schoolsforindia.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         final String memId = Prefs.getString("MemId","");

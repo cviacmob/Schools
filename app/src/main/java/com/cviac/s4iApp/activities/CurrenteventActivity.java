@@ -73,7 +73,7 @@ public class CurrenteventActivity extends Fragment {
 
     private void getCurrent(){
         Retrofit ret = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.13")
+                .baseUrl("http://schoolsforindia.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SFIApi api = ret.create(SFIApi.class);

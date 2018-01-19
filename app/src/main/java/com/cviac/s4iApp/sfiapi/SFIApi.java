@@ -26,35 +26,35 @@ import retrofit.http.Query;
 
 public interface SFIApi {
 
-    @POST("/S4I/S4Idbop.php/register")
+    @POST("/S4IAPI/S4Idbop.php/register")
     Call<RegisterResponse> registerMobile(@Body RegInfo regInfo);
 
-    @POST("/S4I/S4Idbop.php/verifyotp")
+    @POST("/S4IAPI/S4Idbop.php/verifyotp")
     Call<VerifyResponse> verifyPin(@Body RegInfo regInfo);
 
-    @POST("/S4I/S4Idbop.php/membership")
+    @POST("/S4IAPI/S4Idbop.php/membership")
     Call<RegisterResponse> memberreg(@Body MembershipInfo membershipApi);
 
-    @POST("/S4I/S4Idbop.php/profile_update")
+    @POST("/S4IAPI/S4Idbop.php/profile_update")
    Call<MyProfileInfo> updateProfile(@Body MyProfileInfo myProfileApi);
 
-    @GET("/S4I/S4Idbop.php/members/{MemID}")
+    @GET("/S4IAPI/S4Idbop.php/members/{MemID}")
     Call<List<MyProfileInfo>> getmyprofile(@Path("MemID")String MemID);
 
-    @POST("/S4I/S4Idbop.php/contactus")
+    @POST("/S4IAPI/S4Idbop.php/contactus")
     Call<ContactInfo> contatctreg(@Body ContactInfo contactApi);
 
-    @GET("/S4I/S4Idbop.php/Events/PAST")
+    @GET("/S4IAPI/S4Idbop.php/Events/PAST")
     Call<List<Event>> getEvents();
 
-    @GET("/S4I/S4Idbop.php/Events/Current")
+    @GET("/S4IAPI/S4Idbop.php/Events/Current")
     Call<List<Currentevent>> getCurrent();
 
-    @GET("/S4I/S4Idbop.php/membershipfeeinfo")
+    @GET("/S4IAPI/S4Idbop.php/membershipfeeinfo")
     Call<List<MemberFeeInfo>> getfeeinfo();
 
     @Multipart
-    @POST("/S4I/upload.php")
+    @POST("/S4IAPI/upload.php")
     Call<ProfilePicUpload> profileUpdate(@Query("MemID") String memId, @Part("fileToUpload\"; filename=\"pp.png\" ") RequestBody file);
 
     @POST("/CVIACAPI/cviacdbop.php/sendemail")

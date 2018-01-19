@@ -44,6 +44,7 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setContentText(info.getDescription());
 
         Intent resultIntent = new Intent(context, NotificationActivity.class);
+        info.save();
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         // Adds the back stack for the Intent (but not the Intent itself)
         stackBuilder.addParentStack(NotificationActivity.class);

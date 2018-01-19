@@ -38,7 +38,7 @@ public class TermActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent i = getIntent();
-        String memtype =  i.getStringExtra("memtype");
+        String memtype = i.getStringExtra("memtype");
 
         BroadcastReceiver receiver = new BroadcastReceiver() {
             @Override
@@ -55,12 +55,10 @@ public class TermActivity extends AppCompatActivity {
         };
 
         int idx = memtype.lastIndexOf("/");
-        memtype = memtype.substring(idx+1) + ".txt";
+        memtype = memtype.substring(idx + 1) + ".txt";
 
         termstxt = readTermsFromAsset(memtype);
         tv1.setText(termstxt);
-
-
 
 
         setTitle("Terms & Conditions");
@@ -78,25 +76,46 @@ public class TermActivity extends AppCompatActivity {
 
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                String[] dow=getResources().getStringArray(R.array.applyas_list);
+             /*   Resources res = getResources();
+                String[] dow = res.getStringArray(R.array.applyas_list);
+                String thisMonth = dow[2];
+
+                switch (thisMonth){
+                    case "MEMBER":
+
+                        Toast.makeText(getApplicationContext(),dow[1],Toast.LENGTH_LONG).show();
+                        dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                        DownloadManager.Request request = new DownloadManager.Request(
+                                Uri.parse("http://www.vogella.de/img/lars/LarsVogelArticle7.png"));
+                        enqueue = dm.enqueue(request);
+                        break;
+                    case "VOLUNTEER":
+
+                        Toast.makeText(getApplicationContext(),dow[2],Toast.LENGTH_LONG).show();
+                        dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                        request = new DownloadManager.Request(
+                                Uri.parse("http://www.allindiaflorist.com/imgs/arrangemen4.jpg"));
+                        enqueue = dm.enqueue(request);
+                        break;
+                }*/
+                String[] dow = getResources().getStringArray(R.array.applyas_list);
+
 
                 //int i=0;
                 String q0 = dow[0];
                 String q1 = dow[1];
                 String q2 = dow[2];
-               // i++;
+                // i++;
 
 
-
-                if(q0.equals("MEMBER")) {
-                    Toast.makeText(getApplicationContext(),dow[0],Toast.LENGTH_LONG).show();
+                if (q0.equals("MEMBER")) {
+                    Toast.makeText(getApplicationContext(), dow[0], Toast.LENGTH_LONG).show();
                     dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
                     DownloadManager.Request request = new DownloadManager.Request(
                             Uri.parse("http://www.vogella.de/img/lars/LarsVogelArticle7.png"));
                     enqueue = dm.enqueue(request);
-                }
-                else if(q1.equals("VOLUNTEER")){
-                    Toast.makeText(getApplicationContext(),dow[1],Toast.LENGTH_LONG).show();
+                } else if (q1.equals("VOLUNTEER")) {
+                    Toast.makeText(getApplicationContext(), dow[1], Toast.LENGTH_LONG).show();
                     dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
                     DownloadManager.Request request = new DownloadManager.Request(
                             Uri.parse("http://www.allindiaflorist.com/imgs/arrangemen4.jpg"));
@@ -108,11 +127,6 @@ public class TermActivity extends AppCompatActivity {
     }
 
 
-
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -120,20 +134,6 @@ public class TermActivity extends AppCompatActivity {
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//        onBackPressed();
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.ActionButton) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
 
     private String readTermsFromAsset(String name) {
         AssetManager assetManager = getAssets();

@@ -90,39 +90,44 @@ public class Contactus extends AppCompatActivity {
                 String nam = name.getText().toString();
                 String emai = email.getText().toString();
                 String sub = phon.getText().toString();
-                String message =msg.getText().toString();
+                String message = msg.getText().toString();
                 String spin = feed.getSelectedItem().toString();
-               // final String email1 = email.getText().toString();
+                // final String email1 = email.getText().toString();
                 // TODO Auto-generated method stub
 
-                boolean error=false;
+                boolean error = false;
                 if (!isValidEmail(email)) {
                     email.setError("Invalid Email");
                     email.requestFocus();
                     error = true;
                 }
-                    String phn=phon.getText().toString();
+                String phn = phon.getText().toString();
 		/* Pattern pattern = Pattern.compile("\\d{3}-\\d{7}");
 		Matcher matcher = pattern.matcher(phn);*/
-                    if (phon.length()  <1) {
-                        phon.setError("invalid message");
-                        phon.requestFocus();
-                        error = true;
-                    }
+                if (phon.length() < 1) {
+                    phon.setError("invalid message");
+                    phon.requestFocus();
+                    error = true;
+                }
 
-                    String nam1e=name.getText().toString();
+                String nam1e = name.getText().toString();
 		/* Pattern pattern = Pattern.compile("\\d{3}-\\d{7}");
 		Matcher matcher = pattern.matcher(phn);*/
 
-                    if (nam1e.length() <1) {
-                        name.setError("please Enter username");
-                        name.requestFocus();
-                        error = true;
-                    }
-
+                if (nam1e.length() < 1) {
+                    name.setError("please Enter username");
+                    name.requestFocus();
+                    error = true;
+                }
+                if (msg.length() < 1) {
+                    msg.setError("invalid message");
+                    msg.requestFocus();
+                    error = true;
+                }
+                if (error == false) {
                 String msgBody = getMessagebody(nam, emai, sub, message, spin);
 
-                SchoolsforIndia school =(SchoolsforIndia)getApplicationContext();
+                SchoolsforIndia school = (SchoolsforIndia) getApplicationContext();
 
                 if (school.isNetworkStatus()) {
                     school.sendEmail("kathiravankrishnans@gmail.com", "Contact Us", msgBody);
@@ -131,17 +136,18 @@ public class Contactus extends AppCompatActivity {
                             "Please Check Your Internet Connection and try again", Toast.LENGTH_LONG).show();
                 }
 
-              //  finish();
+                //  finish();
 
-                String memId = Prefs.getString("MemId","");
-                ContactInfo contact =new ContactInfo();
-                contact.setName(nam);
-                contact.setMail(emai);
-                contact.setSubject(sub);
-                contact.setForm(spin);
-                contact.setMessages(message);
-                contreg(contact);
+                    String memId = Prefs.getString("MemId", "");
+                    ContactInfo contact = new ContactInfo();
+                    contact.setName(nam);
+                    contact.setMail(emai);
+                    contact.setSubject(sub);
+                    contact.setForm(spin);
+                    contact.setMessages(message);
+                    contreg(contact);
 
+                }
             }
         });
 
@@ -201,7 +207,7 @@ public class Contactus extends AppCompatActivity {
         okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
         okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http:/192.168.1.13")
+                .baseUrl("http://schoolsforindia.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
                 .build();

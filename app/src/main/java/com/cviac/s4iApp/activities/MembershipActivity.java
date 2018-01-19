@@ -97,7 +97,7 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                     okHttpClient.setConnectTimeout(120000, TimeUnit.MILLISECONDS);
                     okHttpClient.setReadTimeout(120000, TimeUnit.MILLISECONDS);
                     Retrofit retrofit = new Retrofit.Builder()
-                            .baseUrl("http:/192.168.1.13")
+                            .baseUrl("http://schoolsforindia.com")
                             .addConverterFactory(GsonConverterFactory.create())
                             .client(okHttpClient)
                             .build();
@@ -216,6 +216,11 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
         Intent intent = new Intent(this, AlarmReceiver.class);
         alarmIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
 
+    /*    Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                1000 * 60 * 2, alarmIntent);*/
+
         spinnerPlan.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
@@ -228,7 +233,8 @@ public class MembershipActivity extends AppCompatActivity implements OnItemSelec
                         calendar.setTime(today);
                         calendar.add(Calendar.YEAR, 1);
                         Date Year = calendar.getTime();
-                        alarmMgr.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), alarmIntent);
+                        alarmMgr.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                                AlarmManager.INTERVAL_DAY, alarmIntent);
                         break;
                     case 1:
                         calendar = Calendar.getInstance();
